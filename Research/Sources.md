@@ -1,0 +1,57 @@
+# Research Sources
+
+Last reviewed: 2026-07-16
+
+## Grow a Garden
+
+- [Official Roblox game page](https://www.roblox.com/games/126884695634066/Grow-a-Garden)
+- [Grow a Garden Wiki](https://growagarden.fandom.com/wiki/Grow_a_Garden_Wiki)
+- [Mechanics](https://growagarden.fandom.com/wiki/Mechanics)
+- [Update Log](https://growagarden.fandom.com/wiki/Update_Log)
+- [Weather](https://growagarden.fandom.com/wiki/Weather)
+- [Crop Mutations](https://growagarden.fandom.com/wiki/Crop_Mutations)
+- [Bizzy Bee Event 2025](https://growagarden.fandom.com/wiki/Bizzy_Bee_Event_2025)
+- [Summer Harvest Event](https://growagarden.fandom.com/wiki/Summer_Harvest_Event)
+- [Prehistoric Event](https://growagarden.fandom.com/wiki/Prehistoric_Event)
+- [Zen Event](https://growagarden.fandom.com/wiki/Zen_Event)
+- [Cooking Event](https://growagarden.fandom.com/wiki/Cooking_Event)
+- [Beanstalk Event](https://growagarden.fandom.com/wiki/Beanstalk_Event)
+- [Fairy Event](https://growagarden.fandom.com/wiki/Fairy_Event)
+- [Fall Market Event](https://growagarden.fandom.com/wiki/Fall_Market_Event)
+- [Safari Harvest Event](https://growagarden.fandom.com/wiki/Safari_Harvest_Event)
+- [Admin Abuse](https://growagarden.fandom.com/wiki/Admin_Abuse)
+- [Events 2025](https://growagarden.fandom.com/wiki/Category:Events_2025)
+- [Events 2026](https://growagarden.fandom.com/wiki/Category:Events_2026)
+
+These are community-maintained sources. Exact balance and current availability require independent verification.
+
+## Grow a Garden 2
+
+- [Official Roblox game page](https://www.roblox.com/games/97598239454123/Grow-a-Garden-2)
+- [Grow a Garden 2 Wiki](https://growagarden2.fandom.com/wiki/Grow_A_Garden_2_Wiki)
+- [Mechanics](https://growagarden2.fandom.com/wiki/Mechanics)
+- [Weather](https://growagarden2.fandom.com/wiki/Weather)
+- [Stealing](https://growagarden2.fandom.com/wiki/Stealing)
+
+These are community-maintained sources and currently less complete than the original game's documentation.
+
+## Fan tools
+
+- [GAG.gg guides](https://gag.gg/guides/)
+- [GAG.gg](https://gag.gg/)
+
+GAG.gg is treated as a discovery source. Any claimed code-derived number uses truth label `Estimated` and evidence class `Community-derived` until independent verification.
+
+## Roblox platform documentation
+
+- [Paid random items](https://create.roblox.com/docs/production/monetization/paid-random-items)
+- [Monetization guidance](https://create.roblox.com/docs/production/monetization)
+- [Developer products](https://create.roblox.com/docs/production/monetization/developer-products)
+- [Regional pricing](https://create.roblox.com/docs/production/monetization/regional-pricing)
+- [Managed pricing](https://create.roblox.com/docs/production/monetization/managed-pricing)
+- [PolicyService](https://create.roblox.com/docs/reference/engine/classes/PolicyService)
+- [Data stores](https://create.roblox.com/docs/cloud-services/data-stores)
+- [Player data and purchasing](https://create.roblox.com/docs/cloud-services/data-stores/player-data-purchasing)
+- [MarketplaceService](https://create.roblox.com/docs/reference/engine/classes/MarketplaceService)
+
+Roblox documentation is authoritative for platform behavior and policy, but must be rechecked before implementation because platform rules can change.
