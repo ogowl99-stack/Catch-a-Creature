@@ -40,6 +40,7 @@ All production models are planned to be made from scratch in Blender and integra
 ## Repository map
 
 - `Research/` - researched references, original design synthesis, sources, and the proposed development order
+- `Design/` - approved concept art, spatial decisions, and the remaining concept-generation plan
 - `AgentKnowledge/` - shared project-specific knowledge, decisions, findings, and prevention rules
 - `AgentMemory/` - specialized agent memory and improvement goals
 
