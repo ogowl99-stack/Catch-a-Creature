@@ -7,9 +7,11 @@
 
 ## Monetization promise
 
-> Players may pay for beauty, certainty, convenience, and community celebration—but never for superior genetics, exclusive ecological power, or ownership of the most prestigious discoveries.
+> Players may pay for beauty, certainty, convenience, community celebration, and one transparent deterministic true-transfer Steal Credit—but never to alter trait-generation odds, create duplicate value, or obtain exclusive ecological content.
 
 All functionally distinct flora, creatures, habitat roles, adaptations, and breeding traits must remain obtainable for free.
+
+The paid stealing exception was approved on 2026-07-19. It can transfer an existing mutation/size/weight outcome with normal economic rights, but it cannot improve generation odds, create traits, strengthen traits, or create an additional copy.
 
 ## Recommended product families
 
@@ -45,6 +47,24 @@ Proposed safeguards:
 - Rare events such as Crown Eclipse are memorable spectacles, not required progression
 
 Server-wide paid randomness has unresolved provenance and eligibility questions for non-purchasing players. It requires a separate implementation review before approval.
+
+## Paid true-transfer stealing
+
+The user approved the gameplay contract on 2026-07-19:
+
+Release order: Later update only, after core farming, inventory, ownership, persistence, appraisal, and ordinary selling are proven. It is not part of the first playable.
+
+- One repeatable purchase grants one persistent, buyer-bound, nontradeable Steal Credit.
+- The proposed base price is 99 Robux. Final pricing, Managed Pricing, and regional transfer controls remain provisional.
+- The exact selected plant or creature is disclosed; no random target or fallback is permitted.
+- Plants qualify only while planted on the online owner's plot. Creatures qualify only after capture/bonding and while roaming or displayed there.
+- Held, stored, inventory, favorited, or locked assets and wild visitors do not qualify.
+- One successful action moves the exact persistent item into the buyer's protected inventory with traits, size, weight, history, and provenance unchanged.
+- No duplicate, replacement, victim Leafnote payment, or paid shield is created.
+- The buyer may keep, place, deploy, use, or sell the stolen asset normally. This is an explicit indirect premium-to-economic-value exception; direct Robux-to-Leafnote exchange remains prohibited.
+- Invalidated or failed targets do not consume the credit. Free grace periods and anti-chain protections are required, with exact durations provisional.
+
+Implementation must conservatively treat the action as a paid cross-player item transfer: check both players' `IsPaidItemTradingAllowed` status, fail closed when policy lookup fails, display the runtime product price, and preserve paid-steal provenance. Exact-target selection is deterministic; any future random fallback would reopen paid-random-item requirements. Official documentation does not explicitly confirm paid non-consensual transfer classification, so Roblox policy or Developer Relations confirmation is required before launch.
 
 ## Receipt and pricing requirements
 

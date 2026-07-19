@@ -36,7 +36,9 @@ The most transferable supporting principles are:
 
 The sequel preserves farming but adds theft, owner-presence protection, defense, decay, recovery, guild competition, and risky selling. These additions change the emotional contract from relaxing opportunity to production, maintenance, protection, and pursuit.
 
-Decision: Catch a Creature currently targets a cozy, opportunity-driven, communal contract. Theft, destructive decay, paid offensive power, and mandatory defense are outside the initial design.
+Initial decision: Catch a Creature targeted a cozy, opportunity-driven, communal contract with theft, destructive decay, paid offensive power, and mandatory defense outside the design.
+
+Supersession approved by the user on 2026-07-19: paid true-transfer stealing of an exposed planted plant or captured roaming/displayed creature is a planned later-update exception. It transfers the exact item without duplication and gives the buyer normal ownership and sale rights. Exact price, protections, and platform classification remain provisional; destructive decay and mandatory defense remain outside the approved direction.
 
 ## Progression lesson
 

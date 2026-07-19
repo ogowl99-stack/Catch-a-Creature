@@ -1,34 +1,41 @@
 # Proposed Development Start Plan
 
 - Date: 2026-07-16
-- Status: Approved direction, not authorized for implementation
+- Status: Phase 0 design complete; Phase 1 and implementation not authorized
 - Truth label: Not yet implemented
 
 This document describes how production should begin. It does not authorize game code, models, or assets.
 
-## Phase 0: Lock the design
+## Phase 0: Lock the design — complete 2026-07-19
 
-Locked decisions as of 2026-07-18:
+Locked decisions through 2026-07-19:
 
 - Final game promise: Grow Habitat Flora, attract and understand wild creatures, form bonds, cultivate adapted plant lineages, and transform a small plot into a living sanctuary.
+- Gameplay reference priority: Keep the familiar Grow a Garden-style `buy seed → plant → wait/offline → harvest → sell → reinvest → expand` rhythm prominent and understandable while keeping Catch a Creature's content and creative expression original
 - First three Habitat Flora: Hearthpetal (warmth and light), Ripplecup (water and gentle sound), and Nuzzlefern (shelter and calming scent)
 - First three creatures: Cozzle prefers Hearthpetal warmth and light, Rillibob prefers Ripplecup water and gentle sound, and Mossnub prefers Nuzzlefern shelter and calming scent
 - First functional Adaptation: Emberkeep lets a Cozzle-influenced Hearthpetal retain its warmth and light signal into early night
 - First cosmetic Bloommark: Starlace adds pale star-thread veins and occasional soft motes without changing attraction, growth, yield, sale value, or progression
 - First weather state: Soft Rain is natural server-wide light rain with softer and cooler lighting, gentle rain ambience, and water ripples; it has no growth multiplier, rarity boost, paid activation, exclusive creature, or progression requirement
-- Currency and reinvestment: Leafnotes are the sole first-playable soft currency, earned by selling approved renewable flora harvests and spent on Hearthpetal, Ripplecup, and Nuzzlefern seeds; there is no premium conversion, upkeep, currency loss, debt, or passive interest
+- Currency and reinvestment: Leafnotes are the sole first-playable soft currency, earned by selling approved renewable flora harvests and spent on Hearthpetal, Ripplecup, and Nuzzlefern seeds; there is no direct premium conversion, upkeep, currency loss, debt, or passive interest. The separately approved later-update paid-steal feature may acquire an existing asset that can later be sold normally
+- Visitor interaction: Observe a visitor to receive two truthful server-supplied visual/text clues, choose Offer Warmth, Echo the Chime, or Give Quiet Shelter, and bond deterministically after the correct response; a wrong response costs nothing, reveals a clearer clue, and permits another attempt after a short provisional cooldown without permanent fleeing
+- Harvesting and disposition: Renewable flora outputs can be sold individually or through favorite-safe `Sell All` while parent plants regrow; bonded owned creatures can be displayed, stored, individually sold for Leafnotes, or released for no currency; creature mutations, size, and weight affect server-calculated value; favorite protection, journal retention, and first-playable Adapted Seed storage/planting rules apply
+- Paid true-transfer stealing: An eligible exposed plant or captured roaming/displayed creature can be moved exactly once to a buyer using a paid Steal Credit, with no duplicate; held/inventory/favorited/locked assets are protected, all traits and normal ownership/sale rights transfer, and failed attempts retain the credit. It is approved for a later update; the proposed 99 Robux base price remains provisional
+- First-playable emotional contract: Cozy and theft-free; generous offline growth; no plant death from absence; no forced PvP; no random loss of plants, creatures, items, or Leafnotes; cooperation is optional; deliberate sale/release follows the approved disposition rules
 
 Before production, decide:
 
 - Final one-sentence game promise (locked above)
-- Cozy/community emotional contract
+- Cozy/community emotional contract (locked above)
 - First three Habitat Flora (locked above)
 - First three creatures (locked above)
 - First adaptation and first Bloommark (locked above)
 - First weather state (locked above)
 - Currency and reinvestment relationship (locked above)
-- Exact player interaction used to understand and bond with a visitor
-- What can be sold, released, displayed, or preserved
+- Exact player interaction used to understand and bond with a visitor (locked above)
+- What can be harvested, sold, released, displayed, or preserved (locked above)
+
+Phase 0 is complete. The sections below describe the approved order for future work but do not authorize Phase 1, a source scaffold, Roblox Studio edits, game code, models, or assets.
 
 ## Phase 1: Roblox and Blender standards
 
@@ -74,7 +81,7 @@ Target vertical slice:
 - One bonding or catching resolution
 - One creature-plant interaction
 - One Adapted Seed
-- Harvesting, selling, and reinvestment
+- Renewable-flora harvesting, optional confirmed creature selling, and Leafnote reinvestment
 - Saving and loading
 - One simple weather state
 
@@ -114,8 +121,11 @@ The complete loop must be understandable and worth repeating before adding breed
 - Paid luck
 - Large event catalog
 - Competitive leaderboards
-- Theft, decay, and defense
+- Destructive decay and mandatory defense
+- Paid true-transfer stealing, until a later update after core ownership and economy systems are proven
 - Full developer command room
+
+The paid true-transfer stealing contract is approved for a later update and is not part of the first playable. It must not enter implementation until the farming, inventory, ownership, persistence, appraisal, ordinary selling, receipt, policy, transaction-recovery, protection, and multiplayer foundations pass their gates.
 
 ## Verification gate
 

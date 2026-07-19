@@ -1,6 +1,6 @@
 # Research Sources
 
-Last reviewed: 2026-07-16
+Last reviewed as a full source list: 2026-07-16
 
 ## Grow a Garden
 
@@ -43,6 +43,8 @@ These are community-maintained sources and currently less complete than the orig
 GAG.gg is treated as a discovery source. Any claimed code-derived number uses truth label `Estimated` and evidence class `Community-derived` until independent verification.
 
 ## Roblox platform documentation
+
+The monetization, developer-product, regional-pricing, paid-item-policy, PolicyService, and purchase-persistence sources below were re-reviewed on 2026-07-19 for the paid true-transfer stealing decision.
 
 - [Paid random items](https://create.roblox.com/docs/production/monetization/paid-random-items)
 - [Monetization guidance](https://create.roblox.com/docs/production/monetization)
