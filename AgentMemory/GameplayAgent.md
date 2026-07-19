@@ -8,7 +8,7 @@
 - Review feedback received: The loop must be understandable after one guided cycle
 - Useful patterns discovered: Every launch plant needs an obvious habitat signal and creature interaction
 - Areas requiring improvement: Moment-to-moment interaction design
-- Current project knowledge: Vertical-slice contents and deferred systems
+- Current project knowledge: Vertical-slice contents and deferred systems; approved Hearthpetal/Cozzle, Ripplecup/Rillibob, and Nuzzlefern/Mossnub pairings; Emberkeep; Starlace; Leafnotes earned from approved renewable flora harvests and spent on the three base seeds
 - Unresolved questions: Catching input, care choices, visitor persistence, harvest/sell cadence
 - Recent evaluation scores: Not yet numerically evaluated
 - Next improvement goal: Finish the smallest complete loop before accepting any metagame

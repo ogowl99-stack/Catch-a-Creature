@@ -8,15 +8,25 @@ This document describes how production should begin. It does not authorize game 
 
 ## Phase 0: Lock the design
 
+Locked decisions as of 2026-07-18:
+
+- Final game promise: Grow Habitat Flora, attract and understand wild creatures, form bonds, cultivate adapted plant lineages, and transform a small plot into a living sanctuary.
+- First three Habitat Flora: Hearthpetal (warmth and light), Ripplecup (water and gentle sound), and Nuzzlefern (shelter and calming scent)
+- First three creatures: Cozzle prefers Hearthpetal warmth and light, Rillibob prefers Ripplecup water and gentle sound, and Mossnub prefers Nuzzlefern shelter and calming scent
+- First functional Adaptation: Emberkeep lets a Cozzle-influenced Hearthpetal retain its warmth and light signal into early night
+- First cosmetic Bloommark: Starlace adds pale star-thread veins and occasional soft motes without changing attraction, growth, yield, sale value, or progression
+- First weather state: Soft Rain is natural server-wide light rain with softer and cooler lighting, gentle rain ambience, and water ripples; it has no growth multiplier, rarity boost, paid activation, exclusive creature, or progression requirement
+- Currency and reinvestment: Leafnotes are the sole first-playable soft currency, earned by selling approved renewable flora harvests and spent on Hearthpetal, Ripplecup, and Nuzzlefern seeds; there is no premium conversion, upkeep, currency loss, debt, or passive interest
+
 Before production, decide:
 
-- Final one-sentence game promise
+- Final one-sentence game promise (locked above)
 - Cozy/community emotional contract
-- First three Habitat Flora
-- First three creatures
-- First adaptation and first Bloommark
-- First weather state
-- Currency and reinvestment relationship
+- First three Habitat Flora (locked above)
+- First three creatures (locked above)
+- First adaptation and first Bloommark (locked above)
+- First weather state (locked above)
+- Currency and reinvestment relationship (locked above)
 - Exact player interaction used to understand and bond with a visitor
 - What can be sold, released, displayed, or preserved
 

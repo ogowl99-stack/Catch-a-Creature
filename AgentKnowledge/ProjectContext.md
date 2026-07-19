@@ -25,12 +25,19 @@ Every meaningful entry must record: date, agent, system affected, situation, dec
 - Project name: Catch a Creature
 - Platform: Roblox
 - Modeling: Blender
-- Phase: Research and pre-production
-- Workspace: Local Git repository connected to `ogowl99-stack/Catch-a-Creature`
+- Phase: Phase 0 design gate in progress; gameplay and production scaffold are not yet authorized
+- Workspace: Local Git repository connected to public GitHub repository `ogowl99-stack/Catch-a-Creature` (visibility verified 2026-07-18)
 - Roblox game: Not yet implemented
 - Blender assets: Not yet created
-- Tests: None yet
-- Roblox Studio evidence: None yet
-- Publishing: Not performed
+- Tests: Documentation consistency and diff checks only; no game tests exist
+- Roblox Studio evidence: Read-only connection verified on 2026-07-18 to `Place1` in Edit mode; the place contains only the default baseplate, spawn, terrain, and camera, with no scripts, remotes, project systems, or repository source linkage
+- Publishing: Roblox experience publishing not performed
 - Emotional contract: Cozy, communal, opportunity-driven
+- Final game promise: Grow Habitat Flora, attract and understand wild creatures, form bonds, cultivate adapted plant lineages, and transform a small plot into a living sanctuary. (User-approved 2026-07-18)
+- First three Habitat Flora: Hearthpetal (warmth and light), Ripplecup (water and gentle sound), and Nuzzlefern (shelter and calming scent). (User-approved 2026-07-18; not yet implemented)
+- First three creatures: Cozzle prefers Hearthpetal warmth and light, Rillibob prefers Ripplecup water and gentle sound, and Mossnub prefers Nuzzlefern shelter and calming scent. (User-approved 2026-07-18; not yet implemented)
+- First functional Adaptation: Emberkeep lets a Cozzle-influenced Hearthpetal retain warmth and light into early night. (User-approved 2026-07-18; not yet implemented)
+- First cosmetic Bloommark: Starlace adds pale star-thread veins and occasional soft motes with no functional or economic effect. (User-approved 2026-07-18; not yet implemented)
+- First weather state: Soft Rain is natural server-wide light rain with softer/cooler lighting, gentle ambience, and water ripples, without gameplay, economic, monetization, exclusive-content, or progression effects. (User-approved 2026-07-18; not yet implemented)
+- First-playable currency: Leafnotes are earned from approved renewable flora harvests and spent on the three base seeds, with no premium conversion, upkeep, loss, debt, or passive interest. (User-approved 2026-07-18; not yet implemented)
 - Originality rule: All branded content and production assets will be original

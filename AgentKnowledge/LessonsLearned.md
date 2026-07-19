@@ -1,5 +1,36 @@
 # Lessons Learned
 
+## 2026-07-18 Phase 0 decision checkpoint
+
+- Date: 2026-07-18
+- Agent: Codex with independent documentation review
+- System affected: Game identity, first-playable content, progression, weather, economy, and development process
+- Situation: The user approved a sequence of Phase 0 decisions after the read-only repository and Roblox Studio preflight, then requested a durable stopping point for the day.
+- Decision made: Lock the final game promise; Hearthpetal, Ripplecup, and Nuzzlefern; Cozzle, Rillibob, and Mossnub with their primary flora preferences; Emberkeep; Starlace; Soft Rain; and Leafnotes with its harvest-to-base-seed relationship. Keep the proposed Observe → Care → Bond interaction and every remaining Phase 0 item unapproved.
+- Reasoning summary: Recording each narrow approval with explicit exclusions preserves progress without allowing names or concepts to silently approve balance, art, behavior, APIs, persistence, or implementation.
+- Result: Approved decisions, truth labels, personal memories, and cross-agent handoffs are synchronized. Phase 0 remains in progress; no gameplay code, production scaffold, Studio content, or Roblox publish action exists.
+- Test evidence: Repeated `git diff --check` passes, exact-text searches for each approved decision, read-only Studio hierarchy inspection, and independent review passes for the promise, flora, creatures, Adaptation/Bloommark, weather, and currency records.
+- Mistakes discovered: An initial combined verification-status sentence did not use one exact allowed truth label; independent review caught it and the status was split into `Verified` plus a separate `Not yet implemented` implementation status. A first independent review was interrupted and was rerun successfully with a bounded scope.
+- Recommended future approach: Resume at the exact clue-inspection and bonding decision, continue one approval gate at a time, and do not create a Rojo scaffold or gameplay logic until every remaining Phase 0 gate is approved.
+- Confidence level: High
+- Verification status: Code-reviewed
+
+## 2026-07-18 Repository publication lesson
+
+- Date: 2026-07-18
+- Agent: Codex / Security Agent
+- System affected: GitHub access and repository privacy
+- Situation: Public visibility was requested to support a friend contributing to the project.
+- Decision made: Require explicit informed approval and scan current tracked content plus reachable Git history before changing visibility.
+- Reasoning summary: A public repository is easy to collaborate around, but it exposes history and metadata beyond the current working tree, and public visibility alone does not grant push permission.
+- Result: The repository is verified public. No credential patterns were found; a personal author email in two commits and inconclusive PNG metadata candidates were disclosed as privacy caveats.
+- Test evidence: `gh repo view` returned `visibility: PUBLIC` and `isPrivate: false`; independent review examined 49 tracked files, 54 blobs, and four commits.
+- Mistakes discovered: CLI authentication freshness was not checked until execution, and prior commits used a non-noreply author email.
+- Recommended future approach: Check authentication early, use a noreply author address, run dedicated secret and asset-metadata scans before public releases, and add collaborators separately when direct push access is intended.
+- Confidence level: High
+- Verification status: Verified
+- Scan review status: Code-reviewed
+
 ## 2026-07-16 Phase 0 research retrospective
 
 - Date: 2026-07-16

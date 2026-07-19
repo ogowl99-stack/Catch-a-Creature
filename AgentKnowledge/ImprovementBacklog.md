@@ -15,7 +15,7 @@ Every agent keeps one active project-specific improvement goal.
 | Audio Agent | Create distinct, low-fatigue action, creature, and weather feedback |
 | Data Agent | Use versioned schemas, migrations, provenance, and timestamp-based offline progress |
 | Monetization Agent | Prefer fair optional value and community benefit over coercive loss or power |
-| Security Agent | Validate every inventory and economy mutation on the server |
+| Security Agent | Automate repository and game-security regression scans, including credential detection and server validation |
 | Performance Agent | Establish measured crowded-plot budgets before multiplying content |
 | QA Agent | Automate economy, save, offline-progress, receipt, and regression tests |
 | Documentation Agent | Keep every mutable fact source-dated, confidence-labeled, and current |

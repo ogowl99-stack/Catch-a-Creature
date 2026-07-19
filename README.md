@@ -14,7 +14,7 @@ No gameplay code, models, audio, UI, or production assets exist yet. The current
 
 ## Core game promise
 
-> Grow habitat flora, attract and understand wild creatures, build relationships and lineages, and transform a small plot into a living sanctuary.
+> Grow Habitat Flora, attract and understand wild creatures, form bonds, cultivate adapted plant lineages, and transform a small plot into a living sanctuary.
 
 The planned core loop is:
 

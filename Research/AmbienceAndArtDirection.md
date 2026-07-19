@@ -99,3 +99,7 @@ The interface should resemble a friendly illustrated field journal: rounded crea
 ## First ambience validation scene
 
 Before full production, validate one plot, one pond, one large tree, one plant, one creature, day/sunset/night lighting, one rain state, and a small soundscape. Use it to lock palette, scale, lighting, animation density, and performance before creating an asset catalog.
+
+## Approved first weather
+
+Soft Rain is the approved first-playable weather state. It is natural, server-wide light rain with softer and cooler lighting, gentle rain ambience, and water ripples. It has no growth multiplier, rarity boost, paid activation, exclusive creature, or progression requirement. Exact presentation, timing, and measured budgets remain provisional.

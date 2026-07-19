@@ -8,7 +8,7 @@
 - Review feedback received: Architecture must remain proportional to the first playable
 - Useful patterns discovered: Stable identifiers, server-owned definitions, explicit provenance, feature gates
 - Areas requiring improvement: Convert design boundaries into a minimal module diagram and remote contract
-- Current project knowledge: Core loop and deferred systems
+- Current project knowledge: Core loop and deferred systems; Soft Rain is the approved first server-owned, presentation-only weather state with client-rendered lighting, ambience, and water-ripple presentation
 - Unresolved questions: Project layout, Rojo workflow, save library choice, Studio MCP state
 - Recent evaluation scores: Not yet numerically evaluated
 - Next improvement goal: Define the smallest server/client/shared boundary without overengineering

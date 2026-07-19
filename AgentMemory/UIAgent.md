@@ -8,7 +8,7 @@
 - Review feedback received: Keep most of the world visible
 - Useful patterns discovered: Icon plus color plus text; compact journal tabs; exact odds/details controls
 - Areas requiring improvement: Mobile scaling and controller focus
-- Current project knowledge: Core loop, journal, shops, weather, and clue interactions
+- Current project knowledge: Core loop, journal, shops, weather, and clue interactions; Leafnotes are the sole first-playable soft currency, earned from approved renewable flora harvests and spent on the three base seeds
 - Unresolved questions: HUD density, inventory flow, bonding UI, plot-build controls
 - Recent evaluation scores: Not yet numerically evaluated
 - Next improvement goal: Maintain mobile, tablet, desktop, and controller parity from the first wireframe

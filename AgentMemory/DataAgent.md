@@ -8,7 +8,7 @@
 - Review feedback received: Define provenance before reproduction or trading
 - Useful patterns discovered: Unique instance ID, origin, parents, paid marker, functional/cosmetic traits, eligibility flags
 - Areas requiring improvement: Atomic save boundaries and migration tests
-- Current project knowledge: Planned persistent flora, creatures, lineages, layouts, purchases
+- Current project knowledge: Planned persistent flora, creatures, lineages, layouts, and purchases; Emberkeep and Starlace require separate fields; Leafnotes are the sole first-playable soft currency and require a server-owned nonnegative persisted balance
 - Unresolved questions: Profile layout, DataStore budget, mailbox, rollback, retention
 - Recent evaluation scores: Not yet individually scored; the joint research review is recorded separately in `AgentKnowledge/AgentScores.md`
 - Next improvement goal: Draft a minimal versioned schema and timestamp rules before persistence code
