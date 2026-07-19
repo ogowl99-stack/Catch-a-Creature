@@ -1,5 +1,21 @@
 # Architecture Decisions
 
+## ADR-005: Separate paid credit delivery from live ownership transfer
+
+- Date: 2026-07-19
+- Agent: Architecture Agent / Data Agent / Security Agent / Codex
+- System affected: Developer products, paid stealing, persistent items, cross-player ownership, inventory, provenance, and recovery
+- Situation: A developer-product receipt identifies the buyer and product but cannot safely carry a mutable plot target through purchase, disconnect, ownership changes, or DataStore failure.
+- Decision made: `MarketplaceService.ProcessReceipt` idempotently grants one persistent buyer-bound Steal Credit keyed by purchase ID. A separate server-authoritative transaction conditionally transfers one immutable item ID from its expected owner/state into a protected buyer inbox, appends paid-steal provenance, and consumes the credit exactly once. A durable ledger and reconciler complete projections after interruption; the authoritative invariant is one item ID, one owner, and one successful credit consumption.
+- Reasoning summary: Separating durable purchase fulfillment from volatile target selection prevents lost purchases, random substitutions, duplicate grants, and partial cross-profile transfers.
+- Result: The future architectural boundary is approved for design. Exact record schema, storage topology, conditional-write implementation, reservation TTL, reconciliation schedule, and retention remain provisional.
+- Test evidence: Official Roblox developer-product documentation and read-only Architecture/Data/Security review on 2026-07-19. No code, DataStore, receipt, multiplayer, or Studio test exists.
+- Mistakes discovered: A direct receipt callback cannot promise a selected live target; waiting indefinitely on that target would fail purchase fulfillment, while blindly transferring it risks stale ownership or duplication.
+- Recommended future approach: Prototype the credit ledger and item ownership state machine with deterministic fault injection before enabling any Robux prompt.
+- Confidence level: High for the separation principle; Medium for the cross-profile implementation until prototyped
+- Verification status: Code-reviewed
+- Implementation status: Not yet implemented
+
 ## ADR-001: Server authority
 
 - Date: 2026-07-16

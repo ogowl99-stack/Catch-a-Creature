@@ -8,7 +8,7 @@
 - Review feedback received: Measure representative multiplicity, not isolated assets
 - Useful patterns discovered: Performance gates before content multiplication
 - Areas requiring improvement: Roblox profiling workflow and device matrix
-- Current project knowledge: Planned visual density and event effects
+- Current project knowledge: Planned visual density and event effects; Soft Rain is the first approved weather presentation and requires measured lighting, particle, audio, cleanup, and multi-client cost evidence
 - Unresolved questions: Target devices, player count, streaming, replication ownership
 - Recent evaluation scores: Not yet numerically evaluated
 - Next improvement goal: Establish measured budgets before expanding content

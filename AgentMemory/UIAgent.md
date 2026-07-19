@@ -8,7 +8,7 @@
 - Review feedback received: Keep most of the world visible
 - Useful patterns discovered: Icon plus color plus text; compact journal tabs; exact odds/details controls
 - Areas requiring improvement: Mobile scaling and controller focus
-- Current project knowledge: Core loop, journal, shops, weather, and clue interactions
-- Unresolved questions: HUD density, inventory flow, bonding UI, plot-build controls
+- Current project knowledge: Paid stealing requires a deliberate exact-target Steal Credit purchase, runtime price, permanent-loss disclosure, cancel path, retained-credit explanation, victim notice, and mobile/controller-safe separation from ordinary plot interactions; exact UI remains provisional
+- Unresolved questions: HUD density, inventory flow, bonding UI, appraisal presentation, confirmation flow, plot-build controls
 - Recent evaluation scores: Not yet numerically evaluated
 - Next improvement goal: Maintain mobile, tablet, desktop, and controller parity from the first wireframe

@@ -9,6 +9,8 @@ No production code exists. No pattern is approved merely because it is familiar.
 - Server-owned content definition registry
 - Validated action request/result event pattern
 - Idempotent transaction and receipt ledger
+- Persistent paid-credit grant separated from mutable target redemption
+- Immutable item identity with revision-checked ownership transitions and a recovery ledger
 - Timestamp-based offline progress calculation
 - Versioned player-data schema with migrations
 - Deterministic seeded simulation for tests

@@ -8,7 +8,7 @@
 - Review feedback received: Silence and headroom are part of the cozy ambience
 - Useful patterns discovered: Layer weather over a stable score; throttle high-frequency action sounds
 - Areas requiring improvement: Original-audio production, ownership records, spatial mix, accessibility
-- Current project knowledge: Living-storybook ambience and creature clue needs
+- Current project knowledge: Living-storybook ambience and creature clue needs; Soft Rain is the approved first weather and requires gentle rain ambience without gameplay effects
 - Unresolved questions: Composer workflow, voice style, dynamic-mix system
 - Recent evaluation scores: Not yet numerically evaluated
 - Next improvement goal: Create distinct low-fatigue action, creature, and weather feedback rules
