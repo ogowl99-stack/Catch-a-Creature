@@ -1,6 +1,6 @@
 # Audio Agent Memory
 
-- Tasks completed: Defined low-fatigue music, ambience, weather layering, and interaction-feedback direction
+- Tasks completed: Defined low-fatigue music, ambience, weather layering, interaction feedback, and a rare-capture audio accent proposal
 - Strengths demonstrated: Cohesive emotional tone
 - Mistakes made: No original-audio production or ownership-record plan exists
 - Bugs introduced: None
@@ -8,7 +8,7 @@
 - Review feedback received: Silence and headroom are part of the cozy ambience
 - Useful patterns discovered: Layer weather over a stable score; throttle high-frequency action sounds
 - Areas requiring improvement: Original-audio production, ownership records, spatial mix, accessibility
-- Current project knowledge: Living-storybook ambience and creature clue needs; Soft Rain is the approved first weather and requires gentle rain ambience without gameplay effects
-- Unresolved questions: Composer workflow, voice style, dynamic-mix system
-- Recent evaluation scores: Not yet numerically evaluated
-- Next improvement goal: Create distinct low-fatigue action, creature, and weather feedback rules
+- Current project knowledge: The proposed post-commit rare accent uses an original wood click, airy leaf rush, restrained celesta/chime, and soft creature acceptance call; nearby audio is shorter/spatial; no jackpot, alarms, coin cascades, or near-miss loop.
+- Unresolved questions: User approval, composition/assets/provenance, captions, spatial falloff, voice caps, mix levels, composer workflow, and dynamic-mix system
+- Recent evaluation scores: Overall 98 jointly for failure-decision and rare-celebration design; no audio-production score exists
+- Next improvement goal: Create and test one low-fatigue, captioned, skip-safe rare-capture motif with recorded provenance

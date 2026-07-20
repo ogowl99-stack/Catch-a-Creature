@@ -1,14 +1,14 @@
 # VFX Agent Memory
 
-- Tasks completed: Defined restrained rarity signaling and coordinated weather transformation principles
+- Tasks completed: Defined restrained rarity signaling, coordinated weather transformation principles, and the approved post-commit Mythic sanctuary-celebration direction
 - Strengths demonstrated: Readability and ambience alignment
 - Mistakes made: No measured effect budget exists
 - Bugs introduced: None
-- Bugs prevented: None; VFX risks identified before implementation: particle overload, blinding rare weather, and background effects competing with collections
-- Review feedback received: Rare events should inspire wonder without hiding gameplay
-- Useful patterns discovered: Redundant restrained signals through geometry, color, material, motion, particles, and audio
+- Bugs prevented: Optimistic success VFX, global forced camera, copied capsule/shake expression, particle overload, blinding flashes, and unbounded cleanup were blocked in design
+- Review feedback received: Rare events should inspire wonder without hiding gameplay; ownership commits before presentation; other players keep camera/control
+- Useful patterns discovered: Post-commit sanitized descriptor → local hero effect → bounded nearby flourish → hard cleanup; redundant restrained signals through geometry, color, material, motion, particles, and audio
 - Areas requiring improvement: Mobile effect tiers and cleanup ownership
-- Current project knowledge: Bloommarks, adaptations, weather, and ambience palette; Starlace is the approved first cosmetic Bloommark; Soft Rain is the approved first weather with light rain, softer/cooler lighting, and water ripples but no gameplay effects
-- Unresolved questions: Particle caps, material limits, reduced-motion presentation
-- Recent evaluation scores: Not yet numerically evaluated
-- Next improvement goal: Establish measured effect budgets using a crowded representative plot
+- Current project knowledge: Mythic is the approved super-rare tier. After durable ownership, use the approved roughly five-second immediately skippable local Haven Tag glow → sanctuary ribbon/trait motes → voluntary acceptance mark → journal reveal; nearby effect is restrained, Legendary is shorter, and Full/Short/Off plus Reduced Motion are supported.
+- Unresolved questions: Final particle/material/audio caps, exact original audio, production assets, cleanup measurements, and Studio asset plan
+- Recent evaluation scores: Overall 98 jointly for failure-decision and rare-celebration design; no implementation score exists
+- Next improvement goal: Prototype and measure the approved Mythic hero plus Legendary/crowded nearby-effect cleanup budget on low-end mobile

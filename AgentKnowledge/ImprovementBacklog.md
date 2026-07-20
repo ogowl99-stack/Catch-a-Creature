@@ -4,20 +4,20 @@ Every agent keeps one active project-specific improvement goal.
 
 | Agent | Active improvement goal |
 |---|---|
-| Codex | Convert the approved Phase 0 design into a gated Phase 1 specification without implying implementation authorization |
-| Game Design Agent | Specify the approved three-flora, three-creature vertical slice with measurable comprehension and economy targets |
-| Architecture Agent | Define the smallest server/client/shared boundary and source-link workflow before code |
+| Codex | Complete the authorized Phase 1 standards and source-link proof without leaking into Phase 2 or gameplay |
+| Game Design Agent | Simulate Tag acquisition, approved guarantees, and eight-player capture economy before implementation |
+| Architecture Agent | Define the smallest fault-testable attempt/decision/ownership/celebration contract before code |
 | Map Agent | Preserve navigation and visibility as gardens become crowded |
-| Gameplay Agent | Turn one guided buy/plant/wait/harvest/sell/observe/bond cycle into explicit state transitions and acceptance criteria |
-| Enemy AI Agent | Use deterministic, low-cost visitor behavior before complex navigation |
-| UI Agent | Maintain mobile, desktop, tablet, and controller parity |
-| VFX Agent | Preserve readability with measured effect budgets |
-| Audio Agent | Create distinct, low-fatigue action, creature, and weather feedback |
-| Data Agent | Propose the minimal versioned Phase 1 schema, migrations, provenance, and timestamp-based offline progress before persistence code |
-| Monetization Agent | Define policy and player-trust gates for later paid stealing without adding it to first-playable dependencies |
-| Security Agent | Automate repository and game-security regression scans, including credential detection and server validation |
-| Performance Agent | Establish measured crowded-plot budgets before multiplying content |
-| QA Agent | Create executable definition, economy, save, offline-progress, and regression tests before gameplay expansion |
+| Gameplay Agent | Prototype Ready → In Flight → Failure Decision → Queue/Let Go or Ownership without hidden retries |
+| Enemy AI Agent | Prove deterministic, low-cost contested visitor, decision, expiry, and cleanup states before complex navigation |
+| UI Agent | Prototype the approved failure choice, fair queue, No Aid/guarantee controls, and post-commit reveal across mobile/controller/reduced motion |
+| VFX Agent | Prototype and measure the approved Mythic hero plus Legendary/nearby-effect cleanup budget on low-end mobile |
+| Audio Agent | Create and test one low-fatigue, captioned, skip-safe rare-capture motif with recorded provenance |
+| Data Agent | Propose minimal versioned attempt, decision, Familiarity, capture-provenance, celebration-dedupe, capacity, and migration schemas |
+| Monetization Agent | Simulate free Tag/Luck acquisition and guarantees while keeping capture outside every paid value path |
+| Security Agent | Automate attempt/decision/event replay, capture authority, free-only provenance, receipt, and server-validation regression scans |
+| Performance Agent | Measure round-robin retries, simultaneous rare celebrations, 1,200-slot inventory, and crowded creature/plot budgets |
+| QA Agent | Automate capture transaction/decision/queue/event replay and mobile/controller/camera-cleanup tests before gameplay expansion |
 | Documentation Agent | Automate truth-label, required-field, source-date, and cross-document consistency checks |
 
 Milestone review: Goals refreshed at Phase 0 completion on 2026-07-19. None is marked achieved without implementation or test evidence.

@@ -6,6 +6,225 @@ Scores use 0-100 only when task evidence supports evaluation. Irrelevant categor
 
 At the initial repository snapshot, no implementation agent had completed a code, model, UI, VFX, audio, data, security, performance, or QA task, so those agents were not numerically scored then. Later evidence-backed design, documentation, and security reviews are scored below; no score implies that game implementation or performance measurement exists.
 
+## Failure-decision and rare-celebration evaluation
+
+Agent: Game Design / Gameplay / Architecture / Data / Security / Monetization / UI / VFX / Audio / Performance / Enemy AI / QA / Documentation Agents
+
+Task: Lock failed-attempt cost, Familiarity guarantees, fair round-robin, Retry/Let Go, and a post-commit super-rare celebration direction
+
+- Correctness: 99
+- Code quality: N/A
+- Architecture compliance: 99
+- Security: 99
+- Performance: 97
+- Test quality: 99
+- Documentation: 98
+- Creativity: 98
+- Visual quality: 97
+- Collaboration: 99
+- Task completion: 96
+- Regression prevention: 99
+- Overall: 98
+
+Strengths:
+
+- Converted the user's answers into exact cost, Familiarity, guarantee, persistence/reset, and distinct-contender fairness oracles.
+- Separated durable attempt outcome, personal Retry/Let Go decision, and optional celebration, preventing accidental consumption, global visitor mutation, and false ownership.
+- Produced an original sanctuary-themed, accessible, bounded cutscene/VFX/audio proposal with explicit truth labels and cleanup/performance tests.
+- Obtained independent Security/Architecture, QA/UI, and VFX/Audio/Performance reviews and synchronized relevant memories and improvement goals.
+
+Weaknesses:
+
+- The user subsequently resolved super rare as Mythic, caretaker-priority Let Go, No Aid retry default, successful-attempt consumption, guaranteed-attempt Luck disabling, exact visual treatment, and Legendary flourish. Exact Luck math/recipes, audio, technical expiry grace, and measured budgets remain unresolved.
+- No code, schema, simulation, Studio, device, accessibility, performance, audio, asset, or player evidence exists.
+
+Required improvement:
+
+- Implement a pure fault-testable state/transaction contract before producing the cinematic; prove mobile/controller/camera cleanup and eight-player fairness before visual polish.
+
+Evaluation boundary: Design synthesis, independent review, regression planning, and documentation only; this score does not represent implemented gameplay or visual quality.
+
+## Immediate rising-chance retry amendment evaluation
+
+> Follow-up (2026-07-19): The evaluation above records the user's later resolution of this checkpoint's three pending choices and the new failure-choice/celebration direction.
+
+Agent: Game Design / Gameplay / Architecture / Data / Security / Monetization / UI / Performance / Enemy AI / QA / Documentation Agents
+
+Task: Replace a post-failure capture cooldown with immediate serialized retry and rising persistent Familiarity
+
+- Correctness: 98
+- Code quality: N/A
+- Architecture compliance: 99
+- Security: 99
+- Performance: 96
+- Test quality: 98
+- Documentation: 97
+- Creativity: 96
+- Visual quality: 94
+- Collaboration: 99
+- Task completion: 95
+- Regression prevention: 99
+- Overall: 98
+
+Strengths:
+
+- Preserved the user's no-cooldown pacing without allowing overlapping rolls, prebuffered spam, duplicate progress, or hidden timers.
+- Parsed the bundled amendment conservatively, locking confirmed capture rules while keeping consumption, exact Familiarity math, and public ordering explicit.
+- Connected immediate retry to idempotency, persistence, queue fairness, exact odds UI, visitor expiry, economy, bot resistance, and measured throughput.
+
+Weaknesses:
+
+- The three remaining decisions are not yet approved, and no formula/queue/economy simulation has run.
+- No Luau, Studio, multiplayer, device, persistence, performance, or player evidence exists.
+
+Required improvement:
+
+- Obtain the three atomic decisions, then convert them into a pure attempt/Familiarity contract and executable probability, transaction, and eight-player contention tests.
+
+## Competitive wild-capture amendment evaluation
+
+> Follow-up (2026-07-19): The newer failure-decision evaluation supersedes this checkpoint's unresolved list. All accepted-attempt cost, exact Familiarity math/key/guarantees/persistence/reset, public round-robin, Retry/Let Go, No Aid/guaranteed-attempt rules, and Mythic/Legendary visual celebration choices are now approved. Arrival weights, Luck formula/recipes, audio, expiry grace, assets, and measured budgets remain open.
+
+Agent: Game Design / Gameplay / Architecture / Data / Security / Monetization / UI / Performance / Enemy AI / QA / Documentation Agents
+
+Task: Reconcile chance-based public capture with the earlier deterministic care, storage, ownership, originality, monetization, and performance contracts
+
+- Correctness: 97
+- Code quality: N/A
+- Architecture compliance: 98
+- Security: 99
+- Performance: 95
+- Test quality: 98
+- Documentation: 96
+- Creativity: 96
+- Visual quality: 93
+- Collaboration: 98
+- Task completion: 94
+- Regression prevention: 98
+- Overall: 97
+
+Strengths:
+
+- Identified and explicitly reconciled the deterministic-bond and full-storage ownership conflicts instead of layering contradictory rules.
+- Defined exact-one ownership, capacity-before-RNG, idempotency, anti-spam, free-only provenance, two-stage probability labeling, original expression, and comprehensive test requirements before code.
+- Quantified the 0.01% risk and preserved the user's numbers as examples rather than fabricating a locked balance table.
+
+Weaknesses:
+
+- Personal Care gating, caretaker priority, exact probability meaning, failure consumption, Familiarity/pity, item identity, recipes, timing, and runtime caps remain unresolved.
+- No simulation, Luau, Studio, multiplayer, device, economy, performance, visual, or player evidence exists.
+
+Required improvement:
+
+- Convert the user's next decisions into one minimal state/definition contract, then prove probability, ownership, consumption, capacity, and contention invariants before any capture UI or effects are implemented.
+
+## Phase 1 tutorial and UI-reference amendment evaluation
+
+Agent: Game Design / Gameplay / UI / Architecture / Data / Security / Performance / Monetization / QA / Documentation Agents
+
+Task: Reconcile Sunspud, plant harvest modes, inventory projection, free travel, flexible placement, vendor actions, and Grow a Garden UI-reference boundaries
+
+- Correctness: 96
+- Code quality: N/A
+- Architecture compliance: 97
+- Security: 97
+- Performance: 91
+- Test quality: 95
+- Documentation: 97
+- Creativity: 94
+- Visual quality: 90
+- Collaboration: 97
+- Task completion: 96
+- Regression prevention: 98
+- Overall: 96
+
+Strengths:
+
+- Converted a user amendment into explicit `SingleHarvest`/allow-listed `Regrower` definitions and atomic transaction requirements before code existed.
+- Preserved one authoritative inventory, permanently free travel, flexible placement, original UI expression, and exact historical supersession across shared and personal memory.
+- Passed strict UTF-8, diff hygiene, targeted contradiction searches, and independent review after correcting two actionable findings.
+
+Weaknesses:
+
+- No original wireframe, economy simulation, device test, crowded-plot measurement, Luau test, or Studio gameplay evidence exists.
+- At that review, Backpack capacity/stacking, full-storage presentation, exact-position overlap, Sunspud balance, and final UI composition were unresolved; the later storage evaluation below resolves the first three while balance and final composition remain open.
+
+Required improvement:
+
+- Resolve the remaining capacity, overlap, and timing decisions; then prove the original responsive UI, economy solvency, transaction invariants, and plot-density limits with executable tests and Studio evidence.
+
+## Storage capacity and permanent-pass design evaluation
+
+> Follow-up (2026-07-19): The user's repeatable-purchase amendment supersedes this evaluation's one-time pass mechanism. The repeatable-product evaluation below records the new review.
+
+Agent: Architecture / Data / Security / Monetization / Game Design / UI / Performance / QA Agents
+
+Task: Define the 200-slot Backpack, full-storage no-loss behavior, responsive paging, and safe permanent expansion-pass boundary
+
+- Correctness: 97
+- Code quality: N/A
+- Architecture compliance: 98
+- Security: 98
+- Performance: 94
+- Test quality: 98
+- Documentation: 96
+- Creativity: 93
+- Visual quality: 90
+- Collaboration: 98
+- Task completion: 95
+- Regression prevention: 98
+- Overall: 97
+
+Strengths:
+
+- Connected capacity to atomic harvests, stack semantics, entitlement verification, over-capacity recovery, mobile virtualization, economy pressure, and later theft rather than treating it as a standalone UI number.
+- Required one nonstacking pass, server verification, monotonic prior entitlement evidence, no deletion, no failure-triggered prompt, and free resolution/protection paths.
+- Defined concrete boundary, concurrency, persistence, purchase, economy, performance, mobile, and later-theft tests before implementation.
+
+Weaknesses:
+
+- At that review, pass bonus/price, seed stack maximum/key, active creature counting, grace duration, and measured persistence/UI budgets were unresolved. The repeatable-product amendment resolves the 999 maximum, deployed-slot direction, and no-grace choice; product ceiling/price/ID, exact caps, canonical key, and measured budgets remain open.
+- No Marketplace, DataStore, economy, device, or Studio test exists.
+
+Required improvement:
+
+- Resolve the remaining item-counting choices, measure 200 and proposed expanded profiles, and prove the no-loss/pass-entitlement contract with executable fault tests before creating purchase UI or a live pass.
+
+## Repeatable storage Developer Product evaluation
+
+Agent: Architecture / Data / Security / Monetization / Performance / Game Design / UI / QA / Documentation Agents
+
+Task: Correct the product type, preserve repeatable +200 intent, bound delivery, and define receipt/scaling safeguards
+
+- Correctness: 98
+- Code quality: N/A
+- Architecture compliance: 99
+- Security: 99
+- Performance: 97
+- Test quality: 99
+- Documentation: 97
+- Creativity: 95
+- Visual quality: 91
+- Collaboration: 98
+- Task completion: 95
+- Regression prevention: 99
+- Overall: 98
+
+Strengths:
+
+- Corrected the one-time game-pass mismatch using current official Roblox Developer Product documentation.
+- Preserved the user's repeatable +200 intent while refusing an undeliverable literal-infinity promise and defining finite ceiling/headroom requirements.
+- Covered receipt idempotency, crashes, cross-server retries, stack limits, deployed assets, full-capacity identity, no-grace theft, paged UI, cross-page sales, performance, economy, and minor spending pressure.
+
+Weaknesses:
+
+- Follow-up: the 1,200-slot operational maximum is now user-approved but remains unmeasured. Emergency headroom, exact caps, page architecture, and price/ID remain unresolved; ADR-009 removes the stranded-new-owner fallback from wild capture.
+- No executable receipt, DataStore, UI, economy, performance, or Studio evidence exists.
+
+Required improvement:
+
+- Measure every tier through the approved 1,200 ceiling, define emergency headroom, and prove exactly-once durable receipt grants before creating or exposing a live product.
+
 ## Repository publication evaluation
 
 Agent: Security Agent
@@ -205,7 +424,7 @@ Weaknesses:
 
 Required improvement:
 
-- Define measurable economy targets and prove that optional creature sales do not make renewable flora obsolete.
+- Define measurable economy targets and prove that Sunspud, explicit regrowing plants, and optional creature sales do not make the other approved income routes obsolete.
 
 Agent: Data Agent / Security Agent
 

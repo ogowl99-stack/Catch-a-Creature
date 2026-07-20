@@ -13,6 +13,27 @@ All functionally distinct flora, creatures, habitat roles, adaptations, and bree
 
 The paid stealing exception was approved on 2026-07-19. It can transfer an existing mutation/size/weight outcome with normal economic rights, but it cannot improve generation odds, create traits, strengthen traits, or create an additional copy.
 
+Shop, `Your Plot`, and Sell fast travel are permanently free navigation functions. They must never require Leafnotes, Robux, a pass, a developer product, a subscription, or another entitlement.
+
+## Repeatable permanent storage expansion
+
+The user replaced the earlier one-time pass direction with repeatable permanent +200 capacity purchases. Roblox documents Developer Products—not passes—as the product type a player may buy multiple times. One allowed Developer Product will therefore grant one permanent +200 capacity unit through the server's idempotent `ProcessReceipt` callback. Five purchases/1,200 total slots is the approved launch operational maximum. Exact runtime price, product name/ID, proof that the approved maximum is safe to deliver, and emergency receipt headroom remain provisional. Literal “infinite” storage must not be advertised because platform storage, throughput, memory, replication, and device/UI limits are finite.
+
+Required boundaries:
+
+- Query and display current product information, price, exact +200 benefit, current capacity, resulting capacity, and current tested maximum; do not hard-code a Robux price in UI.
+- Grant only through server `ProcessReceipt`. A unique `PurchaseId` durably increments the permanent grant count exactly once; duplicate/replayed/out-of-order receipts return the prior decision without another increment.
+- Return `NotProcessedYet` when the profile or grant cannot be durably updated. `PromptProductPurchaseFinished` is never proof of purchase.
+- Disable external sales and allow one outstanding in-game storage prompt per player. Stop prompts before the measured maximum and retain tested headroom for a late valid receipt.
+- Never delete, hide, auto-sell, or push items onto a plot because capacity or entitlement state changes. Use protected over-capacity recovery that permits slot-reducing actions and blocks new slot additions.
+- The product changes Backpack capacity only. It cannot change hotbar size, plot density, active-creature limits, growth, yield, traits, mutation/weight odds, sale value, travel, or theft protection.
+- Never prompt the product because a harvest fails, storage is nearly/full, a valuable plant or creature is exposed, or theft is possible. Free selling, organization, favorite/lock protection, and truthful status come first.
+- The base 200 slots must support the tutorial, ordinary progression, and first-playable collection without purchase.
+
+The user approved five purchases at launch, producing 1,200 total slots. This is the launch operational maximum, not a measurement claim: store exposure remains blocked until 1,200-slot persistence/UI/load testing and separate emergency receipt headroom prove that every prompted purchase can be delivered. Future increases require the same safety and player-trust gates.
+
+Sources: [Roblox Developer Products](https://create.roblox.com/docs/production/monetization/developer-products), [Roblox Data Store limits](https://create.roblox.com/docs/cloud-services/data-stores/error-codes-and-limits), and [Roblox monetization guidance](https://create.roblox.com/docs/production/monetization).
+
 ## Recommended product families
 
 - Guaranteed cosmetic cultivars with clearly displayed outcomes
@@ -30,6 +51,12 @@ Roblox explicitly treats paid prize wheels, luck boosts, pity systems, rerolls, 
 The experience must check `PolicyService:GetPolicyInfoForPlayerAsync()` and honor `ArePaidRandomItemsRestricted` and `IsPaidItemTradingAllowed`. If policy information cannot be obtained, paid randomness should fail closed.
 
 Source: [Roblox paid random items policy](https://create.roblox.com/docs/production/monetization/paid-random-items)
+
+### Free-only wild-capture boundary
+
+The user approved a leaf-shaped Haven Tag plus craftable Luck and Super Luck aids for the chance-based capture system. Each player may select at most one free next-valid-attempt aid. Every valid accepted attempt consumes one Haven Tag and the selected aid, if any, while rejected/full/stale/busy/lost-race traffic consumes nothing. The approved personal Familiarity system adds two absolute points per committed failure and guarantees capture on tier attempts 2/3/5/8/15/25. Retry defaults to No Aid and Luck selection is disabled on guaranteed attempts so an aid cannot be wasted. For the first implementation, every Haven Tag, luck aid, and required ingredient must be gameplay-earned through a dedicated account-bound path, nontradeable, nonstealable, and unavailable through Robux, Robux-purchased currency, passes, Developer Products, subscriptions, paid events, paid boosts, or resources created by paid stealing. The game discloses the exact server-computed base and final capture odds, Familiarity contribution, guarantee progress, valid-roll item cost, and deliberate Retry/Let Go choice. No purchase prompt appears on failure, retry, Let Go, guarantee progress, or the rare-success celebration.
+
+If any paid or indirectly paid path later modifies capture chance, arrival chance, pity, rerolls, attempt count, crafting access, or ingredient acquisition, it reopens the paid-random-item review, dynamic numerical disclosure, `ArePaidRandomItemsRestricted`, and possibly paid-item-transfer restrictions. No paid luck is approved.
 
 ## Community Weather Calling
 

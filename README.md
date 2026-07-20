@@ -4,7 +4,7 @@ Catch a Creature is an original Roblox sanctuary, creature-discovery, and habita
 
 ## Current status
 
-- Phase: Phase 0 design complete; Phase 1 and implementation not yet authorized
+- Phase: Phase 1 standards and source-link work authorized and in progress; Phase 2 grayboxing and gameplay remain unauthorized
 - Game implementation: Not yet implemented
 - Roblox Studio connection: Verified against the authorized default place; no gameplay or repository-source verification exists
 - Blender assets: Not yet created
@@ -18,11 +18,13 @@ No gameplay code, models, audio, UI, or production assets exist yet. The current
 
 The planned core loop is:
 
-`buy seed -> plant -> wait/offline growth -> harvest -> sell for Leafnotes -> reinvest and expand -> attract a visitor -> observe and bond -> display, store, sell, or release creatures -> cultivate adapted lineages`
+`buy seed -> plant -> wait/offline growth -> harvest -> sell for Leafnotes -> reinvest and expand -> attract a visitor -> observe/care -> earn Trust -> attempt an original chance-based capture -> display, store, sell, or release owned creatures -> cultivate adapted lineages`
+
+Wild visitors remain unowned until one successful server-authoritative capture. Every contender personally Observes and completes correct Care before using a leaf-shaped Haven Tag. The caretaker receives 60 seconds of priority and may open early; the visitor is then public for five minutes. Every accepted attempt consumes one Haven Tag and its selected free Luck aid; rejected requests consume nothing. A failure adds two absolute percentage points of persistent personal Familiarity and advances toward guarantees on attempts 2/3/5/8/15/25. `Retry Capture` deliberately requests the next fair round-robin turn and defaults to No Aid; `Let Go` exits only that player's attempt, preserves Familiarity, leaves the visitor wild, and does not open caretaker priority early. Luck selection is disabled on a guaranteed attempt. There is no post-result gameplay cooldown or automatic repeat. A full Backpack cannot claim a visitor. Mythic success receives the approved original post-commit five-second skippable local sanctuary cutscene; nearby players see a brief flourish, Legendary receives a shorter flourish, and Full/Short/Off plus Reduced Motion settings are supported. Arrival weights, exact Luck formulas/recipes, technical expiry grace, and final measured presentation budgets remain unresolved. No gameplay has been implemented.
 
 Later progression may add breeding, inherited traits, plot showcases, community migrations, and carefully bounded trading. These systems are not approved for implementation until the smallest complete loop is proven.
 
-Paid true-transfer stealing is approved for a later update after the core farming, inventory, ownership, persistence, appraisal, and ordinary selling systems are proven. It will move one exact eligible plot-exposed plant or bonded creature without duplication; implementation remains blocked on receipt, policy, protection, transaction-recovery, and multiplayer validation.
+Paid true-transfer stealing is approved for a later update after the core farming, inventory, ownership, persistence, appraisal, and ordinary selling systems are proven. It will move one exact eligible plot-exposed plant or successfully captured owned creature without duplication; wild visitors never qualify. Implementation remains blocked on receipt, policy, protection, transaction-recovery, and multiplayer validation.
 
 ## Originality commitment
 

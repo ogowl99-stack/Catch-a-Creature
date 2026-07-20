@@ -1,5 +1,53 @@
 # Security Findings
 
+## Entry: Retry/Let Go uses one decision token and celebration follows commit
+
+- Date: 2026-07-19
+- Agent: Security Agent / Architecture Agent / Data Agent / UI Agent / VFX Agent / Performance Agent / QA Agent / Codex
+- System affected: Failed-attempt transaction, decision token, queue, Familiarity, items, ownership, celebration event, replay, disconnect, and expiry
+- Situation: The user approved all accepted-attempt item consumption, exact Familiarity guarantees, fair round-robin, Retry/Let Go after failure, No Aid/guaranteed-attempt rules, caretaker Let Go behavior, and Mythic/Legendary success presentation.
+- Decision made: Commit the failed attempt first: decrement one Haven Tag and selected free aid exactly once, record the outcome/idempotency key, and increment the matching Familiarity failure count once. Then issue one opaque decision token. Retry and Let Go race on that token; exactly one terminal decision is recorded. Retry adds at most one user intent after existing distinct waiters without reserving items/storage while queued. Let Go removes only that user's intent, preserves Familiarity, and leaves the encounter unchanged. Queue-front processing revalidates Trust, proximity, capacity, item/aid, revision, phase, and deadline before RNG. On success, retain the attempt lock through durable capacity use, input decrement, immutable owned-UUID creation, exact trait/provenance copy, matching Familiarity reset, and outcome record. Only then emit a sanitized, deduplicated celebration event. The client cannot request a celebration tier or mutate ownership.
+- Reasoning summary: A one-use decision token prevents duplicate Retry, duplicate Let Go, and simultaneous-decision races. Post-commit cosmetic emission prevents optimistic ownership, replay rewards, and cosmetic rollback of valuable state.
+- Result: Exact security/state boundary is code-reviewed. User-approved all-attempt costs, progress/fairness, No Aid retry default, guaranteed-attempt Luck disabling, caretaker Let Go behavior, and Mythic/Legendary celebration tiers are represented. Exact schema, token lifetimes, Luck formula, technical commit grace, audio, and measured budgets remain unresolved. No implementation exists.
+- Test evidence: Independent Security/Architecture, QA/UI, and VFX/Audio/Performance reviews on 2026-07-19. No remote, fault, concurrency, replay, Studio, or device test exists.
+- Mistakes discovered: A queue that reserves consumables before a turn could strand or over-consume them. Let Go without a one-use token could race Retry. A client-driven success cutscene could be forged or replayed.
+- Recommended future approach: Build deterministic state/property tests and fault injection around every transaction boundary; dedupe outcome/decision/celebration IDs; treat disconnect while deciding as personal Let Go for queue purposes; stop new intents at expiry; allow only bounded in-flight commit grace; keep invalid decisions constant-time and side-effect-free.
+- Confidence level: High for transaction/replay boundaries; Medium for record implementation; Low for throughput until tested
+- Verification status: Code-reviewed
+- Implementation status: Not yet implemented
+
+## Entry: No-cooldown capture retry cannot overlap rolls
+
+- Date: 2026-07-19
+- Agent: Security Agent / Architecture Agent / Data Agent / Performance Agent / QA Agent / Codex
+- System affected: Capture RemoteEvents, attempt tokens, idempotency, Familiarity, items, contention, visitor expiry, and abuse prevention
+- Situation: The user removed the post-failure cooldown and approved immediate rising-chance retries.
+- Decision made: Interpret immediate as “as soon as the prior authoritative result is durable,” never “accept all buffered clicks.” Use a server-issued one-use attempt token tied to player, encounter, eligibility revision, and selected inputs; one active roll per player and encounter; one bounded pending intent per contender; and idempotent request replay. Rejected traffic receives no RNG, item mutation, Familiarity, VFX, save, or navigation work. Valid failure consumes one Haven Tag and the selected free aid and increments the approved Familiarity bucket exactly once in the same transaction. Success creates one owner. Rate limits and server saturation controls are transport safeguards, not gameplay cooldowns.
+- Reasoning summary: Without serialization, an autoclicker can create overlapping odds, double-consumption, duplicate progress, excessive writes, and latency monopoly while the UI appears to allow a single immediate retry.
+- Result: Security boundary is code-reviewed. User-approved pacing, all accepted-attempt consumption, +2-point Familiarity/guarantees, fair distinct-contender ordering, No Aid retry default, and guaranteed-attempt Luck disabling are preserved. Token lifetime, audit retention, Luck formula/recipes, and commit grace remain provisional.
+- Test evidence: Read-only security/architecture review on 2026-07-19. No adversarial, bot, latency, persistence, queue, or Studio test exists.
+- Mistakes discovered: The earlier cooldown proposal incidentally limited request rate; removing it requires explicit one-in-flight and no-work rejection rules rather than a hidden replacement timer.
+- Recommended future approach: Threat-model final remotes; prove duplicate/new-ID spam, lost acknowledgment, disconnect/save faults, expiry, and eight-player contention; measure accepted/rejected throughput; expose exact result/next chance without trusting the client.
+- Confidence level: High for safeguards; Medium for queue fairness until selected and simulated
+- Verification status: Code-reviewed
+- Implementation status: Not yet implemented
+
+## Entry: Wild-capture authority and free-only chance boundary
+
+- Date: 2026-07-19
+- Agent: Architecture Agent / Data Agent / Security Agent / Monetization Agent / QA Agent / Codex
+- System affected: Encounter remotes, capture RNG, consumables, Backpack capacity, ownership, persistence, rate limits, paid-random policy, and later paid theft
+- Situation: A competitively available wild visitor can receive near-simultaneous capture requests from up to eight players, while capture and luck items modify a chance-based result.
+- Decision made: Clients may send only encounter/item identifiers and idempotent request IDs. The server derives encounter revision, access/distance, personal eligibility, rarity, base/final chance, modifier validity, Backpack capacity, roll, winner, and owned record. Invalid, stale, busy, rate-limited, or full-storage requests fail before RNG and consumption. One request conditionally reserves the encounter and one player slot; an accepted roll is recorded exactly once; success commits one owner before despawn. Replays return the prior result. Capture items, luck aids, and all required ingredients remain gameplay-earned, account-bound, nontradeable, nonstealable, and disconnected from Robux or Robux-derived value for the first implementation. Wild visitors cannot be paid-steal targets.
+- Reasoning summary: Client-authored odds or ownership enable forgery, while non-atomic contention enables duplicate owners and lost items. A paid or indirectly paid route into chance modifiers would trigger additional disclosure and policy restrictions and could make a cozy competitive encounter coercive.
+- Result: Security boundaries are code-reviewed. All accepted-attempt consumption, No Aid retry default, and guaranteed-attempt Luck disabling are approved. Exact remotes, rates, audit retention, item recipes/formula, policy-source tagging, and plot access remain provisional. No implementation exists.
+- Test evidence: Independent read-only Architecture/Data/Security/Monetization/Performance review on 2026-07-19. No adversarial remote, RNG, persistence, contention, policy, or Studio test exists.
+- Mistakes discovered: The prior deterministic bonding contract had no contested RNG transaction. Leafnotes later sourced from paid-stolen assets could create an indirect paid-to-random path if capture materials were sold for ordinary currency; dedicated free-only crafting avoids that ambiguity.
+- Recommended future approach: Threat-model the final remote contract; use checked integer probability units, revision/CAS locks, bounded idempotency records, token buckets, and fault injection; add a static provenance test preventing every paid-to-capture path; reopen PolicyService review before any future paid modifier.
+- Confidence level: High for authority/atomicity requirements; Medium for the free-only provenance design until recipes and economy are defined
+- Verification status: Code-reviewed
+- Implementation status: Not yet implemented
+
 ## Entry: Paid true-transfer stealing boundary
 
 - Date: 2026-07-19

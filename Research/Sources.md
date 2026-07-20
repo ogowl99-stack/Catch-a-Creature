@@ -25,6 +25,14 @@ Last reviewed as a full source list: 2026-07-16
 
 These are community-maintained sources. Exact balance and current availability require independent verification.
 
+### UI reference review — 2026-07-19
+
+- [Sportskeeda beginner seed-shop screenshot](https://www.sportskeeda.com/roblox-news/grow-garden-a-beginner-s-guide)
+- [Sportskeeda market-stall screenshot](https://www.sportskeeda.com/roblox-news/iconic-gnome-crate-grow-garden-price-items-chance)
+- [Deltia's Gaming inventory screenshot](https://deltiasgaming.com/how-to-do-the-sprinkler-glitch-in-grow-a-garden-roblox/)
+
+The UI review uses these editorial/community screenshots only to identify broad interaction needs: destination navigation, quick-access item details, vendor choices, visible currency, and readable stall signage. Catch a Creature must use original assets, colors, typography, iconography, labels, component geometry, screen composition, and copy. The screenshots are not authoritative specifications and do not approve copied expression.
+
 ## Grow a Garden 2
 
 - [Official Roblox game page](https://www.roblox.com/games/97598239454123/Grow-a-Garden-2)
@@ -44,7 +52,7 @@ GAG.gg is treated as a discovery source. Any claimed code-derived number uses tr
 
 ## Roblox platform documentation
 
-The monetization, developer-product, regional-pricing, paid-item-policy, PolicyService, and purchase-persistence sources below were re-reviewed on 2026-07-19 for the paid true-transfer stealing decision.
+The monetization, developer-product, regional-pricing, paid-item-policy, PolicyService, purchase-persistence, and intellectual-property sources below were re-reviewed on 2026-07-19 for paid transfer, repeatable capacity, and wild-capture design decisions.
 
 - [Paid random items](https://create.roblox.com/docs/production/monetization/paid-random-items)
 - [Monetization guidance](https://create.roblox.com/docs/production/monetization)
@@ -55,5 +63,10 @@ The monetization, developer-product, regional-pricing, paid-item-policy, PolicyS
 - [Data stores](https://create.roblox.com/docs/cloud-services/data-stores)
 - [Player data and purchasing](https://create.roblox.com/docs/cloud-services/data-stores/player-data-purchasing)
 - [MarketplaceService](https://create.roblox.com/docs/reference/engine/classes/MarketplaceService)
+- [Passes](https://create.roblox.com/docs/production/monetization/passes)
+- [Developer Products](https://create.roblox.com/docs/production/monetization/developer-products)
+- [Data Store error codes and limits](https://create.roblox.com/docs/cloud-services/data-stores/error-codes-and-limits)
+- [Intellectual property protection](https://create.roblox.com/docs/marketplace/intellectual-property)
+- [Roblox Community Standards](https://en.help.roblox.com/hc/en-us/articles/203313410-Roblox-Community-Standards)
 
 Roblox documentation is authoritative for platform behavior and policy, but must be rechecked before implementation because platform rules can change.

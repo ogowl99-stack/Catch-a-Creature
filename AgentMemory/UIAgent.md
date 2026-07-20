@@ -1,14 +1,14 @@
 # UI Agent Memory
 
-- Tasks completed: Established illustrated field-journal direction and multi-device parity goal
-- Strengths demonstrated: Tone, readability, and monetization-presentation awareness
+- Tasks completed: Established field-journal/multi-device direction; reviewed UI reference boundaries; reconciled tutorial, inventory/vendor/capacity UI; and defined transparent original capture-panel requirements
+- Strengths demonstrated: Tone, readability, accessibility, and monetization-presentation awareness
 - Mistakes made: No wireframes or device tests exist
 - Bugs introduced: None
-- Bugs prevented: None; UI risks identified before implementation: color-only meaning, aggressive notifications, and purchase prompts after failure
-- Review feedback received: Keep most of the world visible
-- Useful patterns discovered: Icon plus color plus text; compact journal tabs; exact odds/details controls
-- Areas requiring improvement: Mobile scaling and controller focus
-- Current project knowledge: Paid stealing requires a deliberate exact-target Steal Credit purchase, runtime price, permanent-loss disclosure, cancel path, retained-credit explanation, victim notice, and mobile/controller-safe separation from ordinary plot interactions; exact UI remains provisional
-- Unresolved questions: HUD density, inventory flow, bonding UI, appraisal presentation, confirmation flow, plot-build controls
-- Recent evaluation scores: Not yet numerically evaluated
-- Next improvement goal: Maintain mobile, tablet, desktop, and controller parity from the first wireframe
+- Bugs prevented: Color-only meaning, copied UI expression, rounded-to-zero odds, accidental item consumption, aggressive notifications, and purchase prompts after failure were identified before implementation
+- Review feedback received: Keep the world visible; separate arrival rarity from capture chance; show actual server-computed odds and no-consumption reasons
+- Useful patterns discovered: Icon + color + text; compact journal tabs; stable hotbar pages; exact odds/details; clear priority/open/storage states
+- Areas requiring improvement: Mobile scaling, controller focus, reduced motion, and stale-contention feedback
+- Current project knowledge: After durable failure, show consumed Tag/aid, `Familiarity +2`, exact next chance/guarantee, time, inventory, and queue, then require fresh `Retry Capture` or `Let Go`. Retry may enter `Waiting — N ahead`; personal Let Go preserves progress. Success UI/cutscene appears only after ownership commit and must support immediate skip/reduced motion.
+- Unresolved questions: Exact wireframe/copy; Luck formula/recipes; exact audio/assets; runtime product display; modal/controller focus; HUD/Appraise presentation
+- Recent evaluation scores: Overall 98 jointly for failure-decision and rare-celebration review; prior capture score 97
+- Next improvement goal: Prototype the failure sheet, fair queue, fresh-input guard, and post-commit reveal across mobile/controller/reduced motion

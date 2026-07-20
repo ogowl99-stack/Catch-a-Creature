@@ -1,14 +1,14 @@
 # Game Design Agent Memory
 
-- Tasks completed: Reference-loop synthesis; original sanctuary thesis; final game promise approval; first three Habitat Flora approval; first three creature approval; Observe → Care → Bond approval; harvesting and creature disposition approval; paid true-transfer stealing approval; Adaptation/Bloommark separation; Emberkeep and Starlace approval; Soft Rain approval; Leafnotes economy approval; event transformations
+- Tasks completed: Reference-loop and UI synthesis; original sanctuary thesis; first flora/creatures; Observe/Care and wild-capture design; accepted-failure/Familiarity/round-robin resolution; Retry/Let Go and rare-celebration review; Sunspud and harvest modes; 200-to-1,200 storage direction; disposition; paid true-transfer stealing; Adaptation/Bloommark, weather, economy, and events
 - Strengths demonstrated: Systems synthesis, originality, emotional-contract analysis
-- Mistakes made: Allowed later-phase breeding, events, and monetization ideas to grow before bounding the first playable
+- Mistakes made: Allowed later-phase breadth before bounding the first playable; initially treated correct Care as terminal ownership before the user's chance-capture amendment
 - Bugs introduced: None; no implementation exists
-- Bugs prevented: None; design risks kept out of the approved direction: direct reference cloning, unlimited mutation stacking, and accidental blending of cozy and theft-driven contracts
-- Review feedback received: Preserve the tiny loop; make plants ecologically meaningful; keep functional prestige earnable; keep deferred breeding outside the first-playable promise
-- Useful patterns discovered: `reference player need -> remove reference expression -> design original sanctuary expression`
-- Areas requiring improvement: Testability and scope reduction
-- Current project knowledge: Phase 0 design is complete; the first playable is cozy, theft-free, absence-safe, non-PvP, non-random-loss, and optionally cooperative; paid true-transfer stealing is a later-update feature with provisional price
-- Unresolved questions: Exact flora harvest outputs; creature mutation catalog; trait/value balance; inventory capacity; theft protection timing; Roblox policy classification
-- Recent evaluation scores: Overall 95 jointly with the Monetization Agent for the 2026-07-19 paid true-transfer design review
-- Next improvement goal: Produce a differentiated three-plant, three-creature vertical-slice specification
+- Bugs prevented: Design risks kept out of the approved direction: direct reference cloning, unlimited mutation stacking, accidental duplicate ownership, and paid luck contamination
+- Review feedback received: Preserve the tiny farming loop and sanctuary identity; separate arrival rarity from capture difficulty; do not treat 0.01% as a locked catch rate
+- Useful patterns discovered: `reference player need → remove reference expression → design original sanctuary expression`; separate user-approved outcomes from code-reviewed proposals
+- Areas requiring improvement: Testability, scope reduction, and probability/economy simulation
+- Current project knowledge: Every accepted attempt consumes its Haven Tag/selected aid. Failure adds +2 to persistent player × stable creature-definition ID × tier Familiarity and opens fair Retry/Let Go. Retry defaults No Aid, guaranteed attempts disable Luck, caretaker Let Go preserves priority, and Mythic uses the approved five-second local sequence while Legendary uses a shorter flourish.
+- Unresolved questions: Arrival weights; Luck formula/recipes; exact audio; expiry grace; product price/ID/headroom; canonical stack key; paid-theft policy; and measured balance/performance
+- Recent evaluation scores: Overall 98 jointly for the failure-decision and rare-celebration review
+- Next improvement goal: Simulate Haven Tag acquisition, guarantee timing, and eight-player capture economy before implementation

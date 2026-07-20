@@ -20,3 +20,14 @@
 - Performance characteristics: Not applicable.
 - Security considerations: Do not store secrets, tokens, receipts, or private player data in documentation.
 - Required tests: Documentation review and link/source checks.
+
+## SA-003: Commit gameplay truth before optional celebration
+
+- Purpose: Keep valuable random-acquisition state correct even when UI, camera, VFX, audio, streaming, or the client fails.
+- Approved use cases: Rare capture, mutation reveal, milestone reward, paid receipt acknowledgment, achievement reveal, and other celebrations that follow a durable server result.
+- Pattern: Validate and atomically commit authoritative ownership/currency/progress first; record an idempotent outcome; emit one sanitized presentation descriptor; dedupe locally; let presentation skip/degrade/fail without changing the committed result; restore camera/input and clean every temporary resource.
+- Example implementation: A Mythic capture creates one owned creature UUID with exact traits and resets the matching Familiarity bucket before emitting `CaptureCommitted(outcomeId, summary, celebrationTier)` to the winner and a smaller nearby descriptor.
+- Limitations: This pattern does not replace transaction recovery, schema migration, or Studio/device testing. The descriptor must not expose secrets or trust client-authored values.
+- Performance characteristics: One compact network event; client-local animation; configurable effect tiers; bounded concurrency and lifetime.
+- Security considerations: Server derives eligibility/tier/summary; duplicate outcome IDs cannot award again; cosmetics never mutate ownership.
+- Required tests: Fault injection before/after commit/event; event replay; disconnect/rejoin; skip; missing assets; respawn/teleport; reduced motion; camera/input restoration; cleanup; and crowded-device profiling.

@@ -1,6 +1,154 @@
 # Lessons Learned
 
+## 2026-07-19 Deliberate failure choice and post-commit celebration lesson
+
+- Date: 2026-07-19
+- Agent: Codex with Game Design, Gameplay, Architecture, Data, Security, Monetization, UI, VFX, Audio, Performance, Enemy AI, QA, and Documentation Agents
+- System affected: Capture items, Familiarity, round-robin, Retry/Let Go, ownership, cutscene, VFX/audio, accessibility, performance, testing, and documentation
+- Situation: The user approved the remaining capture cost/progress/fairness choices, required Retry/Let Go after failure, and asked for a cutscene/VFX on super-rare success.
+- Decision made: Record every accepted-attempt Tag/selected-aid cost, +2-point player × stable creature-definition ID × tier Familiarity, 2/3/5/8/15/25 guarantees, persistence/reset, and distinct-contender round-robin as approved. Retry is a fresh deliberate one-intent decision and defaults to No Aid; Luck is disabled on guaranteed attempts. Let Go is personal abandonment that preserves Familiarity/visitor state and, during caretaker priority, preserves the remaining exclusive window; `Open to Everyone` stays separate. Require durable exact-one ownership before an idempotent cosmetic event. Treat Mythic as the approved super-rare tier with the approved roughly five-second local/immediately skippable Haven Tag/leaf-constellation/trait-mote/acceptance-mark/journal sequence, bounded nearby flourish, Full/Short/Off/Reduced Motion settings, and a shorter Legendary flourish. Exact audio remains provisional.
+- Reasoning summary: The result, next decision, and cosmetic feedback are three different phases. Keeping them separate prevents accidental spending, queue bypass, global visitor mutation, false ownership, and presentation failures from corrupting gameplay state.
+- Result: The complete decision batch, including tier/visual/aid/priority choices, is synchronized across design, architecture, security, testing, presentation, performance, risk, research, feedback, and personal memory. Exact Luck formula/recipes, audio, technical expiry grace, production assets, and measured budgets remain unresolved. No gameplay or assets were created.
+- Test evidence: Direct stakeholder decisions and independent Security/Architecture, QA/UI, and VFX/Audio/Performance read-only reviews on 2026-07-19; approved base/+2/hard-guarantee table sanity check passed; `git diff --check` passed aside from benign LF-to-CRLF notices; strict UTF-8/nonempty/NUL/final-newline checks passed for all 39 changed files; targeted capture-decision/stable-key/presentation-boundary/active-status consistency passed. The final-approval audit initially found stale Phase 0 wording, an over-specific nearby-effect duration, and one stale VFX-memory label; all were corrected and the independent recheck returned PASS. No Luau, schema, RNG, multiplayer, Studio, device, asset, audio, accessibility, performance, or player evidence exists.
+- Mistakes discovered: Stale files still called three resolved decisions provisional. `Let Go` can sound like a global release unless its personal scope is explicit. A rare cinematic can be mistakenly treated as harmless polish even though camera/input/cleanup failures affect play.
+- Recommended future approach: After every high-impact answer batch, search all unresolved/status language, update personal memories and improvement goals, and add regression tests at the transaction-to-presentation boundary. Never let a client animation become evidence of ownership.
+- Confidence level: High for approved mechanics, presentation direction, and separation pattern; Low for runtime balance/budgets until implemented and tested
+- Verification status: Code-reviewed
+- Implementation status: Not yet implemented
+
+### Cross-agent handoff
+
+- What changed: Failure cost/Familiarity/fairness are locked; failure now requires Retry/Let Go; qualifying success requires post-commit celebration.
+- Why it changed: The user wants rapid but deliberate retries, an opt-out, and a memorable rare capture.
+- APIs affected: Future attempt result, decision token, queue intent, Familiarity record, item transaction, owned-creature commit, celebration descriptor, UI/camera/VFX/audio/cleanup/metrics; none exists.
+- Files affected: Shared knowledge, personal memories, research direction/start plan/art direction, risk, README, and testing requirements.
+- New requirements: Exact-once cost/progress; fair queue; personal Let Go; ownership-before-celebration; event dedupe; immediate skip; reduced motion; no forced observer camera; hard cleanup.
+- Risks: Decision replay, held-input extra spending, ambiguous priority, false success, duplicated effects, camera lock, photosensitivity, audio fatigue, and unmeasured mobile load.
+- Tests required: Golden guarantees, transaction faults, decision races, eight-player queue, expiry/disconnect, outcome/event replay, skip/settings/camera restoration, effect/audio cleanup, and device performance.
+- Action required: No further user choice is required for this capture decision batch. Agents implement only after the current Phase 1 authorization expands to gameplay; exact Luck formula/recipes, audio, technical expiry grace, and measured budgets remain later work.
+
+## 2026-07-19 Immediate retry without overlapping attempts lesson
+
+> Follow-up (2026-07-19): The newer lesson above records the user's subsequent approval of failure consumption, exact Familiarity, public round-robin, Retry/Let Go, and rare-celebration requirement. The unresolved list below is historical.
+
+- Date: 2026-07-19
+- Agent: Codex with Game Design, Gameplay, Architecture, Data, Security, Monetization, UI, Performance, Enemy AI, QA, and Documentation Agents
+- System affected: Capture pacing, RNG, Familiarity, consumables, contention, persistence, UI, economy, and performance
+- Situation: The user approved the recommended capture package but rejected a post-failure cooldown, requiring immediate retry and a slightly higher chance after each valid failure.
+- Decision made: Remove the gameplay cooldown while preserving one authoritative attempt at a time. Record the flow, priority, tutorial guarantee, capture table, Haven Tag, Familiarity/hard-guarantee direction, five-minute public lifetime, proximity, fixed traits, free Luck boundary, and starting caps as approved. Keep failed-roll item consumption, exact Familiarity table/reset/bucket, and public retry ordering provisional because the amended bundled item does not resolve them.
+- Reasoning summary: Fast pacing and safe transactions are not opposites. The UI can re-enable immediately after the durable result while tokens, idempotency, capacity checks, and one-in-flight state prevent overlapping economic/RNG mutations. Clause-level approval parsing avoids silently treating an amended item as approval of every bundled subclause.
+- Result: The active design has no post-failure capture cooldown. Immediate retry, rising persistent progress, approved balance table, original expression, fairness window, lifetime, trait retention, and caps are synchronized. Three precise decisions remain for the user. No implementation or test exists.
+- Test evidence: Direct user approval; two independent read-only reviews; targeted approved-versus-provisional consistency PASS; `git diff --check` PASS aside from benign line-ending warnings; strict UTF-8/nonempty/final-newline PASS across all 34 changed Markdown files; and final independent documentation audit PASS after four wording/completeness findings were corrected. No simulation, Luau, multiplayer, persistence, economy, device, performance, player, or Studio evidence exists.
+- Mistakes discovered: The first recommendation bundled item consumption, creature retention, and cooldown in one numbered clause, making the user's “except #4” ambiguous for consumption. A visible cooldown had also been doing hidden abuse-control work that must now be replaced explicitly with serialization rather than another timer.
+- Recommended future approach: Keep decision questions atomic; distinguish player-facing pacing from server transport controls; treat accepted outcomes and rejected traffic differently; and require probability/economy/contention simulations after the three remaining values are locked.
+- Confidence level: High for the approved pacing and process lesson; Medium for technical fairness; Low for exact economy until the remaining choices are approved and tested
+- Verification status: Code-reviewed
+- Implementation status: Not yet implemented
+
+### Cross-agent handoff
+
+- What changed: No capture failure cooldown; immediate post-result retry with slightly higher persistent Familiarity. The rest of the recommended package is approved.
+- Why it changed: The user wants rapid repeated attempts without dead time.
+- APIs affected: Future attempt token/request/result, Familiarity, preview, pending intent, item transaction, visitor timer, and metrics; none exists.
+- Files affected: Design, architecture, testing, security, risk, feedback, UI, AI, performance, monetization, scores, improvement goals, and memories.
+- New requirements: One in-flight roll, no auto-repeat, immediate re-enable, exact next odds, durable one-step progress, five-minute hard deadline, fixed traits, no rejected-request work, and no hidden cooldown.
+- Risks: Spam, latency monopoly, duplicate outcomes, unclear Tag cost, cross-tier pity farming, persistence/VFX load, and starvation.
+- Tests required: Retry/idempotency, consumption/progress atomicity, guarantee math, persistence/reset, contention/expiry, economy, bot/latency, accessibility, and performance.
+- Action required: User answers the three remaining questions; agents then define and simulate the final contract before any gameplay implementation.
+
+## 2026-07-19 Wild-until-caught ownership amendment lesson
+
+- Date: 2026-07-19
+- Agent: Codex with Game Design, Gameplay, Architecture, Data, Security, Monetization, UI, Performance, Enemy AI, QA, and Documentation Agents
+- System affected: Visitor interaction, capture, rarity, storage, ownership, competition, economy, originality, monetization, and testing
+- Situation: The user added an original chance-based capture mechanic and clarified that a plot-spawned visitor remains available to anyone until successfully caught, including when the first player lacks storage.
+- Decision made: Record the public-wild/full-storage rules immediately, explicitly flag the conflict with deterministic correct-Care ownership, and keep the exact hybrid, percentages, priority, failure, pity, and luck formulas provisional. Require one atomic server winner, separate arrival from capture odds, original non-ball expression, exact odds disclosure, and a free-only capture/luck material path.
+- Reasoning summary: A high-impact gameplay amendment cannot be layered over an incompatible ownership rule. Separating user-approved outcomes from code-reviewed proposals lets development continue without fabricating balance approval.
+- Result: Shared and personal knowledge now distinguish `Wild` from `Owned`, full-storage wild capture from existing-owned recall, and arrival rarity from capture difficulty. Five +200 purchases/1,200 total, favorite-blocked Sell Held, and one-at-a-time tree collection/full retention are recorded as approved. The remaining capture questions are ready for explicit user selection. No gameplay, asset, product, or Studio content was created.
+- Test evidence: Direct user input; two independent specialist reviews; analytical probability checks; strict UTF-8/NUL PASS; targeted approved-versus-provisional consistency PASS; `git diff --check` PASS aside from benign line-ending warnings; and final independent documentation audit PASS after three wording findings were corrected. No simulation, Luau, multiplayer, economy, performance, device, player, or Studio test exists.
+- Mistakes discovered: Earlier documentation made correct Care and full-capacity bonding terminal ownership states. The new mechanic invalidates both assumptions. Treating the example 0.01% as a catch rate without clarification would silently approve an average 10,000-attempt loop.
+- Recommended future approach: For every probability feature, name each random stage, disclose actual odds, simulate effective acquisition time, and record the ownership commit point. When an amendment conflicts with a locked design, preserve the history but add an explicit supersession rather than silently editing the old decision.
+- Confidence level: High for the ownership and process lesson; Medium for the hybrid proposal; Low for balance until user decisions and tests
+- Verification status: Code-reviewed
+- Implementation status: Not yet implemented
+
+### Cross-agent handoff
+
+- What changed: Wild visitors are unowned until one successful capture; full storage performs no roll/consumption and leaves the visitor public. Storage ceiling, Sell Held protection, and tree collection are also resolved.
+- Why it changed: The user wants competitive collection and an original rarity-based catch moment.
+- APIs affected: Future encounter definitions/state, personal eligibility, capture preview/request, storage reservation, consumables, RNG audit, ownership commit, UI, roaming, and later paid-theft filtering; none exists.
+- Files affected: Shared knowledge, personal memories, research direction/start plan/monetization/sources, tests, risks, scores, and improvement goals.
+- New requirements: Exact-one server winner, no client odds/ownership, distinct arrival/capture fields, free-only chance inputs, original expression, truthful proposal labels, and no pressure upsell.
+- Risks: Camping, latency/bot advantage, ultra-low odds, capture-item grind, full-storage pressure, duplicate owners, paid-random contamination, copied expression, and runtime multiplicity.
+- Tests required: State/property tests, probability simulation, contention/fault injection, economy, provenance, device/accessibility, originality, and crowded-server performance.
+- Action required: User resolves the remaining interaction/balance choices; technical design and executable tests follow before any gameplay implementation gate.
+
+## 2026-07-19 Repeatable storage product and finite-delivery lesson
+
+- Date: 2026-07-19
+- Agent: Codex with Game Design, Monetization, Architecture, Data, Security, UI, Performance, QA, and Documentation Agents
+- System affected: Storage monetization, receipts, persistence, stacking, deployed assets, later theft, performance, and truthful product communication
+- Situation: The user requested repeated permanent +200 storage purchases with no purchase limit after first approving a one-time game pass.
+- Decision made: Correct the product type to Developer Product; grant through idempotent durable `ProcessReceipt`; reject literal infinite capacity as an implementable promise; require a published tested operational maximum plus emergency receipt headroom; preserve the approved 999 stacks, unique assets, deployed-slot rules, full-asset retention, free favorite/lock, and no later storage grace.
+- Reasoning summary: A monetization request can be conceptually valid while its named platform primitive and requested scale are impossible. Codex must preserve the intent—repeatable permanent expansion—without selling a benefit finite systems cannot guarantee.
+- Result: Architecture, product, safety, and test contracts are synchronized. Follow-up: the user approved five purchases/1,200 total as the launch operational maximum; it remains unmeasured and no Developer Product exists or Robux was spent.
+- Test evidence: Direct user answers; current official Roblox Developer Product, monetization, and Data Store limits documentation; two independent specialist reviews; strict UTF-8 PASS; `git diff --check` PASS aside from line-ending notices; targeted stale-contract searches; and independent final documentation review PASS after four findings were corrected. No receipt, persistence, performance, economy, device, multiplayer, or Studio gameplay test exists.
+- Mistakes discovered: The prior one-time pass design did not match repeatable intent. Taking “infinite” literally would ignore finite platform and mobile limits and could create an undeliverable paid receipt.
+- Recommended future approach: Validate product semantics against current official documentation as soon as purchase frequency changes; define durable receipt and recovery invariants; measure every proposed capacity tier; disclose the current maximum; reserve headroom; and refuse launch claims that cannot be proven.
+- Confidence level: High for the platform/product correction and approved ceiling decision; Medium for delivery until measured
+- Verification status: Code-reviewed
+- Implementation status: Not yet implemented
+
+### Cross-agent handoff
+
+- What changed: Storage monetization moves from one-time pass ownership to repeatable Developer Product receipts under a finite ceiling.
+- Why it changed: The user requested repeat purchases; Roblox product semantics and finite infrastructure require the correction.
+- APIs affected: Future `MarketplaceService.ProcessReceipt`, receipt ledger, inventory page manifest, capacity counter, and store UI; none exists.
+- Files affected: Game design, architecture, monetization, testing, risk, failed approaches, source list, project context, memories, and scores.
+- New requirements: Exactly-once +200 grant, no client grant, durable acknowledgment, finite maximum/headroom, external sales off, no pressure prompt, and no item deletion.
+- Risks: Receipt loss/duplication, unsupported paid capacity, data/UI scaling, payer advantage, and minor spending concentration.
+- Tests required: Receipt faults/races, every capacity tier, paged UI/batch operations, economy/fairness, mobile performance, and cap disclosure.
+- Action required: Technical agents measure the approved 1,200-slot tier and emergency headroom before a live product exists; ADR-009 now governs full-storage wild capture, so no stranded-new-owner lock is created.
+
+## 2026-07-19 Storage capacity and permanent-pass lesson
+
+> Follow-up (2026-07-19): The repeatable Developer Product entry above supersedes this checkpoint's one-time pass mechanism. Its base-capacity and no-loss rules remain active.
+
+- Date: 2026-07-19
+- Agent: Codex with Game Design, Gameplay, UI, Architecture, Data, Security, Monetization, Performance, and QA Agents
+- System affected: Inventory, harvests, seeds, creatures, mobile UI, persistence, economy, paid entitlement, and later theft
+- Situation: The user approved 200 free storage slots and a permanent Robux capacity pass while also choosing no-loss full harvesting and later on-plot theft exposure.
+- Decision made: Define capacity as occupied authoritative slots; stack compatible ordinary seeds; keep unique harvests and creatures individual; make full harvest a no-op; use one fixed permanent pass verified server-side; preserve paid benefits and all items during lookup/migration problems; separate storage from hotbar, plot, active utility, value, and theft protection; prohibit failure- or threat-triggered upsells.
+- Reasoning summary: Storage looks like a UI convenience but determines persistent object count, transaction races, DataStore size, economy pacing, and whether later theft can pressure a player into spending. These boundaries must be set before schema or store UI work.
+- Result: At this checkpoint, free capacity and the broad item-counting contract were synchronized. The repeatable-product entry above later resolves the 999 maximum, special seeds, weighted tree produce, deployed slots, free favorite/lock, and no-grace behavior while superseding the pass. Product ceiling/price/name/ID, canonical stack key, exact caps, tree collection, default lock, and measured budgets remain unresolved. No paid storage product was created or sold.
+- Test evidence: Direct user answers, current official Roblox pass/monetization documentation, two independent specialist reviews, strict UTF-8 PASS, `git diff --check` PASS aside from line-ending notices, targeted contradiction searches, and independent final documentation review PASS after four findings were corrected. No implementation, purchase, economy, performance, device, multiplayer, or Studio gameplay test exists.
+- Mistakes discovered: The first recommendation proposed 100 rather than 200 slots. Without explicit no-op and entitlement-recovery rules, full storage or a temporary Marketplace failure could lose valuable items or turn the pass into perceived theft protection.
+- Recommended future approach: Set stack keys/max and creature counting next; measure worst-case serialization/UI before choosing the bonus; use neutral store placement and free resolution tools; build capacity/fault tests before Marketplace UI; independently review all active records after amendments.
+- Confidence level: High for the approved rules and safety model; Medium for pass sizing until measured
+- Verification status: Code-reviewed
+- Implementation status: Not yet implemented
+
+## 2026-07-19 Tutorial harvest and UI-reference amendment
+
+> Follow-up (2026-07-19): The later storage entries resolve base capacity, the 999 seed maximum, special-seed equality exception, weighted produce, deployed slots, exact-position overlap, and universal Sunspud timing. Repeatable Developer Product ceiling/price/ID, canonical stack-key implementation, exact caps, and original wireframes remain open.
+
+- Date: 2026-07-19
+- Agent: Codex with Game Design, Gameplay, Economy, Architecture, Data, UI, Performance, Monetization, and QA Agents
+- System affected: Tutorial, plants, harvesting, inventory, economy, placement, navigation, UI references, documentation, and regression prevention
+- Situation: Detailed user answers named Sunspud, made ordinary plants single-harvest, reserved regrowth for explicit classes such as trees, separated ten quick slots from backpack storage, made Shop/Plot/Sell travel permanently free, allowed close placement with optional snapping, and requested Grow a Garden UI review.
+- Decision made: Replace the old blanket-regrowth assumption with definition-owned `SingleHarvest`/`Regrower` behavior; keep one authoritative inventory with hotbar references; protect harvests from overflow loss; keep all destination travel free; retain free placement with server safety/performance validation; and borrow only broad UI usability patterns while making all Catch a Creature creative expression original.
+- Reasoning summary: A small wording change about harvest persistence affects economy, data schemas, transaction semantics, tutorial solvency, UI, map density, and tests. Recording the amendment across every consumer before code is cheaper and safer than migrating an incorrect implementation later.
+- Result: At this checkpoint, the active Phase 1 documents, shared knowledge, architecture decision, risks, test requirements, source notes, and relevant personal memories used the amended contract. The later storage decision above resolves the capacity/stacking direction and exact-position overlap; Sunspud balance/art, tree catalog/produce details, pass details, and original wireframe remain unresolved. No game or Studio content was changed.
+- Test evidence: Direct user decisions; visual review of public reference screenshots; three read-only specialist reviews; targeted contradiction searches; strict UTF-8 PASS; `git diff --check` PASS aside from line-ending notices; and independent final documentation review PASS after its two memory/wording findings were corrected. No Luau, economy, device, multiplayer, performance, or Studio gameplay test exists.
+- Mistakes discovered: The earlier record generalized renewable-parent behavior to all flora and treated ten visible slots and vendor choices ambiguously. Those assumptions would have produced incorrect inventory, harvesting, and onboarding contracts.
+- Recommended future approach: Translate every design amendment into one authoritative active entry plus explicit historical supersession; search all derived documents; require definition validation, atomic transaction tests, economy simulation, responsive wireframes, and independent review before implementation.
+- Confidence level: High for the user-approved contract and reference observations; Medium for balance and UI fit until prototyped
+- Verification status: Code-reviewed
+- Implementation status: Not yet implemented
+
 ## 2026-07-19 Phase 0 completion retrospective
+
+> Follow-up (2026-07-19): The user subsequently authorized bounded Phase 1 standards, selective source-link, and import-test work. Phase 2 grayboxing, gameplay implementation, production asset multiplication, and publishing remain unauthorized.
 
 - Date: 2026-07-19
 - Agent: Codex with Game Design, Gameplay, Architecture, Data, Security, QA, Monetization, UI, Map, Performance, VFX, Audio, and Documentation agents
@@ -18,7 +166,7 @@
 
 ### Milestone answers
 
-- Completed: Final promise; Grow a Garden-style progression priority; first three Habitat Flora and creatures; Observe → Care → Bond; Emberkeep; Starlace; Soft Rain; Leafnotes; harvesting/disposition; creature mutation/size/weight value; later-update paid true-transfer contract and release order; first-playable emotional contract; learning/memory system; visual command-center design; repository publication and checkpoint.
+- Completed at that milestone: Final promise; Grow a Garden-style progression priority; first three Habitat Flora and creatures; the then-current Observe → Care → Bond rule (later amended by wild capture); Emberkeep; Starlace; Soft Rain; Leafnotes; harvesting/disposition; creature mutation/size/weight value; later-update paid true-transfer contract and release order; first-playable emotional contract; learning/memory system; visual command-center design; repository publication and checkpoint.
 - Worked well: Narrow user approval gates, explicit locked/provisional boundaries, specialist debate for high-impact monetization, server-authority planning, truth labels, targeted searches, and independent reviews.
 - Caused delays: Authentication/tooling setup, Rojo/Studio source-link uncertainty, repeated design amendments, policy research, and the need to supersede earlier no-theft/no-paid-value statements carefully.
 - Bugs occurred: No game bugs because no game exists. Documentation defects included stale superseded language, composite truth labels, incomplete dashboard shapes in the earlier foundation, and partial patch application after anchor mismatches.
@@ -81,7 +229,7 @@
 - Recommended future approach: Resume at the exact clue-inspection and bonding decision, continue one approval gate at a time, and do not create a Rojo scaffold or gameplay logic until every remaining Phase 0 gate is approved.
 - Confidence level: High
 - Verification status: Code-reviewed
-- Follow-up: The Observe → Care → Bond proposal and every other remaining Phase 0 gate were subsequently approved on 2026-07-19. The historical in-progress state and next-step instructions above describe only the 2026-07-18 checkpoint and are superseded by the 2026-07-19 Phase 0 completion retrospective at the top of this file. Phase 1 and implementation remain unauthorized.
+- Follow-up: The Observe → Care → Bond proposal and every other remaining Phase 0 gate were subsequently approved on 2026-07-19. The historical in-progress state and next-step instructions above describe only the 2026-07-18 checkpoint and are superseded by the 2026-07-19 Phase 0 completion retrospective at the top of this file. Bounded Phase 1 standards/source-link work was then authorized; Phase 2 grayboxing and gameplay implementation remain unauthorized.
 
 ## 2026-07-18 Repository publication lesson
 

@@ -25,7 +25,7 @@ Grow a Garden succeeds because the smallest loop is legible and satisfying:
 The most transferable supporting principles are:
 
 - Generous offline growth
-- Cheap early crops leading into compounding multi-harvest ownership
+- Cheap early crops leading into understandable reinvestment, with regrowing plants reserved for explicit classes such as trees
 - Synchronized stock and weather that create shared anticipation
 - Visible jackpot crops and mutations
 - A visually quiet world where player collections provide the spectacle
@@ -38,14 +38,14 @@ The sequel preserves farming but adds theft, owner-presence protection, defense,
 
 Initial decision: Catch a Creature targeted a cozy, opportunity-driven, communal contract with theft, destructive decay, paid offensive power, and mandatory defense outside the design.
 
-Supersession approved by the user on 2026-07-19: paid true-transfer stealing of an exposed planted plant or captured roaming/displayed creature is a planned later-update exception. It transfers the exact item without duplication and gives the buyer normal ownership and sale rights. Exact price, protections, and platform classification remain provisional; destructive decay and mandatory defense remain outside the approved direction.
+Supersession approved by the user on 2026-07-19: paid true-transfer stealing of an exposed planted plant or captured roaming/displayed creature is a planned later-update exception. It transfers the exact item without duplication and gives the buyer normal ownership and sale rights. Held, inventory, favorited, and locked assets are protected; exact protection timing, additional protected classes, price, and platform classification remain provisional. Destructive decay and mandatory defense remain outside the approved direction.
 
 ## Progression lesson
 
 Recommended implementation sequence:
 
 1. Planting, growth, offline progress, harvesting, selling, and reinvestment
-2. Single/multi-harvest behavior, weight/appearance variation, favorites, and plot organization
+2. Explicit definition-owned `SingleHarvest`/`Regrower` behavior, weight/appearance variation, favorites, and plot organization
 3. Habitat signals, weather, adaptations, gear, plot expansion, and collection journal
 4. Creature visitation, clues, bonding, and persistent creature utility
 5. Breeding and inherited traits
