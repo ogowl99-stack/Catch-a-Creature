@@ -1,5 +1,21 @@
 # Testing Knowledge
 
+## Knowledge entry: Initial-release paid-transfer and island-graybox acceptance
+
+- Date: 2026-07-20
+- Agent: QA Agent / Architecture Agent / Data Agent / Security Agent / Game Design Agent / Monetization Agent / Map Agent / Codex
+- System affected: Join flow, plots, pond, event plaza, item ownership, paid credits, policy, cross-profile recovery, abuse prevention, economy, and player trust
+- Situation: The user locked the island circulation/event direction and moved paid true-transfer stealing into the initial public-release target.
+- Decision made: Graybox acceptance must prove a centered gate/tree sightline; spawn outside the gate trigger; exactly one assigned-plot movement per crossing; eight unique plot assignments; physical public plot access without unauthorized mutation; safe plot arrival pads; optional bridge routes and escapable swimmable water; recoverable ocean boundary; unobstructed board standing space; eight-player tree-event circulation with multiple exits; meadow reserves that make no dated promise; and global rather than region-locked creature arrivals. Paid-transfer launch acceptance must prove idempotent receipt credit, exact UUID/revision selection, one owner, no duplication, retained credit on invalid transfer, fail-closed eligibility for both users, free protection, immutable provenance, capacity-safe recovery, crash reconciliation at every phase, race safety against lock/recall/harvest/sale/release, anti-alt/repeat-victim limits, feature-flag rollback, and predeclared economy/trust stop metrics.
+- Reasoning summary: The busiest world space and the riskiest ownership system both need observable pass/fail contracts before visual polish or product exposure. A launch target is not evidence that either system works.
+- Result: Acceptance requirements are code-reviewed. Exact dimensions, protection timings/classes, product configuration, policy classification, resale rules, trust thresholds, and test harness remain unresolved. No test has run.
+- Test evidence: Direct user decisions and three independent read-only reviews on 2026-07-20. No Studio graybox, Luau, DataStore, Marketplace, multiplayer, device, performance, economy, or player evidence exists.
+- Mistakes discovered: A spawn inside the gate could skip orientation; the event tree could become a bridge bottleneck; normal plot visitation could accidentally inherit edit remotes; a paid receipt tied to a volatile target could acknowledge an undelivered purchase.
+- Recommended future approach: Test the dimensioned graybox first; keep theft out of the internal first playable; later use deterministic fault injection, two-buyer races, closed eight-player trust tests, and a hard launch checklist with kill-switch evidence.
+- Confidence level: High for required test classes; Low for runtime quality until implemented
+- Verification status: Code-reviewed
+- Implementation status: Not yet implemented
+
 ## Knowledge entry: Failure decision and rare-celebration acceptance
 
 - Date: 2026-07-19
@@ -119,13 +135,35 @@
 
 ## Current evidence
 
-No game tests exist because no game has been implemented. Repository documentation validation was recorded in the research foundation and is detailed in the completed entry below.
+Phase 2 now has edit-mode structural and one-client desktop traversal evidence. No gameplay-module, save/load, multi-client, mobile, tablet, controller, or production DataStore tests exist.
 
 Document type: Test backlog and baseline guidance, not a completed knowledge entry. Add future findings using the full metadata format in `ProjectContext.md`.
+
+## Knowledge entry: Phase 2 graybox acceptance run
+
+- Date: 2026-07-20
+- Agent: QA Agent / Codex
+- System affected: Island structure, R15 spawn and movement, plots, water, bridges, event circulation, Hub, meadow reserves, and evidence labeling
+- Situation: The first authorized Studio map shell required direct evidence before it could be called Verified.
+- Decision made: Combine exact edit-mode assertions with one-client play navigation. Verify every plot center/size/metadata/arrival pad, bridge width and clearance, swim exits, event footprint, Hub/meadow envelopes, gate separation and sightline, reference metadata, anchoring, Terrain water, R15 spawn, land routes, swimming, water recovery, and under-bridge movement.
+- Reasoning summary: Screenshots alone cannot prove dimensions or collision, while static assertions alone cannot prove a Humanoid can traverse the intended routes.
+- Result: All 104 initial static checks passed. Spawn was within 3.5 studs of the gate SpawnLocation. Navigation passed from gate to trigger, trigger to Memory Tree, tree to Plot 1, water entry, diagonal swim exit, beneath the south bridge, and onward to Plot 5. All eight arrival pads had zero blocking parts. Independent review found four missed contract errors; after correction, all eight path endpoints matched their shared fence openings with zero positional error, the gate measured exactly 24 studs clear, the rollback guard found zero changed voxels across 180,800 generated-water voxels, and ring-to-pad navigation passed for representative diagonal Plots 2, 4, 6, and 8. Console output remained empty.
+- Test evidence: Direct Roblox Studio Edit, Client, and Server MCP outputs on 2026-07-20.
+- Mistakes discovered: The first player state drifted before the controlled test, so the server explicitly reloaded the character and reset the start point. The initial validator checked arrival-pad obstruction but not path-to-fence alignment, and checked the sightline without asserting the exact gate opening. It also did not audit rollback against later Terrain edits. A screenshot request timing out is not a failed game test and was kept separate from gameplay evidence.
+- Recommended future approach: Turn the assertions into a repository-owned repeatable Luau test after source linkage; require contract-level dimensions and cross-component alignment, not only existence/clearance; add destructive-tool fail-closed review; then add eight-player crowd routes, streaming re-entry, respawn policy, touch camera, controller focus, and ocean-return behavior when those systems exist.
+- Confidence level: High for one-client desktop graybox; Low for untested device and multiplayer behavior
+- Verification status: Verified
+- Remaining tests: Multi-client, mobile/tablet/controller, production persistence, user visual approval, and functional gameplay markers
+
+Follow-up evidence (2026-07-20): The user rejected gray void beyond the ocean. The final 4096×4096 Terrain-water envelope passed a same-camera top-down visual check and an exact 4,194,304-voxel Water scan with zero changed voxels. Build and fail-closed rollback sources both passed Studio `loadstring` syntax checks. Runtime device cost remains unmeasured.
+
+Follow-up evidence (2026-07-20): The expanded 880×920 island passed exact 372-tile coverage and bound checks. All eight 96×96 plots, 18-stud openings, 12×12 arrival pads, paths, expanded Hub/meadows, 36-segment mount route, and four invisible collidable walls passed static checks with no overlaps, scripts, or unanchored parts. One-client navigation passed the moved gate/tree, representative Plots 1/3/5/7, and all four trail quadrants; four-side outward movement stopped at the walls; console output was empty. Independent review then confirmed zero trail SAT overlap, closed wall corners, exact live count metadata, and fail-closed rollback after correcting one 10×10/12×12 documentation mismatch and one stale live count attribute. Mount gameplay remains `Not yet implemented` and needs server-authority, eligibility, speed, camera, animation, mobile/controller, collision, dismount, multiplayer, and persistence tests.
 
 ## Knowledge entry: Phase 1 test-first gate
 
 > Follow-up (2026-07-19): Phase 1 standards and source-link work are now authorized. The test-first requirements remain active; Phase 2 grayboxing and gameplay implementation are not authorized.
+
+> Follow-up (2026-07-20): Phase 2 grayboxing was subsequently authorized and its v1 geometry passed the scoped acceptance entry above. Phase 3 gameplay remains unauthorized.
 
 - Date: 2026-07-19
 - Agent: QA Agent / Codex

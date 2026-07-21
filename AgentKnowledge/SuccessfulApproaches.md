@@ -31,3 +31,14 @@
 - Performance characteristics: One compact network event; client-local animation; configurable effect tiers; bounded concurrency and lifetime.
 - Security considerations: Server derives eligibility/tier/summary; duplicate outcome IDs cannot award again; cosmetics never mutate ownership.
 - Required tests: Fault injection before/after commit/event; event replay; disconnect/rejoin; skip; missing assets; respawn/teleport; reduced motion; camera/input restoration; cleanup; and crowded-device profiling.
+
+## SA-004: Scale connected map footprints as one dependency set
+
+- Purpose: Preserve readable circulation and nonoverlapping functional zones when an island, plot, route, or shared-space footprint changes.
+- Approved use cases: Plot-ring expansion, hub or event-space enlargement, reserve placement, mount roads, paths, gates, hills, and containment walls.
+- Pattern: Keep numeric authority in one dimension contract; identify every dependent footprint; change centers and sizes together; derive entrances and paths from shared axes; run exact bounds/SAT checks; then verify representative humanoid routes and boundary collisions in Studio.
+- Example implementation: The 96×96 plot change moved all eight centers outward, expanded the Hub and meadows, moved the gate and hills, placed a 20-stud 360×400-radius route, and closed the island with four invisible collidable walls. Static checks found zero final overlaps, and one-client traversal covered cardinal plots and every trail quadrant.
+- Limitations: Graybox clearance does not prove final garden density, eight-player crowding, streaming behavior, real-device camera usability, or mount physics.
+- Performance characteristics: The current expanded scene measured 55,898 non-shadow triangles and 63 non-shadow draw calls in one default desktop client view; this is a scoped baseline, not production approval.
+- Security considerations: Geometry does not enforce plot ownership. Any future build, steal, mount, or teleport interaction must remain server-authoritative even when zones are spatially clear.
+- Required tests: Source/dimension consistency, pairwise footprint overlap, generated-count metadata, land continuity, path/opening alignment, representative plot/trail traversal, four-side boundary collision, crowded multiplayer, real devices, streaming, and final-density performance.

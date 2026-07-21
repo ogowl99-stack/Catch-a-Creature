@@ -6,7 +6,9 @@ This plan defines the minimum visual package needed to understand the complete g
 
 Truth label: Not yet implemented
 
-Status as of 2026-07-17: Research and pre-production. No location shown in concept art has been implemented or verified in Roblox Studio.
+Historical status: This plan records the 2026-07-17 concept-generation stage. The Phase 2 graybox has since been implemented and tested in Roblox Studio. The dimensioned construction map supersedes the original numeric assumptions below.
+
+Current scale note (2026-07-20): Player plots are now exactly 96×96 studs. The approved `standard-player-plot-72x72.png` image remains a composition and styling reference only.
 
 ## Approved foundation
 
@@ -21,7 +23,7 @@ The approved files are indexed in [`ConceptArt/README.md`](ConceptArt/README.md)
 
 ### 1. Top-down master map — concept rendered; dimensions still required
 
-The corrected whole-map reference is stored at [`ConceptArt/Approved/whole-map-top-down-v2.png`](ConceptArt/Approved/whole-map-top-down-v2.png). It shows an eight-plot planning assumption, true crescent water shape, central landmark, southern gate, shared and future-reserved footprints, paths, and an illustrative outer buffer. A deterministic construction overlay must still define every plot center, exact 72×72 boundary, path width, pond and tree footprint, building footprint, tutorial stop, social space, and reserved expansion zone.
+The corrected whole-map reference is stored at [`ConceptArt/Approved/whole-map-top-down-v2.png`](ConceptArt/Approved/whole-map-top-down-v2.png). It shows the original eight-plot planning assumption, true crescent water shape, central landmark, southern gate, shared and future-reserved footprints, paths, and an illustrative outer buffer. The later deterministic construction overlay resolved those relationships and superseded the pictured 72×72 plot boundary with the current 96×96 rule.
 
 ### 2. Memory Tree and Crescent Pond gameplay sheet
 

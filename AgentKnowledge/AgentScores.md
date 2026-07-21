@@ -593,3 +593,320 @@ Required improvement:
 - Build a compact validator for required knowledge fields, truth labels, source dates, and cross-document status contradictions in the first authorized tooling slice.
 
 Evaluation boundary: Documentation consistency and milestone-process evidence only; this score does not represent implemented-game quality.
+
+## 2026-07-20 Launch-scope and island review
+
+Agent: Architecture / Data / Security Review
+
+Task: Conditional initial-release paid true-transfer architecture
+
+- Correctness: 98
+- Code quality: N/A
+- Architecture compliance: 99
+- Security: 99
+- Performance: 91
+- Test quality: 98
+- Documentation: 97
+- Creativity: 94
+- Visual quality: N/A
+- Collaboration: 97
+- Task completion: 98
+- Regression prevention: 99
+- Overall: 98
+
+Strengths:
+
+- Preserved the user's initial-release goal while keeping implementation last and launch-gated.
+- Defined the receipt-credit/volatile-target separation, item-centric recovery ledger, exact-owner invariant, fail-closed eligibility, provenance, audit, and kill switch.
+- Identified that ordinary public plot access must never grant mutation authority.
+
+Weaknesses:
+
+- No executable item topology, DataStore recovery prototype, or policy confirmation exists.
+- Exact protection, resale, private-server, and anti-chain rules remain unresolved.
+
+Required improvement:
+
+- Prove the authoritative item transition service and every cross-profile failure phase before paid UI work.
+
+Agent: Game Design / Monetization / Player Trust Review
+
+Task: Initial-release permanent-loss and monetization review
+
+- Correctness: 97
+- Code quality: N/A
+- Architecture compliance: 95
+- Security: 97
+- Performance: 88
+- Test quality: 98
+- Documentation: 97
+- Creativity: 96
+- Visual quality: 90
+- Collaboration: 97
+- Task completion: 98
+- Regression prevention: 98
+- Overall: 97
+
+Strengths:
+
+- Clearly separated the user's launch target from evidence that paid permanent loss will be trusted.
+- Defined default-free protection concerns, protected-class questions, economy laundering risks, retaliation-spending harms, controlled-test metrics, and stop conditions.
+- Flagged wealth/donation boards as possible targeting and spending-pressure surfaces.
+
+Weaknesses:
+
+- The recommended opt-in pilot is not user-approved.
+- No player research, moderated test, policy classification, retention data, or economy simulation exists.
+
+Required improvement:
+
+- Convert trust concerns into explicit protection choices and predeclared go/no-go thresholds before monetization configuration.
+
+Agent: Map / QA Review
+
+Task: Island circulation, Memory Tree event venue, and graybox acceptance
+
+- Correctness: 97
+- Code quality: N/A
+- Architecture compliance: 96
+- Security: 94
+- Performance: 96
+- Test quality: 98
+- Documentation: 98
+- Creativity: 95
+- Visual quality: 97
+- Collaboration: 98
+- Task completion: 98
+- Regression prevention: 97
+- Overall: 97
+
+Strengths:
+
+- Converted the user's spatial intent into testable gate, plot, water, bridge, event, meadow, and ocean-boundary requirements.
+- Preserved the Welcome Gate/Memory Tree sightline while preventing board and event bottlenecks.
+- Distinguished same-place character movement from `TeleportService` and identified streaming/arrival-pad safety.
+
+Weaknesses:
+
+- Proposed dimensions remain estimates until a Studio graybox exists.
+- Donation semantics and post-death spawn behavior remain unresolved.
+
+Required improvement:
+
+- Produce the dimensioned construction overlay and collect R15, mobile-camera, crowd, swimming, streaming, and performance evidence.
+
+Evaluation boundary: These scores assess design/review quality only. No gameplay code, Studio graybox, Marketplace system, multiplayer test, or player evidence exists.
+
+## 2026-07-20 Phase 2 graybox implementation
+
+Agent: Map Agent / Codex
+
+Task: Reversible whole-island graybox construction
+
+- Correctness: 93
+- Code quality: 92
+- Architecture compliance: 98
+- Security: 96
+- Performance: 91
+- Test quality: 94
+- Documentation: 98
+- Creativity: 95
+- Visual quality: 92
+- Collaboration: 97
+- Task completion: 98
+- Regression prevention: 96
+- Overall: 94
+
+Strengths:
+
+- Converted the five approved references and written dimensions into a complete additive Studio shell.
+- Preserved Phase 3 boundaries with clearly labeled nonfunctional markers and a namespaced rollback strategy.
+- Corrected source-handoff and metadata-count issues without leaving partial Studio artifacts.
+- Responded to independent findings with shared entrance geometry, an exact gate correction, and fail-closed Terrain verification.
+
+Weaknesses:
+
+- Visual quality is still a block graybox and needs direct user approval.
+- No real mobile, controller, multi-client, or streaming crowd evidence exists.
+- Initial self-review missed path/fence misalignment, a two-stud gate error, and unsafe Terrain rollback behavior.
+
+Required improvement:
+
+- Use the graybox baseline to validate crowded circulation and device camera readability before final models.
+
+Agent: QA Agent
+
+Task: Phase 2 edit and one-client traversal acceptance
+
+- Correctness: 98
+- Code quality: N/A
+- Architecture compliance: 97
+- Security: 95
+- Performance: 94
+- Test quality: 95
+- Documentation: 98
+- Creativity: 94
+- Visual quality: 94
+- Collaboration: 98
+- Task completion: 98
+- Regression prevention: 96
+- Overall: 95
+
+Strengths:
+
+- Combined 104 exact structural checks with direct humanoid land, swimming, recovery, bridge, and arrival-pad tests.
+- Scoped the Verified label to the evidence and preserved the untested multiplayer/device gates.
+- Distinguished tooling screenshot latency from gameplay-test results.
+- Added exact alignment, gate-width, Terrain-guard, and representative entrance regressions after independent review.
+
+Weaknesses:
+
+- The validator currently lives in execution history instead of a repeatable repository-owned test.
+- No eight-client, real-device, respawn-policy, or ocean-return test was possible.
+- The initial 104-check suite missed cross-component path/fence alignment, exact gate width, and destructive rollback safety.
+
+Required improvement:
+
+- Convert the acceptance assertions into reusable Luau after source linkage and add a formal device/crowd matrix.
+
+Agent: Performance Agent
+
+Task: First graybox scene-complexity baseline
+
+- Correctness: 97
+- Code quality: N/A
+- Architecture compliance: 96
+- Security: 96
+- Performance: 97
+- Test quality: 93
+- Documentation: 98
+- Creativity: 90
+- Visual quality: N/A
+- Collaboration: 96
+- Task completion: 95
+- Regression prevention: 95
+- Overall: 95
+
+Strengths:
+
+- Replaced the no-measurement state with an honestly scoped SceneAnalysisService snapshot.
+- Separated shadow-pass work from the non-shadow comparison and documented default-runtime contamination.
+
+Weaknesses:
+
+- One view has no frame-time, memory-growth, network, or lowest-device evidence.
+
+Required improvement:
+
+- Establish repeatable camera baselines and measure crowded plots on the lowest target device before asset multiplication.
+
+Evaluation boundary: Scores include the initial misses, corrective work, regression evidence, and final independent PASS. They cover the Phase 2 geometry shell and one-client desktop evidence only, not gameplay correctness or production readiness.
+
+## 2026-07-20 Full-ocean coverage correction
+
+Agent: Map Agent / Codex
+
+Task: Remove exposed gray Studio void from the complete-map view
+
+- Correctness: 97
+- Code quality: 96
+- Architecture compliance: 98
+- Security: 97
+- Performance: 90
+- Test quality: 97
+- Documentation: 98
+- Creativity: 93
+- Visual quality: 98
+- Collaboration: 98
+- Task completion: 98
+- Regression prevention: 97
+- Overall: 97
+
+Strengths:
+
+- Correctly identified the gray as void beyond the ocean rather than missing playable land.
+- Preflighted both expansions, preserved unrelated Terrain, and retained fail-closed rollback behavior.
+- Reused the exact wide camera that exposed the problem and verified every final water voxel.
+
+Weaknesses:
+
+- The intermediate 2048×2048 expansion still exposed corners and required a second pass.
+- Low-end-device frame time, memory, streaming, and place-size impact remain unmeasured.
+
+Required improvement:
+
+- Define all intended review-camera envelopes before construction and add target-device measurements before final ocean art.
+
+Evaluation boundary: Edit-time visual and voxel evidence only; not a production performance approval.
+
+## 2026-07-20 Expanded island, plots, borders, and mount reservation
+
+Agent: Map Agent / Codex
+
+Task: Scale the playable island, plots, shared spaces, containment, and future mount footprint
+
+- Correctness: 97
+- Code quality: 96
+- Architecture compliance: 98
+- Security: 96
+- Performance: 94
+- Test quality: 98
+- Documentation: 97
+- Creativity: 96
+- Visual quality: 97
+- Collaboration: 98
+- Task completion: 98
+- Regression prevention: 98
+- Overall: 97
+
+Strengths:
+
+- Scaled connected footprints together and moved the 96×96 plot ring, reserves, arrival area, hills, and route without overlap.
+- Preserved all five approved references while making the historical 72×72 filename composition-only.
+- Added four-side collision evidence, representative plot/trail navigation, exact geometry validation, and a measured scene baseline.
+- Reserved mounts through real map space and truthful metadata without claiming unimplemented gameplay.
+
+Weaknesses:
+
+- The first enlarged trail radii touched four plots before the overlap validator caught the issue.
+- The dimension note retained a stale 10×10 pad value, and live generated-count metadata was not refreshed until independent review.
+- Multi-client crowding, real devices, streaming, final density, and all mount behavior remain untested.
+
+Required improvement:
+
+- Make documentation constants and live count metadata part of the repeatable acceptance harness, then test the expanded layout with eight clients and real device camera/control profiles.
+
+Agent: QA Agent
+
+Task: Independent expanded-layout, rollback, metadata, and truth-label review
+
+- Correctness: 99
+- Code quality: 96
+- Architecture compliance: 98
+- Security: 98
+- Performance: 97
+- Test quality: 99
+- Documentation: 98
+- Creativity: 94
+- Visual quality: 96
+- Collaboration: 99
+- Task completion: 99
+- Regression prevention: 99
+- Overall: 98
+
+Strengths:
+
+- Found the arrival-pad documentation mismatch and stale live count attribute after gameplay and geometry had already passed.
+- Confirmed trail separation with SAT review, closed wall corners and vertical coverage, source/live scale authority, and fail-closed Terrain rollback.
+- Preserved the distinction between verified geometry, scoped desktop measurements, and unimplemented mount behavior.
+
+Weaknesses:
+
+- The acceptance checks remain mostly in Studio execution history instead of a repository-owned test module.
+- Eight-client, real-device, streaming, and mount-system evidence remains unavailable.
+
+Required improvement:
+
+- Convert the expanded geometry, metadata, source/dimension consistency, and truth-label checks into repeatable Luau before detailed art or mount implementation.
+
+Evaluation boundary: Scores cover Phase 2 expanded geometry, one-client desktop traversal, source review, and independent static review. They do not approve multiplayer/device performance, final art, publishing, or mount gameplay.

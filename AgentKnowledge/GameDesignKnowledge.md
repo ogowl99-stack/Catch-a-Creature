@@ -1,5 +1,37 @@
 # Game Design Knowledge
 
+## Entry: Future owned-creature mounts
+
+- Date: 2026-07-20
+- Agent: Game Design Agent / Codex
+- System affected: Creature ownership, traversal, progression value, controls, map circulation, and future updates
+- Situation: After expanding the island, the user requested a future system where a player rides a creature and moves faster than normal walking so mounts feel worth obtaining.
+- Decision made: Reserve mounts as a post-smallest-playable update. Eligible successfully captured owned creatures may later become rideable; mounted movement must be materially faster than ordinary player walking. The exact speed, eligible species/classes, unlock route, stamina, restrictions, animation, and monetization remain unresolved. A 20-stud perimeter route and one natural meadow are reserved in the graybox; no mount scripts exist.
+- Reasoning summary: Faster traversal directly answers the larger island scale and adds collection utility, but implementing seats, replication, camera, collision, animation, and entitlement before the core farming/capture/persistence loop would expand risk and scope too early.
+- Result: Future mount direction is user-approved and map-compatible. It is not part of Phase 2 or the smallest playable.
+- Test evidence: Route and reserve geometry passed edit checks and one-client walking traversal. No mounted movement, acquisition, animation, device, multiplayer, or persistence test exists.
+- Mistakes discovered: “Faster” cannot be converted into a safe exact multiplier without measuring route time, camera comfort, collision, and mobile/controller behavior. Mounts must not be described as implemented because only their future space is present.
+- Recommended future approach: Prototype one eligible owned creature after core ownership is durable; keep equip/speed server-authoritative; compare walking and mounted route times; test dismount/respawn/streaming/borders/water/plots/event crowding; preserve free travel and avoid making mounts mandatory or paywalled.
+- Confidence level: High for the future design intent; Low for exact balance and implementation behavior
+- Verification status: Code-reviewed
+- Implementation status: Not yet implemented
+
+## Entry: Initial-release risk and central-event amendment
+
+- Date: 2026-07-20
+- Agent: Codex / Game Design / Monetization / Map / QA / Architecture / Data / Security Agents
+- System affected: Emotional contract, launch order, plot social access, permanent loss, events, onboarding, monetization, and player trust
+- Situation: The user requested public plot visits, launch stealing, meadow reserves, and the Memory Tree as the permanent event venue.
+- Decision made: Keep public plots socially walkable while ordinary non-owner actions remain read-only. Target the existing paid exact-item Steal Credit concept for initial public release, but build it last and keep it disabled until every policy, protection, receipt, recovery, economy, and closed trust gate passes. The smallest internal first playable remains theft-free. The Memory Tree becomes a communal event venue and its objects/rewards are not automatically player-owned steal targets. Natural meadow reserves preserve future footprints with undated “Coming Soon” signs.
+- Reasoning summary: Public visitation and explicit exact-item transfer can coexist only if viewing never implies edit authority. Separating the internal vertical slice from public launch lets core ownership prove itself before permanent paid loss is introduced. The central event venue reinforces community identity but should not expose communal rewards to theft by default.
+- Result: User intent and launch sequencing are recorded. Exact protection classes, opt-in/default exposure, grace/caps, resale, private servers, donation-board behavior, and player-trust stop thresholds remain unresolved. No implementation exists.
+- Test evidence: Direct user decisions and independent design, architecture/security, and map/QA reviews on 2026-07-20. No player, economy, policy, Studio, or multiplayer evidence exists.
+- Mistakes discovered: The prior later-update assumption is obsolete for launch planning. Equating “players can enter” with “players can interact” would create unauthorized plot mutation. Treating a “Coming Soon” sign as a dated promise would overcommit the roadmap.
+- Recommended future approach: Teach free protection before exposure, keep event/tutorial/first-copy eligibility under explicit review, test an eight-player closed build with stop metrics, and delay public launch rather than weaken permanent-loss safeguards.
+- Confidence level: High for recorded user direction; Low for player-trust outcome until tested
+- Verification status: Code-reviewed
+- Implementation status: Not yet implemented
+
 ## Entry: Approved Retry/Let Go, Familiarity guarantees, and Mythic-capture celebration
 
 - Date: 2026-07-19
@@ -565,3 +597,5 @@ Later on 2026-07-19, the user approved paid true-transfer stealing with full own
 ### Supersession: paid true-transfer stealing
 
 On 2026-07-19, the user approved paid true-transfer stealing as a narrow later-update exception with free inventory/held/favorite protection, no duplication, and full buyer ownership/economic rights. It is not part of the first playable. Destructive decay and mandatory defense remain outside the approved direction; exact protection timing remains unresolved.
+
+Follow-up (2026-07-20): The user moved this feature into the conditional initial-public-release target. The smallest internal first playable remains theft-free. Paid transfer is implemented last, stays disabled behind a server feature flag, and blocks public launch until policy, protection, receipt, recovery, economy, and closed multiplayer trust gates pass. Exact resale and additional protection rules remain provisional.

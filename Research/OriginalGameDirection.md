@@ -27,7 +27,7 @@ Approved for the first playable on 2026-07-19:
 - Cooperation is available but never required for ordinary progression
 - Deliberate player-authorized sale or release follows the approved disposition rules and is not treated as random loss
 
-The first-playable emotional contract is locked for owned assets. Wild-capture competition exists only before ownership; the 60-second caretaker priority/open-early rule and distinct-contender public round-robin are approved. Exact offline caps, growth timers, tutorials, social rewards, and presentation remain provisional. The user approved paid true-transfer stealing on 2026-07-19 as a separate later-update exception; it is not part of the first playable. That later contract must account for voluntary plot exposure, free protection through held/inventory/favorite states, and permanent loss of an exposed stolen asset. Exact protection pacing remains unresolved.
+The smallest internal first-playable prototype remains theft-free so farming, ownership, persistence, appraisal, and ordinary selling can be proven without adding cross-profile transfer risk. Wild-capture competition exists only before ownership; the 60-second caretaker priority/open-early rule and distinct-contender public round-robin are approved. On 2026-07-20 the user moved paid true-transfer stealing into the public initial-release target. This changes launch scope but not implementation order: stealing is built last, remains disabled behind a server feature flag, and blocks public release until policy, free protection, receipts, transaction recovery, economy, and closed multiplayer trust gates pass. The contract must account for deliberate exposure, free protection through held/inventory/favorite/lock states, and permanent loss of an eligible stolen asset. Exact protection pacing and additional protected classes remain unresolved.
 
 ## Core loop
 
@@ -212,7 +212,7 @@ The plant harvest-mode catalog beyond the approved ordinary/tree boundary, exact
 
 ## Paid true-transfer stealing
 
-The gameplay contract and later-update release order were approved on 2026-07-19; price remains provisional:
+The gameplay contract was approved on 2026-07-19. The user amended the release order on 2026-07-20 so this is a conditional initial-public-release target; price remains provisional:
 
 - A repeatable paid purchase grants one persistent, buyer-bound Steal Credit. The proposed base price is 99 Robux, but the final configured and displayed price is not yet locked.
 - The owner and buyer must be present in the same eligible live server.
@@ -225,4 +225,4 @@ The gameplay contract and later-update release order were approved on 2026-07-19
 - If the target is invalidated or the transfer cannot safely commit, the item stays with its owner and the buyer keeps the paid credit for another exact eligible target. There is no random substitute.
 - Free grace periods, rate limits, per-victim cooldowns, and post-theft protection are required; exact durations remain provisional. Paid shields are not approved.
 
-This approval intentionally permits paid acquisition of an existing item's economic value, including mutation, size, and weight value. It does not allow paid changes to trait-generation odds or strength. The feature is deferred until a later update after the core farming, inventory, ownership, persistence, appraisal, and ordinary selling systems are proven. Exact product price, Managed Pricing behavior, protected content classes, reservation timing, cooldowns, private-server behavior, UI, and platform classification remain provisional. Roblox policy confirmation is required before launch.
+This approval intentionally permits paid acquisition of an existing item's economic value, including mutation, size, and weight value. It does not allow paid changes to trait-generation odds or strength. Core farming, inventory, immutable identity, ownership, persistence, appraisal, ordinary selling, and generic receipt handling must be proven first during development. The transfer system is built last, stays disabled behind a server feature flag, and blocks public launch until Roblox policy classification, fail-closed eligibility, free protection, cross-profile recovery, anti-abuse limits, economy/trust stop metrics, and closed multiplayer tests pass. Exact product price, Managed Pricing behavior, protected content classes, resale rules, reservation timing, cooldowns, private-server behavior, UI, and platform classification remain provisional.

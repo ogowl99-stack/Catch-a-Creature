@@ -16,7 +16,7 @@ No external player feedback or analytics exist.
 - Keep the gameplay rhythm as similar to Grow a Garden as practical, especially the buy, plant, wait/offline, harvest, sell, reinvest, and expand progression spine; retain original Catch a Creature content and expression
 - Allow bonded creatures to be sold, with mutations, size, and weight affecting each creature and its value
 - Add paid true-transfer stealing for an exposed planted plant or captured roaming creature: no duplicate, inventory/held assets are protected, and the buyer may keep or sell the exact stolen item for its normal value
-- Ship paid true-transfer stealing in a later update after the core farming, inventory, ownership, persistence, appraisal, and selling systems are proven
+- Target paid true-transfer stealing for the initial public release, but build it last and keep it disabled until core farming, inventory, ownership, persistence, appraisal, selling, policy, protection, receipt, recovery, economy, and closed multiplayer gates pass
 - Use Sunspud as a separate always-stock super-common plant, with every Sunspud targeting roughly 45 seconds to grow
 - Make ordinary plants single-harvest and require replanting; only explicit classes such as trees regrow
 - Keep Shop, `Your Plot`, and Sell travel permanently free
@@ -28,7 +28,7 @@ No external player feedback or analytics exist.
 - Reject exact identical-position planting; default an optional one-stud grid off; show five of ten hotbar assignments per phone page; keep free Shop/Plot/Sell travel visible in ordinary gameplay
 - Cap compatible ordinary seed stacks at 999; keep trait-bearing/Adapted Seeds individual unless completely canonically identical; keep weighted tree produce individual
 - Let planted crops and roaming/displayed creatures free Backpack slots under separate caps; if storage is full, keep the exact bonded creature safely on the plot
-- Keep favorite/lock free on exposed mature assets; do not add a storage-resolution grace before later theft eligibility
+- Keep favorite/lock free on exposed mature assets; do not add a storage-resolution grace before ordinary launch-theft eligibility. Separate universal new-player/placement/post-transfer protections remain unresolved and must not be confused with storage recovery.
 - Make permanent +200 storage repeatable. Stakeholder requested unlimited purchases; platform review corrects the product to Developer Product and requires a finite tested operational maximum before launch
 - Approve five repeatable +200 purchases as the launch maximum: 200 base plus 1,000 purchased equals 1,200 total slots, still subject to implementation and measured safety gates
 - Make favorites block Sell Held; collect tree produce one item at a time and leave the selected produce on the tree when storage is full

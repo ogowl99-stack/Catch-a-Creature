@@ -1,5 +1,21 @@
 # Architecture Decisions
 
+## ADR-012: Paid true transfer is a gated final launch system
+
+- Date: 2026-07-20
+- Agent: Architecture Agent / Data Agent / Security Agent / Game Design Agent / Monetization Agent / QA Agent / Map Agent / Codex
+- System affected: Launch order, item identity, ownership, cross-profile persistence, Marketplace receipts, policy eligibility, protection, economy, UI, audit, incident recovery, and plot interaction
+- Situation: The user moved paid true-transfer stealing from a later update into the initial public-release target while retaining public plot visitation and making the Memory Tree the permanent event venue.
+- Decision made: Accept stealing as a conditional initial-release target without moving it into the smallest internal first playable. Build it last and keep it disabled behind a server feature flag. Public launch is blocked until core farming, immutable item identity, inventory, ownership, persistence, appraisal, sale/release, generic receipt handling, policy classification, free protection, cross-profile recovery, anti-abuse limits, economy/trust stop metrics, and closed multiplayer tests pass. Ordinary plot access never grants edit authority. A steal is one explicit server-authoritative transfer of one exact eligible UUID/revision. `ProcessReceipt` grants one durable buyer-bound Steal Credit and never transfers a mutable live target directly. The transfer uses an item-centric ledger/reconciler, capacity-safe buyer inbox, permanent provenance, fail-closed eligibility for both players, audit, and a kill switch. The central Memory Tree, event objects, wild visitors, and public map objects are never player-asset targets.
+- Reasoning summary: Launch scope and implementation order are separate. Proving single-profile ownership before cross-profile paid transfer prevents the monetized system from becoming the foundation for every ordinary action. Feature gating and a durable transfer saga are necessary because two player profiles cannot be updated as one atomic DataStore transaction.
+- Result: The launch target and minimum architecture are code-reviewed. Product price/ID, final resale rules, protection classes and timing, same-pair limits, private-server behavior, victim notices, policy classification, exact schema, and stop thresholds remain unresolved. No implementation exists.
+- Test evidence: Direct user decision plus independent Architecture/Data/Security, Game Design/Monetization/Player Trust, and Map/QA reviews on 2026-07-20. No Luau, receipt, DataStore, policy, multiplayer, economy, device, or Studio gameplay evidence exists.
+- Mistakes discovered: Treating initial-release scope as permission to build theft before ownership would invert the dependency graph. Allowing normal visitor interactions to mutate a plot would bypass the exact-target transaction. Binding a receipt directly to a live target would lose paid value when the target changes.
+- Recommended future approach: Lock protection and policy decisions; build one authoritative item transition service; fault-test identity, ownership, receipt, and recovery independently; then implement exact-target credits behind a disabled flag and delay public launch if any hard gate fails.
+- Confidence level: High for ordering and transaction boundaries; Low for policy classification and player-trust outcome until confirmed and tested
+- Verification status: Code-reviewed
+- Implementation status: Not yet implemented
+
 ## ADR-011: Failure decisions are personal; rare celebration follows durable ownership
 
 - Date: 2026-07-19

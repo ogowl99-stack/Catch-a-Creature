@@ -134,3 +134,18 @@
 - Files affected: Design and knowledge documents only; no implementation exists.
 - Better replacement: Grant one persistent buyer-bound Steal Credit idempotently, then redeem it through a separate exact-item conditional ownership transaction with a durable ledger and reconciler.
 - Situations where it may still be useful: None for persistent paid cross-player items; a direct callback may grant a self-contained buyer-only product that does not depend on live external state.
+
+## FA-010: Enlarge map footprints without recalculating connected clearances
+
+- Date: 2026-07-20
+- Agent: Map Agent / Codex
+- System affected: Player plots, shared facilities, future reserves, perimeter route, and island circulation
+- Goal: Make the island, plots, and future mount circulation feel proportionate at the larger scale.
+- Attempted solution: Enlarge plots around their original centers and place the widened perimeter route at the first visually reasonable radii.
+- Why it failed: Plot size, plot centers, shared-space envelopes, reserve positions, and route radii are coupled. The original centers crowded the Hub/reserves, and the first 340×380 trail radii touched four 96×96 plots.
+- Symptoms: Overlapping route/plot footprints and insufficient clearance around shared spaces.
+- Performance impact: Low in graybox; potentially high if overlapping final assets cause extra collision, rendering, or navigation work.
+- Security impact: None at the geometry stage; future plot-authority boundaries could become ambiguous if functional zones overlap.
+- Files affected: `StudioBuild/Phase2Graybox.lua`, `Design/Map/Phase2GrayboxDimensions.md`, and the live `Workspace.CatchACreature_Graybox_v1` model.
+- Better replacement: Treat footprint scale as a dependency graph; move the plot ring and reserves, derive connected paths/openings, recalculate trail radii, then run exact pairwise/SAT overlap and humanoid traversal checks before approval.
+- Situations where it may still be useful: Independent decorative props with no collision, ownership, route, camera, or reserved-space dependencies.

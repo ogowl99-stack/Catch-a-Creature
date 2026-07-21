@@ -79,7 +79,7 @@ Server-wide paid randomness has unresolved provenance and eligibility questions 
 
 The user approved the gameplay contract on 2026-07-19:
 
-Release order: Later update only, after core farming, inventory, ownership, persistence, appraisal, and ordinary selling are proven. It is not part of the first playable.
+Release order amended by the user on 2026-07-20: conditional initial-public-release target, implemented only after core farming, inventory, immutable identity, ownership, persistence, appraisal, ordinary selling, and generic receipt handling are proven. It is not part of the smallest internal first-playable prototype. It remains feature-flagged off and blocks public launch until policy classification, free protection, cross-profile recovery, anti-abuse limits, economy/trust stop metrics, and closed multiplayer validation pass.
 
 - One repeatable purchase grants one persistent, buyer-bound, nontradeable Steal Credit.
 - The proposed base price is 99 Robux. Final pricing, Managed Pricing, and regional transfer controls remain provisional.

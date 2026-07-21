@@ -4,13 +4,13 @@ Catch a Creature is an original Roblox sanctuary, creature-discovery, and habita
 
 ## Current status
 
-- Phase: Phase 1 standards and source-link work authorized and in progress; Phase 2 grayboxing and gameplay remain unauthorized
-- Game implementation: Not yet implemented
-- Roblox Studio connection: Verified against the authorized default place; no gameplay or repository-source verification exists
+- Phase: Phase 2 graybox v1 implemented and single-client desktop-verified; Phase 3 gameplay remains unauthorized
+- Game implementation: Reversible map graybox only; no gameplay systems are implemented
+- Roblox Studio connection: Verified against the authorized place; the graybox exists in the open Studio session, while repository-to-Studio source linkage is still unresolved
 - Blender assets: Not yet created
 - Public release: Not yet published
 
-No gameplay code, models, audio, UI, or production assets exist yet. The current repository preserves the project research and the decisions made before production begins.
+No gameplay code, production models, audio, UI, or final assets exist yet. The repository now also contains the dimensioned Phase 2 graybox recipe and rollback script used in Studio.
 
 ## Core game promise
 
@@ -24,7 +24,9 @@ Wild visitors remain unowned until one successful server-authoritative capture. 
 
 Later progression may add breeding, inherited traits, plot showcases, community migrations, and carefully bounded trading. These systems are not approved for implementation until the smallest complete loop is proven.
 
-Paid true-transfer stealing is approved for a later update after the core farming, inventory, ownership, persistence, appraisal, and ordinary selling systems are proven. It will move one exact eligible plot-exposed plant or successfully captured owned creature without duplication; wild visitors never qualify. Implementation remains blocked on receipt, policy, protection, transaction-recovery, and multiplayer validation.
+Paid true-transfer stealing is now a conditional initial-release target after the core farming, inventory, ownership, persistence, appraisal, and ordinary selling systems are proven during development. It will move one exact eligible plot-exposed plant or successfully captured owned creature without duplication; wild visitors never qualify. It must be implemented last, remain disabled behind a server feature flag, and block public launch until receipt, policy, protection, transaction-recovery, and closed multiplayer validation pass.
+
+The expanded Phase 2 map graybox uses eight equal 96×96 plots around Crescent Pond Sanctuary on an approximately 880×920 walkable island. Players spawn at the Welcome Gate, pass wealth-leaderboard and donation-board footprints, and will later cross the gate to move to an assigned plot. The ranking metric, donation mechanism, gate transport, plot authority, services, events, creature spawning, and mount gameplay remain nonfunctional future markers. The swimmable pond, bridges, 20-stud perimeter/mount trail, invisible collidable island border, gentle outer hills, continuous ocean, Memory Tree event venue, and natural-meadow reserves are present and one-client desktop-verified.
 
 ## Originality commitment
 
@@ -45,6 +47,7 @@ All production models are planned to be made from scratch in Blender and integra
 
 - `Research/` - researched references, original design synthesis, sources, and the proposed development order
 - `Design/` - approved concept art, spatial decisions, and the remaining concept-generation plan
+- `StudioBuild/` - reversible Studio construction and rollback recipes for authorized grayboxes
 - `AgentKnowledge/` - shared project-specific knowledge, decisions, findings, and prevention rules
 - `AgentMemory/` - specialized agent memory and improvement goals
 

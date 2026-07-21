@@ -2,6 +2,8 @@
 
 This folder preserves the user-approved visual direction for Catch a Creature as of 2026-07-17.
 
+Current implementation note (2026-07-20): The approved imagery remains authoritative for visual composition, mood, orientation, and spatial relationships. The dimensioned Phase 2 construction map supersedes its original 72×72 plot number: implemented graybox plots are exactly 96×96 studs.
+
 These images are **original visual references**, not Roblox or Blender production assets. They communicate mood, spatial relationships, scale intent, color, and material language. Every production model, texture, interface, effect, and audio asset will be created from scratch for this project.
 
 ## Evidence and truth status
@@ -22,7 +24,7 @@ Current planning assumptions shown in this image:
 
 - The Welcome Gate is centered at the southern edge and aligned directly with the Memory Tree
 - The Memory Tree and crescent pond form the central navigation anchor
-- Eight equal player plots form the outer progression ring; each represents the approved 72×72-stud footprint
+- Eight equal player plots form the outer progression ring; the image shows the original 72×72 concept, while the current construction footprint is 96×96 studs
 - A reserved future breeding footprint is northwest and a reserved future weather/event meadow is northeast; neither is initial-playable production scope
 - The Caretaker Hub is southwest and the selling market is southeast
 - The Caretaker Hub opens inward toward the tree and remains beside the main circulation route
@@ -62,15 +64,15 @@ Approved direction:
 
 ![Standard 72 by 72 stud player plot](Approved/standard-player-plot-72x72.png)
 
-Approved requirements:
+Approved visual requirements and current scale:
 
-- Every player receives the same **72×72-stud outer plot footprint**
+- Every player receives the same **96×96-stud outer plot footprint** in the current Phase 2 construction map
 - Every plot receives the same buildable area and functional capacity
 - Plots may rotate to face the sanctuary center, but may not change size
 - The spacious footprint must support habitat flora, creatures, paths, decoration, and later breeding features without becoming unreadable
 - Exact camera clearance, boundary thickness, and maximum-density navigation require Studio validation
 
-The rounded presentation in the artwork is a styling reference; the numeric 72×72 rule controls implementation.
+The rounded presentation and internal composition remain approved styling references. The `72x72` filename is historical; the exact 96×96 construction rule controls implementation.
 
 ### Caretaker Hub orientation
 
@@ -90,4 +92,4 @@ Earlier drafts with an off-center gate sightline, a smaller plot, or a Caretaker
 
 ## Next required planning artifact
 
-The next planning artifact should convert the top-down concept into a **dimensioned construction map**. It must resolve final player count, plot centers, 72×72 boundaries, path widths, pond and tree footprint, hub footprint, spawn, tutorial stops, selling area, breeding sanctuary, expansion reserves, and safe circulation before detailed construction begins.
+The dimensioned construction map is now maintained in `Design/Map/Phase2GrayboxDimensions.md`. It defines the eight 96×96 plot boundaries, paths, pond and tree footprint, hub footprint, spawn, expansion reserves, perimeter route, and invisible island border.

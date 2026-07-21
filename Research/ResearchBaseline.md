@@ -38,7 +38,7 @@ The sequel preserves farming but adds theft, owner-presence protection, defense,
 
 Initial decision: Catch a Creature targeted a cozy, opportunity-driven, communal contract with theft, destructive decay, paid offensive power, and mandatory defense outside the design.
 
-Supersession approved by the user on 2026-07-19: paid true-transfer stealing of an exposed planted plant or captured roaming/displayed creature is a planned later-update exception. It transfers the exact item without duplication and gives the buyer normal ownership and sale rights. Held, inventory, favorited, and locked assets are protected; exact protection timing, additional protected classes, price, and platform classification remain provisional. Destructive decay and mandatory defense remain outside the approved direction.
+Supersession approved by the user on 2026-07-19 and amended on 2026-07-20: paid true-transfer stealing of an exposed planted plant or captured roaming/displayed creature is a conditional initial-release target rather than a later update. It transfers the exact item without duplication and provisionally gives the buyer normal ownership and sale rights. Held, inventory, favorited, and locked assets are protected. The system is implemented last and stays feature-flagged off until policy, protection, receipt, transaction-recovery, economy, and closed multiplayer trust gates pass. Exact protection timing, additional protected classes, price, resale rules, and platform classification remain provisional. Destructive decay and mandatory defense remain outside the approved direction.
 
 ## Progression lesson
 

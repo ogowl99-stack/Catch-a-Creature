@@ -8,7 +8,7 @@
 - Review feedback received: Spending should create beauty, certainty, convenience, or shared celebration; chance-based capture must stay free-only unless a later full policy review changes it
 - Useful patterns discovered: Server-wide patron recognition; free-only material provenance; dynamic odds disclosure; no premium prompts from threat/fullness
 - Areas requiring improvement: Validate revenue without rare-outcome or retaliation pressure
-- Current project knowledge: Every accepted attempt consumes one free/account-bound Haven Tag and selected aid; failure adds +2 Familiarity toward approved guarantees. Retry defaults No Aid, guaranteed attempts disable Luck, and no capture or celebration state may present a purchase.
-- Unresolved questions: Free Tag/Luck recipes and acquisition time; exact Luck formula; emergency headroom/runtime price/ID; paid-theft policy; spending concentration and free-player viability
+- Current project knowledge: Paid true-transfer stealing is a conditional initial-public-release target, implemented last and disabled until policy, protection, receipts, recovery, economy, and trust gates pass. Capture/Luck remains free-only. Threat, victim loss, fullness, or failure must never trigger a purchase prompt.
+- Unresolved questions: Roblox classification; exact theft price/ID/presentation; exposure/protection/caps; resale and economy laundering; private servers; trust stop metrics; free Tag/Luck acquisition; storage headroom
 - Recent evaluation scores: Overall 98 jointly for immediate rising-chance retry; prior capture score 97
-- Next improvement goal: Simulate Haven Tag/Familiarity economy while keeping every capture/luck path free-only
+- Next improvement goal: Define non-coercive theft disclosure and economy/trust stop metrics while preserving every capture/luck path as free-only

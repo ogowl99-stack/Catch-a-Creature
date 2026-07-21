@@ -1,5 +1,53 @@
 # Lessons Learned
 
+## 2026-07-20 Phase 2 graybox retrospective
+
+- Date: 2026-07-20
+- Agent: Codex / Map, QA, and Performance Agents
+- System affected: Studio construction, map validation, reference-image use, evidence, and rollback
+- Situation: The project moved from design-only map decisions to its first live Studio world shell.
+- Decision made: Build the complete island circulation shell, but keep every gameplay surface nonfunctional and labeled; combine reference images, numeric dimensions, direct Studio assertions, R15 traversal, and scoped performance evidence.
+- Reasoning summary: The whole island was needed to test the central event venue and eight-plot flow, while a reversible graybox kept the phase from turning into premature final production.
+- Result: Phase 2 graybox v1 is built and verified for edit structure and one-client desktop movement. Five approved reference images are attached as named metadata. No Phase 3 gameplay, final art, publishing, or destructive rollback occurred.
+- Test evidence: 104/104 edit checks, passed spawn/land/swim/exit/under-bridge/arrival-pad tests, empty console, and one SceneAnalysisService baseline.
+- Mistakes discovered: Shell command wrappers must never be forwarded as source; large parallel screenshot batches are less reliable than sequential captures; generated counts must be updated after all metadata children exist; radial paths can miss cardinal fence openings; visual inspection can miss a two-stud gate-width error; Terrain rollback must refuse later voxel changes; truth labels must remain one exact allowed value.
+- Recommended future approach: Keep source and rollback paired, derive connected geometry from shared definitions, assert exact contract dimensions, capture one viewport at a time, make destructive tooling fail closed, scope every Verified label, and require multiplayer/device evidence before art replacement or functional gate/plot work.
+- Confidence level: High
+- Verification status: Verified
+
+Milestone answers:
+
+- Completed: Reversible island shell, eight plots, gate axis, pond/bridges/swim exits, event island, Hub, meadows, outer landscape, reference traceability, and first map test evidence.
+- Worked well: Written dimensions plus approved concept images; exact edit assertions paired with humanoid traversal; one-root rollback boundary.
+- Delays: One source-wrapper parse failure and one screenshot timeout, neither of which changed or damaged the place.
+- Bugs occurred: Stale generated-count metadata, eight path/fence alignment mismatches, a 22-stud gate opening against a 24-stud contract, unsafe unconditional Terrain clearing in rollback, and one composite truth label. Independent review found them; source and Studio geometry were corrected and regression-tested.
+- Bugs prevented: Overwriting existing Studio content, clearing user-edited Terrain, confusing placeholders with functional gameplay, blocked plot arrival pads, narrow bridges, root-blocked event circulation, and unsupported performance claims.
+- Agents needing support: Map/QA still need multi-client and real-device evidence; Performance still needs frame-time/memory/network measurements under representative density.
+- Helpful architecture: Additive namespaced root, Terrain-region record, spawn rollback record, and exact visual/dimension authority metadata.
+- Missing tests: Eight-player crowding, mobile/tablet/controller, functional gate/plot ownership, ocean return, streaming re-entry, final assets, and production persistence.
+- Automate next: Repository-owned graybox validator after source linkage and repeatable evidence export for the command center.
+- Change next phase: Review the graybox visually with the user, then authorize only a small Phase 3 vertical-slice scaffold if the scale feels right.
+
+Follow-up (2026-07-20): The user rejected visible gray beyond the ocean. The first 800×904 envelope and an intermediate 2048×2048 correction did not cover the widest top-down review camera. A preflighted 4096×4096 Terrain ocean now fills that view, with all 4,194,304 voxels verified as generated Water. Future environment envelopes must be accepted against gameplay, overview, and promotional cameras rather than normal player distance alone.
+
+Follow-up (2026-07-20): Scaling is relational. Enlarging the island while keeping 72×72 plots made the playable content feel undersized; enlarging plots at their old centers then crowded shared spaces; widening the mount trail at its first radii touched four plots. The stable result came from moving the 96×96 plot ring outward, relocating reserves into unused outer gaps, and moving the trail outward before re-running exact overlaps and humanoid traversal. Future footprint changes must trigger a complete dependency/clearance pass.
+
+## 2026-07-20 Launch-scope and event-center amendment lesson
+
+- Date: 2026-07-20
+- Agent: Codex with Architecture, Data, Security, Game Design, Monetization, Map, and QA Agents
+- System affected: Map, launch scope, ownership, monetization, policy, testing, and project memory
+- Situation: The user clarified the island's join/social/water/event flow and moved paid stealing from a later update into the initial public-release target.
+- Decision made: Record the map brief and explicitly supersede the old release-order statement. Keep the internal first playable theft-free, implement paid transfer last, keep it feature-flagged off, and block public launch until every hard gate passes. Preserve ordinary plot visits as read-only and exact steals as a separate server-authoritative transaction.
+- Reasoning summary: A release target must not silently reorder technical dependencies or erase previous risk findings. Separating launch intent, implementation order, and verification status preserves user direction without fabricating readiness.
+- Result: Current project context, research, architecture, map patterns, risks, testing, design knowledge, agent memories, goals, and scores were updated. No Studio content or gameplay code was changed.
+- Test evidence: Direct user decisions, repository recall, current blank Studio inspection earlier in the session, approved concept review, three independent specialist reviews, and documentation checks. No gameplay/runtime evidence exists.
+- Mistakes discovered: The earlier design treated the Memory Tree mainly as a landmark rather than a measured gathering venue. The phrase “initial release” could be mistaken for immediate implementation permission. Donation and post-death behavior remain unresolved details rather than blockers for the dimensioned map.
+- Recommended future approach: Maintain explicit supersession notes; dimension and test the island before art production; build ordinary item ownership before any paid cross-profile transfer; require policy confirmation and closed multiplayer stop metrics before enabling theft.
+- Confidence level: High for the recorded decisions and sequencing; Low for runtime, policy, and player-trust outcomes until tested
+- Verification status: Code-reviewed
+- Implementation status: Not yet implemented
+
 ## 2026-07-19 Deliberate failure choice and post-commit celebration lesson
 
 - Date: 2026-07-19
@@ -198,6 +246,7 @@
 - Verification status: Code-reviewed
 - Implementation status: Not yet implemented
 - Follow-up: The user approved the recommended later-update release order on 2026-07-19. Paid true-transfer stealing is not part of the first playable and remains gated behind proven core ownership/economy systems and policy confirmation.
+- Follow-up (2026-07-20): The user superseded that release order and made paid true transfer a conditional initial-public-release target. It remains outside the smallest internal first playable, is implemented last, stays feature-flagged off, and blocks public launch until the existing policy, ownership, protection, receipt, recovery, economy, and multiplayer gates pass.
 
 ## 2026-07-19 Approval amendment and disposition lesson
 

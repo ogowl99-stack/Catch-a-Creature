@@ -8,7 +8,7 @@
 - Review feedback received: Fail closed on uncertain paid/persistent state; rejected capture spam must cause no RNG, VFX, pathfinding, or persistence work
 - Useful patterns discovered: Idempotent ledgers, revision/CAS locks, capacity-before-RNG, free-only provenance, server catalogs, token buckets, bounded audit
 - Areas requiring improvement: Turn findings into automated adversarial and provenance tests
-- Current project knowledge: One committed failure atomically consumes its Tag/aid, adds one approved Familiarity step, and issues one decision token. Retry/Let Go are mutually exclusive and idempotent; Retry adds one fair intent, personal Let Go changes no encounter/progress. Success commits one owned UUID before a sanitized deduplicated celebration event.
-- Unresolved questions: Token/rate/audit details; exact Luck formula/recipes; expiry grace; free recipes; celebration-event validation; cap/headroom; paid-theft policy; incident tooling; and PNG candidates
+- Current project knowledge: Launch-target paid transfer is built last and feature-flagged off. It requires idempotent receipt credits, exact UUID/revision validation, fail-closed eligibility for both users, cross-profile recovery, immutable provenance, audit, anti-chain limits, protected capacity, and a kill switch. Ordinary visitors never gain plot mutation authority.
+- Unresolved questions: Policy classification; transfer state/ledger retention; protection/cap/alt/private-server rules; incident tooling; exact Luck/expiry/audit details; storage headroom; and PNG candidates
 - Recent evaluation scores: Overall 98 jointly for failure-decision and rare-celebration review; prior capture score 97
-- Next improvement goal: Automate attempt/decision/event replay, transaction fault, capture authority, and free-only provenance regression scans
+- Next improvement goal: Add deterministic receipt/transfer fault and unauthorized-plot-mutation cases to the existing attempt/replay/provenance regression plan
