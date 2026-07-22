@@ -1,5 +1,20 @@
 # VFX Patterns
 
+## Pattern: Post-commit local Mythic forage celebration
+
+- Date: 2026-07-21
+- Agent: Codex / VFX and UI roles
+- System affected: Rare forage feedback, client presentation, cleanup, and accessibility
+- Situation: The user requested a special animation and cool VFX when a super-rare/Mythic seed is pulled from the ground.
+- Decision made: After a successful server grant, send only the capturer a sanitized event ID, definition ID, rarity, and world position. Render a brief gold/purple ground bloom, rising seed, 18 motes, world label, and top banner locally. Deduplicate event IDs and destroy the effect automatically; do not move the camera or use flashing.
+- Reasoning summary: A local bounded celebration feels special without granting authority, interrupting nearby players, or leaving replicated effect debris.
+- Result: The presentation rendered in Studio and disappeared after its lifetime. It was triggered as a presentation-only simulation because no Mythic seed exists in the current catalog.
+- Test evidence: Studio screen capture and post-lifetime absence check; console remained error-free.
+- Mistakes discovered: The first active-instance query occurred after the 3.5-second lifetime, so the retained screenshot—not the late query—is the positive visual evidence.
+- Recommended future approach: Add Reduced Motion/Off settings before release, test on low-end mobile, and activate naturally only after a real Mythic definition and committed reward exist.
+- Confidence level: High for bounded desktop presentation; Low for device performance/accessibility until tested
+- Verification status: Simulated presentation; cleanup Verified
+
 ## Entry: Approved post-commit Mythic-capture celebration direction
 
 - Date: 2026-07-19

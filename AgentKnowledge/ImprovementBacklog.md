@@ -1,23 +1,49 @@
 # Improvement Backlog
 
+## 2026-07-21 hero-center and selling follow-ups
+
+- Priority: High
+- Owner: Map/QA/UI/Performance roles
+- Goal: Validate the 255-stud Memory Tree, 184-stud event island, and top-center HUD on real phone, tablet, controller, and eight-player crowd/streaming scenarios.
+- Evidence needed: Device screenshots, eight-client route/crowd results, event-state readability, streaming behavior, and measured frame/memory/draw/instance metrics with representative gardens.
+- Status: Pending
+
+- Priority: High
+- Owner: QA/Map roles
+- Goal: Execute the hero-island rollback against a safe cloned place/root and prove exact 684-descendant/602-part restoration without touching Terrain.
+- Evidence needed: Expected-state refusal mutation test, exact original transforms/names/attributes/counts, and post-rollback baseline validator.
+- Status: Pending; rollback source is syntax-checked but intentionally unexecuted in the authorized live place.
+
+- Priority: Medium
+- Owner: Gameplay/UI/Network roles
+- Goal: Replicate a bounded held-item descriptor so nearby players see the equipped seed/plant while retaining server authority and cleanup.
+- Evidence needed: Two-client equip/store/sell/respawn tests, streaming cleanup, remote rate limits, R15/avatar proportion/device captures.
+- Status: Pending
+
+- Priority: Medium
+- Owner: QA/Data/UI roles
+- Goal: Exercise live multi-item `SELL ALL UNFAVORITED` with mixed favorites and stored/hotbar items.
+- Evidence needed: Exact pre/post item IDs, payouts, hotbar cleanup, favorite survival, replay, rejoin, and touch/controller activation.
+- Status: Pending; deterministic domain evidence exists.
+
 Every agent keeps one active project-specific improvement goal.
 
 | Agent | Active improvement goal |
 |---|---|
-| Codex | Preserve the verified Phase 2 graybox boundary while closing source linkage and preparing one small Phase 3 authorization package |
+| Codex | Add reviewed Rare-Mythic seed content and prove effective rarity distribution without weakening the server-authoritative forage boundary |
 | Game Design Agent | Define launch-theft trust/economy stop conditions while simulating Tag guarantees and eight-player capture economy |
-| Architecture Agent | Define one authoritative revision-checked item transition service before cross-profile paid transfer |
+| Architecture Agent | Define the minimal encounter ID, revision, lifetime, cleanup, and rejoin contract required by Observe |
 | Map Agent | Validate the expanded 96×96 plot ring, perimeter trail, invisible walls, and shared spaces with eight-player crowd and device evidence |
-| Gameplay Agent | Prototype the capture state flow first, then define one server-authoritative future mount state without hidden client speed authority |
-| Enemy AI Agent | Prove deterministic, low-cost contested visitor, decision, expiry, and cleanup states before complex navigation |
-| UI Agent | Prototype the approved failure choice, fair queue, No Aid/guarantee controls, and post-commit reveal across mobile/controller/reduced motion |
-| VFX Agent | Prototype and measure the approved Mythic hero plus Legendary/nearby-effect cleanup budget on low-end mobile |
+| Gameplay Agent | Balance forage discovery, cooldown, and rarity only after a complete eligible seed catalog and measured play route exist |
+| Enemy AI Agent | Define Observe-ready visitor lifetime and cleanup before adding wandering or pathfinding |
+| UI Agent | Design and verify an accessible Observe prompt/state card across desktop, touch, and controller |
+| VFX Agent | Add Reduced Motion/Off handling and measure the Mythic seed pull on low-end mobile before natural Mythic drops are enabled |
 | Audio Agent | Create and test one low-fatigue, captioned, skip-safe rare-capture motif with recorded provenance |
-| Data Agent | Propose minimal versioned attempt, decision, Familiarity, capture-provenance, celebration-dedupe, capacity, and migration schemas |
+| Data Agent | Run a schema-v4 isolated rejoin proving forage cooldown, exact stacks, and all prior profile data survive migration |
 | Monetization Agent | Define non-coercive theft disclosure and stop metrics while keeping capture outside every paid value path |
-| Security Agent | Add receipt/transfer faults and unauthorized plot mutation to capture/provenance/server-validation regression plans |
-| Performance Agent | Extend the expanded-layout baseline to frame-time, memory, streaming, physics, network, crowded plots, creatures, mounts, and target devices |
-| QA Agent | Convert expanded-layout, invisible-wall, and future-mount requirements into repeatable multi-client/device acceptance without weakening paid-transfer gates |
+| Security Agent | Test two-client forage contention, request throttling evidence, forged rewards, and commit-failure no-relocation behavior |
+| Performance Agent | Measure six forage nodes and concurrent Mythic presentation cleanup on the target low-end device |
+| QA Agent | Add schema-v4 rejoin, two-player forage contention, distribution simulation, and physical touch/controller coverage |
 | Documentation Agent | Automate truth-label, required-field, source-date, and cross-document consistency checks |
 
-Milestone review: Map, QA, Performance, and Codex goals refreshed after the Phase 2 graybox milestone on 2026-07-20. Previous dimensioning and first-baseline goals are achieved only within the documented one-client desktop scope.
+Milestone review: Codex, Architecture, and QA goals refreshed after verified Rojo source linkage on 2026-07-21. Map and performance goals remain bounded to the documented one-client desktop Phase 2 evidence.

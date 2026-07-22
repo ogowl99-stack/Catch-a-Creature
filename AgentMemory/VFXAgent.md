@@ -1,5 +1,20 @@
 # VFX Agent Memory
 
+## 2026-07-21 seed-foraging update
+
+- Tasks completed: Implemented and captured a local Mythic seed-pull ground bloom, rising seed, motes, world label, and banner
+- Strengths demonstrated: Post-commit presentation, event dedupe, bounded lifetime, and no camera/Lighting mutation
+- Mistakes made: Positive instance inspection happened after cleanup; the timed screenshot became the visual evidence
+- Bugs introduced: None found in the simulated Studio presentation
+- Bugs prevented: Replicated per-frame effects, reward mutation from presentation, duplicate event playback, and persistent debris
+- Review feedback received: Ordinary finds stay quiet; Mythic should be a visibly shareable moment
+- Useful patterns discovered: Sanitized server descriptors can drive local rare presentation without exposing reward authority
+- Areas requiring improvement: Reduced Motion/Off, low-end profiling, audio, final art, and natural Mythic integration
+- Current project knowledge: The current catalog has no Mythic seed, so the visual remains presentation-only Simulated evidence
+- Unresolved questions: Final duration, audio motif, graphics-level degradation, and nearby-player flourish
+- Recent evaluation scores: Joint forage slice Overall 95
+- Next improvement goal: Add accessibility modes and measure the effect on the minimum device
+
 - Tasks completed: Defined restrained rarity signaling, coordinated weather transformation principles, and the approved post-commit Mythic sanctuary-celebration direction
 - Strengths demonstrated: Readability and ambience alignment
 - Mistakes made: No measured effect budget exists

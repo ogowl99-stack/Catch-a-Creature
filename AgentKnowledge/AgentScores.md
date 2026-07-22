@@ -1,10 +1,239 @@
 # Agent Scores
 
+## 2026-07-21 Memory Tree hero-center revision
+
+Agent: Map Agent / Codex
+Task: Reversible hero-island expansion and focal-tree scale
+Correctness: 97
+Code quality: 95
+Architecture compliance: 97
+Security: 96
+Performance: 86
+Test quality: 98
+Documentation: 97
+Creativity: 96
+Visual quality: 97
+Collaboration: 82
+Task completion: 97
+Regression prevention: 97
+Overall: 95
+
+Strengths:
+- Scaled every radial dependency and preserved stable runtime instance names.
+- Used a guarded non-Terrain migration, separate rollback, and repository-owned 2,456-check validator.
+- Iterated tree scale using the real HUD and player-camera composition.
+- Re-ran all gameplay and forage regressions in a fresh server.
+
+Weaknesses:
+- Initial land selection assumed one historical name prefix.
+- First validator omitted its local surface constant.
+- No independent agent review, real-device test, crowded multiplayer test, or fresh performance profile was available.
+
+Required improvement:
+- Use semantic identity in the first migration draft and add a generated preflight report before mutation.
+- Run safe-clone rollback acceptance plus phone/tablet/controller and eight-player camera/crowd checks before final art.
+
+Active improvement goal: Make every landmark-scale decision HUD-aware across desktop and device cameras before committing final art.
+
+Evaluation boundary: Verified live Edit geometry, one-client desktop traversal, deterministic gameplay tests, forage ground, boundary collision, and final logs. This does not approve final tree art, devices, crowd flow, streaming, production performance, or user visual taste.
+
+## 2026-07-21 Held item and favorite-safe selling
+
+Agent: Gameplay/UI/Data/Security roles / Codex
+Task: Held R15 presentation, exact-equipped sale, favorites, and bulk sale
+Correctness: 96
+Code quality: 94
+Architecture compliance: 96
+Security: 98
+Performance: 91
+Test quality: 96
+Documentation: 96
+Creativity: 93
+Visual quality: 93
+Collaboration: 82
+Task completion: 96
+Regression prevention: 96
+Overall: 95
+
+Strengths:
+- Kept valuable sale authority server-side and exact-item based.
+- Added favorite protection and atomic bulk behavior without weakening replay/revision checks.
+- Made harvest/equip state visible through the avatar and hotbar.
+
+Weaknesses:
+- Held presentation is local R15 only and actual live multi-item bulk sale was not exercised.
+- No touch/controller or other-player observation evidence.
+
+Required improvement:
+- Add bounded observer replication and a multiplayer/device sale/equip matrix.
+
+Active improvement goal: Make item selection equally clear and safe for observers, touch, controller, and varied avatar proportions.
+
+Evaluation boundary: Verified one-client desktop memory-mode behavior and 58 deterministic cases; production persistence scale and multiplayer/device presentation remain open.
+
 Scores use 0-100 only when task evidence supports evaluation. Irrelevant categories are `N/A`; missing evidence is never replaced with a fabricated score.
 
 ## Initial state
 
 At the initial repository snapshot, no implementation agent had completed a code, model, UI, VFX, audio, data, security, performance, or QA task, so those agents were not numerically scored then. Later evidence-backed design, documentation, and security reviews are scored below; no score implies that game implementation or performance measurement exists.
+
+## 2026-07-21 seed foraging, relocation, and Mythic presentation slice
+
+Agent: Gameplay / Data / Architecture / Map / Security / UI/VFX / Performance / QA roles coordinated by Codex
+
+Task: Add server-authoritative seed foraging, durable cooldowns, different-location relocation, and a bounded Mythic pull presentation
+
+- Correctness: 97
+- Code quality: 95
+- Architecture compliance: 98
+- Security: 97
+- Performance: 90
+- Test quality: 97
+- Documentation: 98
+- Creativity: 96
+- Visual quality: 95
+- Collaboration: 84
+- Task completion: 93
+- Regression prevention: 98
+- Overall: 95
+
+Strengths:
+
+- Preserved the existing profile/inventory transaction boundary while migrating v1-v3 profiles to schema v4.
+- Prevented client-selected rewards with a server-only token, allowlists, distance checks, eligibility filtering, and no-RNG rejection paths.
+- Converted the anti-macro requirement into stable-node cooldown plus different-unused world relocation and verified it through live prompt input.
+- Added a strong capturer-local Mythic visual with dedupe and bounded cleanup, clearly labeling its presentation-only simulation.
+- Passed 54 fresh-VM tests and verified all 18 ground points with a clean console.
+
+Weaknesses:
+
+- No natural Mythic reward can occur because Rare-Mythic seed definitions do not exist yet.
+- No independent second-agent review was run in this turn; the score is evidence-backed Codex self-evaluation.
+- No multi-client, real device, schema-v4 isolated DataStore rejoin, forced commit failure, or measured performance test exists.
+- The current rarity weights and 120-second cooldown are experimental rather than playtest-balanced.
+
+Required improvement:
+
+- Add reviewed higher-tier content, distribution simulation, independent review when available, two-client contention, schema-v4 rejoin, device/accessibility coverage, and measured effect cost before production approval.
+
+Evaluation boundary: One-client Studio memory-mode behavior, deterministic modules, current graybox, prototype visuals, and source/build validation. This does not approve final balance, natural Mythic acquisition, production persistence, multiplayer anti-cheat, devices, or performance.
+
+## 2026-07-21 Hearthpetal and first Cozzle-arrival slice
+
+Agent: Gameplay / Data / Architecture / UI / Enemy AI / Security / Performance / QA roles coordinated by Codex
+
+Task: Generalize the farm to Hearthpetal, migrate saved quick slots safely, and project one wild/unowned Cozzle after maturity
+
+- Correctness: 97
+- Code quality: 94
+- Architecture compliance: 97
+- Security: 98
+- Performance: 89
+- Test quality: 97
+- Documentation: 98
+- Creativity: 96
+- Visual quality: 91
+- Collaboration: 91
+- Task completion: 96
+- Regression prevention: 98
+- Overall: 95
+
+Strengths:
+
+- Preserved exact displaced items through v1/v2-to-v3 migration, including the full-hotbar fallback.
+- Generalized definition-authoritative farm transactions instead of duplicating Sunspud code.
+- Kept the first Cozzle explicitly wild, unowned, non-capturable, bounded, and separate from durable farm data.
+- Passed 30 farm/schema, 4 service-lifecycle, and 5 attraction tests in a fresh play VM plus live growth/arrival and cleanup evidence.
+
+Weaknesses:
+
+- The first visual composition overlapped Cozzle, Hearthpetal, and their billboards; an offset correction was made but the corrected complete 60-second arrival was not recaptured.
+- Final client Buy-button and slot-2 physical input were code-reviewed/live-remote exercised but not physically clicked by the stakeholder.
+- No profiler, real-device, multiplayer, or schema-v3 isolated DataStore rejoin evidence exists.
+- Independent second-agent review was unavailable for this slice; Codex relied on explicit self-review, fresh-VM tests, and runtime inspection.
+
+Required improvement:
+
+- For Observe, add a minimal server encounter contract, fresh-VM automation, physical input/device checks, and a second review when permitted; profile visitor arrival before adding roaming or more simultaneous creatures.
+
+Evaluation boundary: One-player Studio, prototype part models/UI, deterministic migration/domain tests, derived visitor projection, and clean Rojo source. This does not approve production balance, final art, creature ownership, multiplayer, real devices, production persistence, or measured performance.
+
+## 2026-07-21 persistence, backpack, and service-access follow-up
+
+Agent: Data / Architecture / Security / QA / Gameplay / UI Agents
+
+Task: Verify isolated persistence, correct save/load races, add reversible hotbar organization, build the backpack panel, and repair Shop/Sell access
+
+- Correctness: 97
+- Code quality: 96
+- Architecture compliance: 98
+- Security: 97
+- Performance: 92
+- Test quality: 97
+- Documentation: 97
+- Creativity: 94
+- Visual quality: 95
+- Collaboration: 99
+- Task completion: 96
+- Regression prevention: 98
+- Overall: 97
+
+Strengths:
+
+- Converted the exact 100,000-Leafnote continuity request into a fingerprinted isolated DataStore test with raw/public/runtime comparisons, replay evidence, cleanup, and scoped truth labels.
+- Reproduced and fixed sparse numeric slot loss, duplicate/sequential load races, departed-load cleanup, malformed migration keys, redundant UI, hotbar item organization, and roof-height travel.
+- Preserved exact item identity, weight, location, revision, and ownership while changing only saved hotbar references.
+- Added 24 domain/schema regressions and four FarmService lifecycle regressions, then received an independent PASS.
+
+Weaknesses:
+
+- Production, injected DataStore faults, hard crash, throttling, ambiguous completion, multi-server leases, multiplayer scale, and real devices remain untested.
+- Right-click inventory organization still has no touch/controller equivalent, and safe-ground behavior under future changed kiosk geometry is untested.
+- Safe-ground raycast/fallback behavior is not implemented for future changed kiosk geometry.
+
+Required improvement:
+
+- Add an injected atomic-store adapter, full/middle-gap hotbar assignment cases, safe-ground fallback, and real touch/controller prompt/card checks before expanding inventory or persistent ownership systems.
+
+Evaluation boundary: One-user isolated Studio DataStore behavior, current graybox kiosk geometry, server-authoritative organization commands, repository tests, stakeholder-confirmed desktop input, live desktop UI evidence, and independent code review. This does not approve launch durability, touch/controller UX, multiplayer behavior, or production performance.
+
+## Phase 3A farm-profile persistence evaluation
+
+Agent: Data / Architecture / Security / QA / Gameplay / UI Agents
+
+Task: Persist Leafnotes, exact planted/backpack items, numbered hotbar assignments, and offline Sunspud maturity
+
+- Correctness: 88
+- Code quality: 87
+- Architecture compliance: 93
+- Security: 89
+- Performance: 90
+- Test quality: 86
+- Documentation: 94
+- Creativity: 86
+- Visual quality: 88
+- Collaboration: 96
+- Task completion: 84
+- Regression prevention: 92
+- Overall: 89
+
+Strengths:
+
+- Preserved one exact item identity across plot, saved hotbar, Backpack, and sale.
+- Used absolute server timestamps for bounded offline maturity without automatic rewards.
+- Independent reviewers found and drove fixes for lease identity, false equal-revision acknowledgement, nested validation, hotbar persistence, ray coordinates, and responsive clipping.
+- Added fail-closed validation and deterministic round-trip, boundary, offline, and hotbar transition tests.
+
+Weaknesses:
+
+- Real DataStore leave/rejoin, throttling, ambiguous network completion, migration, two-server lease takeover, and shutdown timing are not tested.
+- No injected store adapter exists yet, so the highest-risk platform-failure paths remain code-reviewed only.
+
+Required improvement:
+
+- Build fault-injected repository tests and complete an isolated published-server test that leaves with exactly 100,000 Leafnotes, saved hotbar items, and planted crops at multiple ages, then rejoins another server and verifies exact restoration.
+
+Evaluation boundary: Phase 3A source, pure tests, live one-client Studio memory mode, and independent review; this does not score production DataStore durability.
 
 ## Failure-decision and rare-celebration evaluation
 
@@ -910,3 +1139,115 @@ Required improvement:
 - Convert the expanded geometry, metadata, source/dimension consistency, and truth-label checks into repeatable Luau before detailed art or mount implementation.
 
 Evaluation boundary: Scores cover Phase 2 expanded geometry, one-client desktop traversal, source review, and independent static review. They do not approve multiplayer/device performance, final art, publishing, or mount gameplay.
+
+## 2026-07-21 Rojo source-link milestone
+
+Agent: Architecture Agent / QA Agent / Codex
+
+Task: Establish selective repository-to-Studio source authority without changing the verified graybox
+
+- Correctness: 99
+- Code quality: 97
+- Architecture compliance: 99
+- Security: 99
+- Performance: 97
+- Test quality: 99
+- Documentation: 98
+- Creativity: 93
+- Visual quality: 96
+- Collaboration: 99
+- Task completion: 99
+- Regression prevention: 99
+- Overall: 98
+
+Strengths:
+
+- Diagnosed the actual missing project/server path instead of blaming the installed Studio plugin.
+- Restricted synchronization to the authorized place and three namespaced code roots while excluding Workspace.
+- Verified build, sourcemap freshness, server restart, live edit and revert, exact Studio source, and unchanged graybox counts.
+- Converted the failure into a repeatable repository-owned smoke test and documented clean-clone setup.
+
+Weaknesses:
+
+- The first background-server launch check observed the process only inside the same sandboxed shell and briefly overstated persistence.
+- The initial mapping omitted `servePlaceIds` and a repository-owned version pin until independent review caught both.
+- Native video capture is not yet available for future progress clips; the current MCP provides still images only.
+
+Required improvement:
+
+- Run `scripts/Test-Rojo.ps1` after every project-mapping change and preserve an independent graybox regression count.
+- Keep each future gameplay API small, server-authoritative, and covered by replay/fault tests before expansion.
+- Configure real short-form recording before the first visually significant gameplay milestone.
+
+Evaluation boundary: Verified for this local machine, authorized Studio place, and current three namespaces. It does not verify gameplay, production persistence, multi-client behavior, real devices, or publishing.
+
+## 2026-07-21 hotbar-empty and rig-safe held-item revision
+
+Agent: UI Agent / QA Agent / Codex
+
+Task: Correct phantom seed slots, remove held-item walking distortion, and prepare an R6 straight-arm presentation
+
+- Correctness: 98
+- Code quality: 96
+- Architecture compliance: 97
+- Security: 99
+- Performance: 96
+- Test quality: 98
+- Documentation: 98
+- Creativity: 94
+- Visual quality: 96
+- Collaboration: 92
+- Task completion: 94
+- Regression prevention: 98
+- Overall: 96
+
+Strengths:
+
+- Verified the exact empty-slot text, click feedback, and absence of a held model in a fresh client.
+- Replaced torso-wide IK ownership with minimum-joint R6/R15 presentation and checked movement geometry numerically.
+- Preserved truthful boundaries between verified R15 behavior, isolated R6 simulation, and the unverified normal R6 spawn.
+- Passed the Rojo build and all 58 server cases after the client change.
+
+Weaknesses:
+
+- The current place still needs the one-time Avatar Settings change before normal R6 spawning can be verified.
+- No independent second-agent review was available under the current no-delegation constraint.
+- Mobile, controller, emotes, climbing, swimming, first person, multiplayer, and multiple avatar scales remain untested.
+
+Required improvement:
+
+- Apply R6 in Studio, rerun the normal-spawn movement matrix, and add a repository-owned client presentation test harness where practical.
+
+Evaluation boundary: Covers source/build validation, one-client desktop hotbar interaction, R15 movement, and an isolated temporary R6 character. It does not approve published avatar configuration or real-device behavior.
+
+## 2026-07-21 Exact placement and schema-v5 hotbar
+
+Agent: UI Agent
+Task: Screen-space placement reticle and dynamic hotbar projection
+Correctness: 97; Code quality: 96; Architecture compliance: 95; Security: 97; Performance: 97; Test quality: 96; Documentation: 96; Creativity: 95; Visual quality: 98; Collaboration: 93; Task completion: 98; Regression prevention: 97; Overall: 96
+Strengths: Reticle and ray share one coordinate; removed the unnecessary world preview; produced a clear progress capture.
+Weaknesses: The first coordinate revision used the wrong inset convention.
+Required improvement: Add touch/controller and multiple-inset tests before final UI approval.
+
+Agent: Gameplay Agent
+Task: Ordered acquisition and seed-consumption slot cleanup
+Correctness: 97; Code quality: 96; Architecture compliance: 96; Security: 98; Performance: 97; Test quality: 97; Documentation: 95; Creativity: 93; Visual quality: 94; Collaboration: 93; Task completion: 98; Regression prevention: 98; Overall: 96
+Strengths: Centralized first-free allocation and retained server authority.
+Weaknesses: Future creature pickup is not implemented, so parity is only a prepared pattern.
+Required improvement: Route creature acquisition through the same allocator and prove full-hotbar behavior.
+
+Agent: Data Agent
+Task: Profile schema v5 migration and durable dynamic hotbar references
+Correctness: 98; Code quality: 97; Architecture compliance: 98; Security: 98; Performance: 97; Test quality: 98; Documentation: 97; Creativity: 94; Visual quality: 92; Collaboration: 93; Task completion: 98; Regression prevention: 99; Overall: 97
+Strengths: Preserved valid manual positions, removed phantom seed refs, validated uniqueness, and added migration coverage.
+Weaknesses: Production-scale DataStore migration and fault injection remain unverified.
+Required improvement: Run fingerprinted v4-to-v5 rejoin and injected-store fault cases before production approval.
+
+Agent: QA Agent
+Task: Exact-coordinate control test and fresh full-suite verification
+Correctness: 98; Code quality: 95; Architecture compliance: 96; Security: 97; Performance: 96; Test quality: 99; Documentation: 98; Creativity: 95; Visual quality: 96; Collaboration: 92; Task completion: 98; Regression prevention: 99; Overall: 97
+Strengths: Preserved the failed coordinate result as a control and required exact server snapshot equality plus expected test counts.
+Weaknesses: No independent second-agent review was available under the current no-delegation constraint.
+Required improvement: Complete real touch/controller placement and future creature-pickup acceptance.
+
+Evaluation boundary: Fresh one-client Studio Server VM, direct desktop input, and local Rojo build. No production DataStore, multi-client, mobile, tablet, or controller approval is implied.

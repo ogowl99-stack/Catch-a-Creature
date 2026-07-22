@@ -2,11 +2,25 @@
 
 ## Current state
 
-No production code exists. No pattern is approved merely because it is familiar.
+Repository-owned gameplay code now exists for the Phase 3 farming and first attraction slices. Patterns are approved only within their recorded evidence boundaries.
+
+## Approved pattern: Definition-authoritative content transactions
+
+- Date: 2026-07-21
+- Agent: Codex / Architecture, Data, Security, Gameplay, and QA roles
+- Purpose: Support multiple content definitions without duplicating transaction logic or trusting client prices/timers/values.
+- Approved use cases: Plant seed purchase, placement, harvest, sale, snapshots, and UI catalog projection.
+- Example implementation: Client submits an allowlisted definition ID; server resolves the frozen definition; placed item saves ID/version; later harvest/sale resolve from the saved item rather than the current selection; snapshot returns only presentation-safe catalog fields.
+- Limitations: Changing an existing definition version still requires migration/balance policy. This pattern does not define creature ownership.
+- Performance characteristics: Constant-time definition lookup plus existing bounded profile scans.
+- Security considerations: Reject unknown IDs; never accept client price, growth time, weight, sale value, attraction, or ownership state.
+- Required tests: Every definition's value path, unknown ID, replay, save migration, stale revision, capacity, and generic UI labels.
+- Confidence level: High
+- Verification status: Verified for Sunspud and Hearthpetal
 
 ## Candidate patterns requiring implementation evidence
 
-- Server-owned content definition registry
+- Server-owned content definition registry (implemented for plants and first creature projection)
 - Explicit plant harvest-mode state machine: required `SingleHarvest` or allow-listed `Regrower`, with `SingleHarvest` as the fail-safe default
 - One authoritative inventory with hotbar slots stored as item references rather than copied item records
 - Occupied-slot capacity reservation inside the same revision-checked transaction as each item-state change

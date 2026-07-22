@@ -1,0 +1,21 @@
+{
+  "ClassName": "Folder",
+  "Children": [
+    {
+      "Name": "FarmQuery",
+      "ClassName": "RemoteFunction"
+    },
+    {
+      "Name": "FarmCommand",
+      "ClassName": "RemoteFunction"
+    },
+    {
+      "Name": "StateChanged",
+      "ClassName": "RemoteEvent"
+    },
+    {
+      "Name": "ForagePresentation",
+      "ClassName": "RemoteEvent"
+    }
+  ]
+}

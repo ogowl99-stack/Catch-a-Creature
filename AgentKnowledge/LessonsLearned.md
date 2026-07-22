@@ -1,5 +1,89 @@
 # Lessons Learned
 
+## 2026-07-21 Memory Tree hero-center retrospective
+
+- Date: 2026-07-21
+- Agent: Codex / Map, Architecture, Gameplay, UI, Performance, and QA roles
+- System affected: Map hierarchy, migration safety, player cameras, runtime dependencies, foraging, and evidence
+- Situation: The user elevated the Memory Tree from central venue to the game's primary visual selling point.
+- Decision made: Treat the revision as one reversible dependency-set change, then validate source, exact geometry, authored routes, HUD composition, gameplay regressions, forage projection, boundary collision, and logs.
+- Reasoning summary: Landmark impact, route integrity, and runtime safety are inseparable when the central footprint changes.
+- Result: The 1040×1080 graybox, 184-stud event island, and 255-stud tree are verified for Edit structure and one-client desktop traversal. Held/equip/selling work from the same milestone also remains regression-green.
+- Test evidence: 2,456 static checks, 58 gameplay tests, 18/18 forage points, six live nodes, controlled traversal, wall stop, screenshots, empty final logs, Rojo PASS.
+- Mistakes discovered: Historical names were mistaken for semantic identity; one validator constant was omitted; the first 180-stud tree was still HUD-occluded; free-form navigation chose the pond and had to be separated from authored-route evidence.
+- Recommended future approach: Use semantic tags, run the repository validator after every edit, capture with the real HUD early, test routes by authored waypoints, and retain truthful device/crowd/performance gates.
+- Confidence level: High for scoped evidence
+- Verification status: Verified
+
+- What worked: Guard refusal, non-Terrain mutation, exact validation, fresh-VM regression, and camera-driven scale iteration.
+- What caused delay: Live/history name drift and a test-only missing constant.
+- Bugs prevented: Destructive rebuild, pond/bridge separation, plot/trail overlap, invalid forage ground, stale gameplay regression, and false visual approval.
+- Missing tests: Independent review, rollback execution on a safe clone, multiplayer crowding, streaming, final-density performance, and real devices.
+- Next phase change: Keep the hero-center geometry stable while replacing the tree with production art in bounded stages and begin the next gameplay slice only after user visual feedback.
+
+## Lesson: Persist identity, randomize projection, celebrate only after commit
+
+- Date: 2026-07-21
+- Agent: Codex
+- System affected: Forage rewards, cooldowns, world projection, and rare VFX
+- Situation: One collectible interaction needed durable anti-repeat state, unpredictable world placement, and a dramatic rare outcome.
+- Decision made: Keep the logical node ID stable in persistence, move only its visual spawn point, and order work as validate/select/commit, relocate, then present.
+- Reasoning summary: Persistence should follow gameplay identity rather than coordinates; optional world/VFX consequences must not run before valuable state is durable.
+- Result: One node can move across map regions while the same player's cooldown follows it, and presentation cannot create or imply an unsaved reward.
+- Test evidence: 54 automated cases plus live success, relocation, cooldown rejection, and simulated Mythic capture.
+- Mistakes discovered: Cooldown-only reasoning overlooked predictable-coordinate automation.
+- Recommended future approach: Apply the same identity/projection separation to future pickups, event objects, and visitors, with system-specific contention tests.
+- Confidence level: High
+- Verification status: Verified for current forage slice
+
+## 2026-07-21 Hearthpetal/Cozzle slice lesson
+
+- Date: 2026-07-21
+- Agent: Codex / Gameplay, Data, Architecture, UI, Enemy AI, Security, Performance, and QA roles
+- System affected: Multi-definition farming, schema migration, hotbar, visitor projection, testing, and visual evidence
+- Situation: Extending the proven Sunspud loop exposed that a “small” second seed affects durable slots, labels, placement bounds, values, tests, and world services.
+- Decision made: Generalize the transaction once, migrate references without mutating items, and keep the first creature as a derived wild projection outside ownership.
+- Reasoning summary: Copy-pasting a second crop would multiply hard-coded bugs, while implementing capture simultaneously would mix visual success with valuable durable state.
+- Result: Hearthpetal and one Cozzle work through bounded definitions/services with 39 automated cases across the three suites and live Studio evidence.
+- Test evidence: 30/30 + 4/4 + 5/5, clean play console, live 60-second growth/arrival, projection cleanup fixture, and Rojo PASS.
+- Mistakes discovered: Edit `require` caching invalidated a seemingly fresh test; camera-aligned spawn placement harmed readability.
+- Recommended future approach: Use a fresh play VM for final tests and include visual sightline checks whenever an arrival model and two billboards share a small plot.
+- Confidence level: High
+- Verification status: Verified for the scoped slice
+
+## 2026-07-21 Persistence and offline-growth lesson
+
+- Date: 2026-07-21
+- Agent: Codex / Data, Architecture, Security, QA, UI, and Gameplay Agents
+- System affected: Persistent economy, item identity, hotbar, planted world state, offline time, and session ownership
+- Situation: The playable loop made it clear that money, crops, and equipped slots are one continuity promise, not separate UI features.
+- Decision made: Persist the canonical profile and derive every world/UI projection from it. Save absolute server timestamps once, exact item IDs in hotbar slots, and unique per-load lease tokens; freeze on unknown commit outcomes.
+- Reasoning summary: Persisting only currency or Backpack contents would still make returning players lose the arrangement and visible farm they recognize.
+- Result: The first slice now carries all required fields and testable transitions, while real DataStore behavior remains truthfully unverified.
+- Test evidence: Independent review, pure schema/domain tests, Rojo build, and live Studio memory-mode startup.
+- Mistakes discovered: Equal-revision acceptance is not proof that the same mutation was saved; a job-wide token is not a player-load lease; shallow validation is unsafe for valuable nested items; client-only hotbar ordering does not survive rejoin.
+- Recommended future approach: Make persistent-state reviews include money, identity, location, timestamps, UI references, ambiguous outcomes, lease generations, corruption, migration, and rejoin evidence as one checklist.
+- Confidence level: High
+- Verification status: Code-reviewed and Simulated
+
+Follow-up (2026-07-21): A real isolated Studio DataStore test replaced the prior simulated-only evidence for the scoped one-user path. Exact 100,000-Leafnote rejoin, seeds, item weights/IDs, slots 2 and 10, plotted timestamps/coordinates, offline maturity, world reconstruction, and idempotent replay passed. The test also showed that sparse numeric keys are not a durable hotbar representation and that startup paths need an in-flight player-load guard. A bounded lease is recovery, not proof that every Studio shutdown released cleanly; one final shutdown retained its lease and was fingerprint-cleaned from the isolated key. Future persistence tests should disable incidental player input, use authoritative `UpdateAsync` observations instead of trusting a potentially cached `GetAsync`, and preserve the distinction between isolated Studio verification and production/fault/multiserver evidence.
+
+
+## 2026-07-21 Rojo connection repair
+
+- Date: 2026-07-21
+- Agent: Codex / Architecture and QA Agents
+- System affected: Development workflow, source authority, Studio synchronization, and process launch
+- Situation: Studio had a working Rojo plugin but no project mapping or server to contact.
+- Decision made: Establish one selective namespaced mapping, keep `Workspace` out of Rojo, validate the project before serving, and verify both live propagation and graybox preservation.
+- Reasoning summary: Source linkage is a safety boundary, not merely a convenience; proving the intended files appear is only half the test unless pre-existing place content is also shown unchanged.
+- Result: The repository and Studio are connected through Rojo 7.7.0. Phase 3A can now proceed repository-first.
+- Test evidence: Pinned-version, authorized-place, sourcemap freshness, temporary place build, HTTP, cross-command process persistence, server restart/reconnect, Studio hierarchy/source, live edit/revert, and graybox-count checks all passed; the reusable repository test reports PASS.
+- Mistakes discovered: Plugin installation was mistaken for a complete connection path; no `default.project.json` or server existed. Sandboxed detached children did not persist, and duplicate environment-key casing broke `Start-Process` with redirected output.
+- Recommended future approach: Diagnose Rojo in the order `project file -> binary -> server process -> listening port -> plugin -> mapped instances -> live edit -> preservation regression`.
+- Confidence level: High
+- Verification status: Verified
+
 ## 2026-07-20 Phase 2 graybox retrospective
 
 - Date: 2026-07-20
@@ -323,3 +407,48 @@ Follow-up (2026-07-20): Scaling is relational. Enlarging the island while keepin
 - Missing tests: All gameplay, save, economy, device, performance, and Studio tests
 - Automate next: Documentation validation, content schemas, economy simulations, save round trips, and receipt idempotency
 - Change next phase: Lock the first three plants and creatures before implementation
+
+## 2026-07-21 Catch a Monster reference-study lesson
+
+- Date: 2026-07-21
+- Agent: Codex / Game Design Agent
+- System affected: Reference research, creature discovery, progression, originality
+- Situation: A user-supplied Pets page led to a connected review of the reference game's collection, weather, evolution, fusion, egg, event, and repeatable-mode pages.
+- Decision made: Adopt world-conditioned discovery and a useful collection index as design principles, reinterpret progression through sanctuary relationships, and defer combat/fusion/tower scope.
+- Reasoning summary: Reference research is most valuable when it reveals why a system motivates players, not when its content or numbers are copied.
+- Result: A durable source-labeled study now connects the next Observe slice to a future `Seen` Field Journal state.
+- Test evidence: Community pages reviewed and cross-checked against current project decisions; no new code or Studio behavior was claimed.
+- Mistakes discovered: The wiki contains unfinished, inconsistent, and explicitly speculative values, so exact figures cannot be treated as verified.
+- Recommended future approach: Review connected mechanics, label reliability, preserve copying boundaries, and test the translated idea inside our own loop.
+- Confidence level: High
+- Verification status: Code-reviewed research
+
+## 2026-07-21 avatar-rig and held-item lesson
+
+- Date: 2026-07-21
+- Agent: Codex
+- System affected: Avatar configuration, animation, held-item feedback
+- Situation: The user requested a straight forward arm and an R6 game after reporting a walking glitch with equipped items.
+- Decision made: Configure R6 in the Rojo place build, implement a single-shoulder R6 pose, and retain an arm-only R15 fallback during transition.
+- Reasoning summary: Game-wide rig selection is a Studio/avatar setting, while the held pose belongs in client presentation; separating them keeps the feature safe during local transition and source builds.
+- Result: The source build serializes R6, both rig branches are supported, and isolated runtime checks show the R6 arm remains forward without torso distortion.
+- Test evidence: Rojo PASS, serialized `GameSettingsAvatar` token `0`, 58/58 server tests, and direct R15/R6 movement assertions.
+- Mistakes discovered: A live Rojo session should not be assumed to update hidden place settings; the already-open place still spawned R15.
+- Recommended future approach: Treat hidden build properties and live Studio settings as separate verification boundaries, then retest a normal spawn after the manual setting change.
+- Confidence level: High
+- Verification status: Code-reviewed; normal R6 spawn Requires Roblox Studio testing
+
+## 2026-07-21 exact placement and visible-order lesson
+
+- Date: 2026-07-21
+- Agent: Codex across UI, Gameplay, Data, and QA roles
+- System affected: Placement interaction and persistent hotbar ordering
+- Situation: Two small visual inconsistencies had deeper causes: the cursor and ray used different coordinate conventions, and the hotbar saved invisible category reservations.
+- Decision made: Make displayed state a direct projection of authoritative owned references, and make placement feedback and hit testing consume one coordinate source.
+- Reasoning summary: When visuals and logic derive from separate representations, nearly-correct behavior can hide durable errors.
+- Result: Placement commits at the reticle center, empty means truly unassigned, and acquisitions use the first visible open number without compacting existing references.
+- Test evidence: Exact saved coordinate, live slot reuse, schema migration cases, fresh 61/61 suites, and clean Rojo build.
+- Mistakes discovered: Visual approximation was accepted too early; fixed seed categories leaked into general inventory ordering.
+- Recommended future approach: Add an equality assertion between displayed input and logical input for every precision interaction, and centralize all future item/creature pickup allocation.
+- Confidence level: High for the tested desktop/current-content scope
+- Verification status: Verified with documented device and future-creature gaps

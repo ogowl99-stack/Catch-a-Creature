@@ -4,13 +4,13 @@ Catch a Creature is an original Roblox sanctuary, creature-discovery, and habita
 
 ## Current status
 
-- Phase: Phase 2 graybox v1 implemented and single-client desktop-verified; Phase 3 gameplay remains unauthorized
-- Game implementation: Reversible map graybox only; no gameplay systems are implemented
-- Roblox Studio connection: Verified against the authorized place; the graybox exists in the open Studio session, while repository-to-Studio source linkage is still unresolved
+- Phase: Phase 3A farming foundation verified in Studio; Hearthpetal/Cozzle arrival slice implemented as the first creature-attraction prototype
+- Game implementation: Server-authoritative seed buying, planting, offline growth, harvesting, selling, saving, custom hotbar/backpack, service access, Hearthpetal Habitat Flora, and one wild/unowned Cozzle projection
+- Roblox Studio connection: Verified against the authorized place; Rojo 7.7.0 now synchronizes the repository-owned shared, server, and client namespaces while leaving the graybox outside Rojo authority
 - Blender assets: Not yet created
 - Public release: Not yet published
 
-No gameplay code, production models, audio, UI, or final assets exist yet. The repository now also contains the dimensioned Phase 2 graybox recipe and rollback script used in Studio.
+Gameplay code and prototype UI/models now exist, but production models, animations, audio, final UI art, creature Observe/Care/Capture, multiplayer validation, and publishing do not. The repository retains the dimensioned Phase 2 graybox recipe and rollback script alongside the repository-owned Phase 3 source.
 
 ## Core game promise
 
@@ -20,7 +20,7 @@ The planned core loop is:
 
 `buy seed -> plant -> wait/offline growth -> harvest -> sell for Leafnotes -> reinvest and expand -> attract a visitor -> observe/care -> earn Trust -> attempt an original chance-based capture -> display, store, sell, or release owned creatures -> cultivate adapted lineages`
 
-Wild visitors remain unowned until one successful server-authoritative capture. Every contender personally Observes and completes correct Care before using a leaf-shaped Haven Tag. The caretaker receives 60 seconds of priority and may open early; the visitor is then public for five minutes. Every accepted attempt consumes one Haven Tag and its selected free Luck aid; rejected requests consume nothing. A failure adds two absolute percentage points of persistent personal Familiarity and advances toward guarantees on attempts 2/3/5/8/15/25. `Retry Capture` deliberately requests the next fair round-robin turn and defaults to No Aid; `Let Go` exits only that player's attempt, preserves Familiarity, leaves the visitor wild, and does not open caretaker priority early. Luck selection is disabled on a guaranteed attempt. There is no post-result gameplay cooldown or automatic repeat. A full Backpack cannot claim a visitor. Mythic success receives the approved original post-commit five-second skippable local sanctuary cutscene; nearby players see a brief flourish, Legendary receives a shorter flourish, and Full/Short/Off plus Reduced Motion settings are supported. Arrival weights, exact Luck formulas/recipes, technical expiry grace, and final measured presentation budgets remain unresolved. No gameplay has been implemented.
+Wild visitors remain unowned until one successful server-authoritative capture. Every contender personally Observes and completes correct Care before using a leaf-shaped Haven Tag. The caretaker receives 60 seconds of priority and may open early; the visitor is then public for five minutes. Every accepted attempt consumes one Haven Tag and its selected free Luck aid; rejected requests consume nothing. A failure adds two absolute percentage points of persistent personal Familiarity and advances toward guarantees on attempts 2/3/5/8/15/25. `Retry Capture` deliberately requests the next fair round-robin turn and defaults to No Aid; `Let Go` exits only that player's attempt, preserves Familiarity, leaves the visitor wild, and does not open caretaker priority early. Luck selection is disabled on a guaranteed attempt. There is no post-result gameplay cooldown or automatic repeat. A full Backpack cannot claim a visitor. Mythic success receives the approved original post-commit five-second skippable local sanctuary cutscene; nearby players see a brief flourish, Legendary receives a shorter flourish, and Full/Short/Off plus Reduced Motion settings are supported. Arrival weights, exact Luck formulas/recipes, technical expiry grace, and final measured presentation budgets remain unresolved. The current Cozzle is only a wild/unowned attraction projection; Observe, Care, capture, ownership, and disposition are not implemented.
 
 Later progression may add breeding, inherited traits, plot showcases, community migrations, and carefully bounded trading. These systems are not approved for implementation until the smallest complete loop is proven.
 
@@ -48,8 +48,32 @@ All production models are planned to be made from scratch in Blender and integra
 - `Research/` - researched references, original design synthesis, sources, and the proposed development order
 - `Design/` - approved concept art, spatial decisions, and the remaining concept-generation plan
 - `StudioBuild/` - reversible Studio construction and rollback recipes for authorized grayboxes
+- `src/` - repository-authoritative shared, server, and client Luau source synchronized through Rojo
+- `default.project.json` - selective Rojo mapping; `Workspace` is intentionally excluded
+- `ProgressMedia/` - truthful milestone-capture rules and clip manifest for short development videos
 - `AgentKnowledge/` - shared project-specific knowledge, decisions, findings, and prevention rules
 - `AgentMemory/` - specialized agent memory and improvement goals
+
+## Rojo development connection
+
+The project pins Rojo 7.7.0 in `rokit.toml` and restricts live synchronization to the authorized Catch A Creature place ID. For a clean clone with [Rokit](https://github.com/rojo-rbx/rokit), run:
+
+```powershell
+rokit install
+rojo serve default.project.json
+```
+
+This machine also has an ignored project-local binary, so its equivalent command is:
+
+```powershell
+.\.tools\rojo\rojo.exe serve default.project.json
+```
+
+Then open the Rojo Studio plugin and connect to `localhost:34872`. The mapping intentionally excludes `Workspace`; the Phase 2 graybox remains managed by its repository build and rollback recipes.
+
+The three mapped `CatchACreature` folders are fully repository-owned: Studio-only children or edits inside them may be overwritten or removed by synchronization. Unrelated instances outside those namespaces are preserved. `sourcemap.json` is a committed generated artifact and should be regenerated with `rojo sourcemap default.project.json --output sourcemap.json` whenever the mapping changes.
+
+Run `powershell -ExecutionPolicy Bypass -File .\scripts\Test-Rojo.ps1` to verify the pinned version, authorized place restriction, Workspace exclusion, sourcemap freshness, and a clean temporary build.
 
 ## Truth labels and evidence classes
 

@@ -1,0 +1,38 @@
+{
+  "name": "CatchACreature",
+  "servePort": 34872,
+  "servePlaceIds": [72745225515549],
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "$className": "ReplicatedStorage",
+      "$ignoreUnknownInstances": true,
+      "CatchACreature": {
+        "$path": "src/shared"
+      }
+    },
+    "ServerScriptService": {
+      "$className": "ServerScriptService",
+      "$ignoreUnknownInstances": true,
+      "CatchACreature": {
+        "$path": "src/server"
+      }
+    },
+    "StarterPlayer": {
+      "$className": "StarterPlayer",
+      "$ignoreUnknownInstances": true,
+      "$properties": {
+        "GameSettingsAvatar": {
+          "Enum": 0
+        }
+      },
+      "StarterPlayerScripts": {
+        "$className": "StarterPlayerScripts",
+        "$ignoreUnknownInstances": true,
+        "CatchACreature": {
+          "$path": "src/client"
+        }
+      }
+    }
+  }
+}

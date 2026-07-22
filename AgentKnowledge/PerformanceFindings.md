@@ -1,5 +1,50 @@
 # Performance Findings
 
+## Entry: Hero-center graybox adds bounded anchored geometry
+
+- Date: 2026-07-21
+- Agent: Codex / Performance and Map roles
+- System affected: Workspace instances, rendering, collision, streaming, and final-tree planning
+- Situation: The larger island and ring required more land while the tree needed much greater visual scale.
+- Decision made: Reuse 372 existing land parts; add 112 land tiles and six ring pieces; keep the tree at the same one trunk, one root, and five canopy parts; add no scripts, loops, particles, sounds, or unanchored physics.
+- Reasoning summary: Visual hierarchy should come from bounded scale/composition rather than multiplying expensive effects or decorative instances during graybox.
+- Result: BaseParts increased from 602 to 720 and descendants from 684 to 802. All 720 parts are anchored and the graybox contains zero scripts.
+- Test evidence: 2,456 edit checks and exact live counts.
+- Mistakes discovered: No fresh frame-time, draw-call, memory, streaming, or device measurement was collected after this revision.
+- Recommended future approach: Treat current counts as structural evidence only; profile final tree mesh/foliage, event VFX, eight gardens, streaming, and devices before replacing graybox.
+- Confidence level: High for counts; Low for runtime cost beyond the current desktop play session
+- Verification status: Code-reviewed; performance approval remains open
+
+## Entry: Seed forage projection is bounded; device cost is unmeasured
+
+- Date: 2026-07-21
+- Agent: Codex / Performance, Map, Gameplay, and VFX roles
+- System affected: Runtime node instances, prompts, connections, local particles/parts, and cleanup
+- Situation: Moving forage nodes and a special Mythic effect could create persistent instances, polling, or per-frame replication.
+- Decision made: Keep exactly six active server nodes, one prompt connection per node, no polling or pathfinding, and server relocation only on accepted success. Build the Mythic sequence locally with 18 motes and a fixed 3.5-second cleanup lifetime.
+- Reasoning summary: Fixed counts and event-driven work bound ordinary cost; local transient presentation avoids per-frame server animation traffic.
+- Result: Each inspected forage node had 13 descendants. Six nodes were active. The simulated Mythic sequence cleaned up after its lifetime. Frame time, memory, network traffic, and low-end device cost were not measured.
+- Test evidence: Runtime instance inspection, automated service tests, VFX screenshot, cleanup absence check, and clean console.
+- Mistakes discovered: Instance bounds do not prove a safe frame budget.
+- Recommended future approach: Profile six nodes and concurrent Mythic simulations on the minimum device; measure client/server frame time, memory recovery, instance count, and remote payloads before increasing node/effect counts.
+- Confidence level: High for bounded architecture; Low for actual performance until measured
+- Verification status: Instance bounds Verified; performance Unmeasured
+
+## Entry: First visitor projection is bounded but not yet measured
+
+- Date: 2026-07-21
+- Agent: Codex / Performance, Enemy AI, Gameplay, and QA roles
+- System affected: CreatureWorldService polling, anchored model instances, TweenService entrance, replication, and cleanup
+- Situation: The first Cozzle arrival needed visible motion without introducing roaming/pathfinding cost before performance measurements exist.
+- Decision made: Maintain one pending attractor record and at most one anchored Cozzle model per player; check pending maturity four times per second; animate one bounded TweenService entrance; perform no pathfinding, physics, per-frame server motion, particles, or persistent idle loop.
+- Reasoning summary: The smallest projection can validate visual attraction while keeping cost predictable. Higher approved creature caps remain design estimates and must not be inferred from this single model.
+- Result: Integration fixture created one visitor model with 20 descendants and removed it cleanly after attractor deletion. No runtime warnings appeared. Frame time, memory, replication bytes, and eight-player cost were not measured.
+- Test evidence: Runtime instance count, one-player live arrival, clean console, and selection/cleanup tests.
+- Mistakes discovered: None measured. A 0.25-second loop is acceptable only at the current one-record-per-player scale; it should be event/timer-driven before broader visitor counts.
+- Recommended future approach: Replace polling with scheduled deadlines or a bounded central queue when visitor count grows; measure server/client frame time, instance/memory recovery, replication, and eight-player concurrent arrivals before implementing roaming.
+- Confidence level: Medium for bounded design; Low for performance until measured
+- Verification status: Code-reviewed and instance-count verified; performance unmeasured
+
 ## Entry: Rare-capture celebration must degrade without delaying ownership
 
 - Date: 2026-07-19

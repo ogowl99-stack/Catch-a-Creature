@@ -70,3 +70,20 @@ The monetization, developer-product, regional-pricing, paid-item-policy, PolicyS
 - [Roblox Community Standards](https://en.help.roblox.com/hc/en-us/articles/203313410-Roblox-Community-Standards)
 
 Roblox documentation is authoritative for platform behavior and policy, but must be rechecked before implementation because platform rules can change.
+
+## Catch a Monster reference review — 2026-07-21
+
+- [Official Roblox experience page](https://www.roblox.com/games/98664161516921/Catch-a-Monster)
+- [Main wiki](https://catch-a-monster-roblox.fandom.com/wiki/Catch_a_Monster_Wiki)
+- [Pets](https://catch-a-monster-roblox.fandom.com/wiki/Pets)
+- [Eggs](https://catch-a-monster-roblox.fandom.com/wiki/Eggs)
+- [Rank](https://catch-a-monster-roblox.fandom.com/wiki/Rank)
+- [Fuse](https://catch-a-monster-roblox.fandom.com/wiki/%E2%AC%86%EF%B8%8FFuse)
+- [Evolution](https://catch-a-monster-roblox.fandom.com/wiki/%F0%9F%94%AEEvolution)
+- [Mutation](https://catch-a-monster-roblox.fandom.com/wiki/Mutation)
+- [Weather](https://catch-a-monster-roblox.fandom.com/wiki/Weather)
+- [Rift](https://catch-a-monster-roblox.fandom.com/wiki/%F0%9F%8C%80Rift)
+- [Endless Spire](https://catch-a-monster-roblox.fandom.com/wiki/%F0%9F%97%BC%E2%9A%94%EF%B8%8FEndless_Spire)
+- [Quick Tips by Players](https://catch-a-monster-roblox.fandom.com/wiki/QuickTipsbyPlayers)
+
+These pages are community-maintained, incomplete, and in places speculative. They are used only to identify broad collection-design patterns. See `Research/CatchAMonsterReferenceStudy.md`; exact content and balance are not approved targets.

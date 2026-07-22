@@ -1,5 +1,35 @@
 # Map Agent Memory
 
+## 2026-07-21 Memory Tree hero-center update
+
+- Tasks completed: Expanded the live graybox to 1040×1080, enlarged the event island to 184 studs, raised/broadened the tree to a 255-stud hero silhouette, moved every radial dependency, and added guarded migration/rollback/validation sources
+- Strengths demonstrated: Dependency-set scaling, non-Terrain reversibility, semantic-tag recovery, HUD-aware camera iteration, and exact route/clearance validation
+- Mistakes made: First migration assumed all land retained the `LandTile_` prefix; first visual pass stopped at 180 studs before testing the live HUD
+- Bugs introduced: None remaining; first migration refused before geometry mutation
+- Bugs prevented: Destructive rebuild, land/pond gaps, bridge/ring disconnects, plot/trail overlap, invalid forage ground, wall gaps, and HUD-hidden focal art
+- Review feedback received: The Memory Tree must be the game's main focal point and selling point; everything else should move outward to support it
+- Useful patterns discovered: Use semantic tags for migrated geometry and review hero scale through actual gameplay HUD cameras
+- Areas requiring improvement: Safe-clone rollback execution, device cameras, eight-player crowding, streaming, and final-density profiling
+- Current project knowledge: Live hero center is 184 studs; tree top is 255; plot centers use 150/340 offsets; Hub is at -220/220; meadows at -390/0 and 0/-420; trail uses 450/480 radii; walls are at X±530/Z±550
+- Unresolved questions: Final tree model/canopy shape, event staging density, device framing, streaming, and user visual approval
+- Recent evaluation scores: Overall 95 for the hero-center task
+- Next improvement goal: Make final landmark reviews HUD-aware on desktop, phone, tablet, and controller before art lock
+
+## 2026-07-21 seed-foraging update
+
+- Tasks completed: Defined and ground-validated an 18-point forage pool across three map regions for six active nodes
+- Strengths demonstrated: Used named X/Z points plus authoritative graybox raycasts and occupancy exclusions
+- Mistakes made: No final-art visibility, line-of-sight, or crowd-route evaluation exists
+- Bugs introduced: None found; all 18 points resolved
+- Bugs prevented: Floating nodes, occupied-point overlap, and same-point relocation
+- Review feedback received: A collected seed must not respawn at the same location
+- Useful patterns discovered: Maintain more valid spawn points than simultaneous nodes and re-audit after terrain edits
+- Areas requiring improvement: Final-art occlusion, route variety, streaming, and multi-player search density
+- Current project knowledge: Ground points span west, south, and east regions between Y 44 and 45
+- Unresolved questions: Final biome weighting and whether event states temporarily alter the pool
+- Recent evaluation scores: Joint forage slice Overall 95
+- Next improvement goal: Validate visibility and route variety after production foliage is added
+
 - Tasks completed: Established the sanctuary direction and references; built and expanded the reversible graybox to an 880×920 island with eight 96×96 plots, moved gate, scaled Hub/meadows, perimeter/mount trail, hills, continuous ocean, and invisible border
 - Strengths demonstrated: Navigation-first ambience reasoning and iteration from direct spatial feedback
 - Mistakes made: Initial concepts had alignment/scale issues; the first Studio source handoff included shell-wrapper text; generated-count metadata became stale twice after live additions; radial plot paths missed cardinal fence gaps; the Welcome Gate was two studs narrower than specified; rollback originally cleared Terrain without detecting later edits; and the expanded dimension note initially retained a 10×10 pad value after source/live pads changed to 12×12

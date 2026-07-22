@@ -1,5 +1,54 @@
 # Failed Approaches
 
+## FA-013: Identify all generated land by one historical name prefix
+
+- Date: 2026-07-21
+- Agent: Codex / Map Agent
+- System affected: Hero-island migration preflight
+- Goal: Reuse all 372 verified land parts while expanding the island.
+- Attempted solution: Select only parts named `LandTile_*` and require exactly 372 matches.
+- Why it failed: A prior additive expansion legitimately named 182 parts `LandExpansion_*`; all 372 authoritative parts were instead marked `GrayboxLand == true`.
+- Symptoms: The migration refused with `land-tile baseline changed` despite unchanged aggregate geometry.
+- Performance impact: None; refusal occurred before geometry mutation.
+- Security impact: None; the overly strict guard prevented changes.
+- Files affected: `StudioBuild/Phase2HeroIslandExpansion.lua`.
+- Better replacement: Select by the stable semantic attribute, then validate exact count, part class, anchoring, size, and bounds.
+- Situations where the approach may still be useful: Fresh one-version constructors where the prefix itself is explicitly guaranteed as the semantic contract.
+- Confidence level: High
+- Verification status: Verified unsuitable for migrated graybox history
+
+## Fixed-position forage nodes with only a cooldown
+
+- Date: 2026-07-21
+- Agent: Codex / Gameplay and Security roles
+- System affected: Foraging, map interaction, and anti-macro design
+- Goal: Prevent rapid seed farming while allowing reusable world forage points.
+- Attempted solution: Store a durable 120-second per-player cooldown for each stable node but leave the node at its original coordinate.
+- Why it failed: A macro can revisit or wait at a known coordinate even if the server enforces frequency.
+- Symptoms: Predictable route and zero need to search after the first discovery.
+- Performance impact: Low; the failure is behavioral rather than computational.
+- Security impact: Moderate automation risk, although server authority still prevents forged quantities or rarities.
+- Files affected: Forage definition/world-service design before the relocation revision.
+- Better replacement: Keep the stable cooldown ID while moving its world projection to a different unused point only after success.
+- Situations where the approach may still be useful: Private tutorial nodes or nonvaluable decorative interactions where repeat-coordinate automation has no economy impact.
+- Confidence level: High
+- Verification status: Verified unsuitable for this economy-bearing forage loop
+
+## FA-012: Treat an Edit-mode cached ModuleScript result as fresh test evidence
+
+- Date: 2026-07-21
+- Agent: Codex / QA Agent
+- System affected: Studio test execution, Rojo synchronization, FarmContracts, domain regressions, and truth labels
+- Goal: Run newly synchronized domain tests without restarting play mode.
+- Attempted solution: Clone only the server source tree in Edit mode while leaving a hard-required ReplicatedStorage dependency on its previously cached ModuleScript instance.
+- Why it failed: Roblox caches `require` results by ModuleScript instance. The cloned FarmDomain loaded fresh source but received the stale pre-sync FarmContracts table, so new actions appeared missing and valid commands returned `INVALID_REQUEST`.
+- Symptoms: A fresh-looking cloned test reports fewer historical cases or action constants compare unequal even though script source search shows the new code.
+- Performance impact: Low runtime impact, but repeated debugging wastes development time.
+- Security impact: Medium process risk because a false pass or false failure can distort approval of server-authoritative contracts.
+- Files affected: No production source defect; test execution method only.
+- Better replacement: Run final module tests inside a newly started play-server VM, or clone the complete dependency graph including the required ReplicatedStorage instance and redirect dependencies explicitly.
+- Situations where the approach may still be useful: Edit-mode cloning is fine for modules whose entire dependency graph is cloned or whose dependencies are immutable and known fresh.
+
 ## FA-009: Let cosmetics or ambiguous failure controls mutate capture truth
 
 - Date: 2026-07-19
@@ -149,3 +198,62 @@
 - Files affected: `StudioBuild/Phase2Graybox.lua`, `Design/Map/Phase2GrayboxDimensions.md`, and the live `Workspace.CatchACreature_Graybox_v1` model.
 - Better replacement: Treat footprint scale as a dependency graph; move the plot ring and reserves, derive connected paths/openings, recalculate trail radii, then run exact pairwise/SAT overlap and humanoid traversal checks before approval.
 - Situations where it may still be useful: Independent decorative props with no collision, ownership, route, camera, or reserved-space dependencies.
+## FA-011: Persist numbered hotbar slots as a sparse numeric table
+
+- Date: 2026-07-21
+- Agent: Data Agent / Codex
+- System affected: DataStore profile schema and numbered hotbar restoration
+- Goal: Save the player's exact `1`-`0` hotbar assignments directly by numeric slot.
+- Attempted solution: Store slot references under numeric keys such as `[1]`, `[2]`, and `[10]`.
+- Why it failed: Roblox serialized the numeric-key table as an array and dropped the sparse slot-10 entry on readback.
+- Symptoms: Slot 2 survived, slot 10 disappeared, and the referenced Backpack item could no longer appear in its saved hotbar position after rejoin.
+- Performance impact: None material.
+- Security impact: No authority bypass, but silent durable-state loss undermines player trust and could strand valuable items from the expected UI slot.
+- Files affected: `src/server/Data/ProfileSchema.luau`, `src/server/Domain/FarmDomain.luau`, `src/server/Services/FarmService.luau`, `src/client/FarmController.client.luau`, and regression tests.
+- Better replacement: Use canonical string keys `"1"` through `"10"`, validate them strictly, and migrate old numeric keys before saving.
+- Situations where it may still be useful: Dense temporary in-memory arrays only; never a sparse durable DataStore dictionary.
+
+## FA-014: Include the torso in held-item IK
+
+- Date: 2026-07-21
+- Agent: Codex / UI Agent
+- System affected: Client avatar animation
+- Goal: Move the avatar's hand far enough forward to display an equipped seed or harvested plant.
+- Attempted solution: Use an R15 IKControl whose chain root was `UpperTorso`.
+- Why it failed: The solver could rotate the torso to satisfy a hand-only target and therefore competed with normal locomotion animation.
+- Symptoms: The character appeared to glitch or twist while walking with an item equipped.
+- Performance impact: Low instance cost, but unnecessary extra joints were solved each frame.
+- Security impact: None; presentation remained client-local.
+- Files affected: `src/client/HeldItemPresentation.luau`
+- Better replacement: Restrict R15 IK to `RightUpperArm`; for R6, set only the `Right Shoulder` Motor6D after animation and leave torso/root joints untouched.
+- Situations where it may still be useful: Full-body IK interactions designed and tested to move the torso, never a simple held-item pose.
+
+## FA-015: Use a world-space bubble to represent exact cursor placement
+
+- Date: 2026-07-21
+- Agent: Codex / UI Agent
+- System affected: Plot placement preview
+- Goal: Show where a selected seed would be planted.
+- Attempted solution: Render a world Part/ForceField preview and move it from the cursor ray.
+- Why it failed: The bubble added visual ambiguity and did not prove that its projected center matched the screen cursor tip. A later coordinate attempt also mixed inset conventions.
+- Symptoms: The apparent plant position drifted away from the user's cursor.
+- Performance impact: An unnecessary workspace instance and continuous world transform updates while placing.
+- Security impact: None if treated as presentation, but it could falsely imply server acceptance.
+- Files affected: `src/client/FarmController.client.luau`
+- Better replacement: A 2D reticle driven by the exact same pointer coordinate as the ray, with server-authoritative target validation.
+- Situations where it may still be useful: Large-area previews where the footprint itself matters, provided a precise cursor anchor is also shown and tested.
+
+## FA-016: Reserve empty seed slots by content definition
+
+- Date: 2026-07-21
+- Agent: Codex / Data Agent
+- System affected: Persistent hotbar schema and acquisition order
+- Goal: Keep each seed type in a familiar fixed number.
+- Attempted solution: Reserve slots for seed definitions even when their quantities were zero, then place harvested items after those reservations.
+- Why it failed: Visible empty slots were logically occupied, so pickups skipped lower numbers and the UI could imply ownership that did not exist.
+- Symptoms: A player with an apparently empty slot 1 could receive a pickup in slot 3 or later; earlier UI also rendered zero-count seed labels.
+- Performance impact: Negligible runtime cost but higher migration and UI complexity.
+- Security impact: No direct exploit, but misleading inventory state damages transaction clarity.
+- Files affected: `src/server/Data/ProfileSchema.luau`, `src/server/Domain/FarmDomain.luau`, `src/server/Services/FarmService.luau`, and `src/client/FarmController.client.luau`
+- Better replacement: Save only positive seed stacks and exact item references in a dynamic 1-10 dictionary, use the lowest free slot, and preserve existing valid player positions.
+- Situations where it may still be useful: A separate fixed-category action bar whose reserved slots are visibly labeled and are not presented as general inventory.

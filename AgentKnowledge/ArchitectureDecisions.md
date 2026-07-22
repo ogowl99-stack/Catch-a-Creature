@@ -1,5 +1,87 @@
 # Architecture Decisions
 
+## ADR-017: The Memory Tree hero center scales as one reversible dependency set
+
+- Date: 2026-07-21
+- Agent: Codex / Map, Architecture, Gameplay, Performance, and QA roles
+- System affected: Workspace graybox, layout contracts, runtime instance lookup, foraging coordinates, source authority, and rollback
+- Situation: The event island and roughly 100-stud original tree read too small inside the expanded plot map, while user intent requires the Memory Tree to be the primary selling point.
+- Decision made: Keep `Workspace` outside Rojo, update the deterministic constructor and dimension contract, and apply one guarded edit migration that moves/resizes every coupled footprint. Store original transforms on existing parts, tag additions, preserve Terrain, and provide a fail-closed rollback.
+- Reasoning summary: Rebuilding or deleting the verified root would create unnecessary recovery risk. Moving only the center would break paths, water, plot clearances, service positions, and forage ground.
+- Result: The live revision expanded the island to approximately 1040×1080, the event island to 184 studs, and the tree to 255 studs while retaining stable instance names used by runtime services.
+- Test evidence: Migration source and rollback source pass Studio `loadstring`; migration refused the first incorrect name-based preflight before geometry mutation; attribute-based retry succeeded; 2,456 geometry checks and fresh traversal/regression evidence passed.
+- Mistakes discovered: Historical part names were not a stable contract; the `GrayboxLand` attribute was.
+- Recommended future approach: Use stable semantic IDs/attributes for migrations, preflight exact known state, preserve non-Terrain rollback, and require player-camera evidence for visual-hierarchy decisions.
+- Confidence level: High
+- Verification status: Verified
+
+- Independent review: Not run because subagent delegation was unavailable for this task. Codex performed architecture, security, performance, gameplay, and QA role checks and recorded the missing independent gate.
+
+## ADR-016: Durable forage rewards relocate stable nodes before rare presentation
+
+- Date: 2026-07-21
+- Agent: Codex / Architecture, Gameplay, Data, Security, Map, VFX, Performance, and QA roles
+- System affected: Wild seed acquisition, rarity, profile schema, inventory, world nodes, anti-macro behavior, remotes, and rare presentation
+- Situation: The user requested map foraging from Common through super-rare/Mythic seeds, then required successful sprouts not to respawn at the same location and asked for a special Mythic pull animation.
+- Decision made: Keep six stable logical node IDs with per-player profile cooldowns, but project them into 18 server-owned ground spawn points. The server validates the live player, distance, node, cooldown, eligible seed stacks, and capacity before selecting and durably granting exactly one reward. Only a successful result relocates the globally visible node to a different unused point; failures and cooldowns leave it in place. The client receives only a sanitized, deduplicated, presentation-only Mythic descriptor after success. Mythic is the existing highest rarity, not a new seventh tier.
+- Reasoning summary: Stable IDs make cooldowns durable while relocation breaks fixed-position repetition. More spawn points than active nodes guarantees ordinary relocation choices. Commit-before-relocation prevents the world from promising a reward that failed to save, and presentation-after-commit prevents VFX from becoming an authority path.
+- Result: Profile schema v4, generic server-selected forage grants, six active sprouts, 18 ground locations, different-unused relocation, and capturer-local bounded Mythic presentation are implemented. Current content has only Common Sunspud and Uncommon Hearthpetal; Rare through Mythic weights are reserved but cannot roll until eligible definitions exist.
+- Test evidence: 54 fresh Studio automated tests; one live prompt grant; `wild-sprout-1` moved from `west-01` to `south-03`; a cooldown retry preserved revision, quantity, and location; all 18 raycasts resolved; simulated Mythic presentation rendered; console remained error-free.
+- Mistakes discovered: A fixed-position cooldown alone still permits a predictable macro route. A rarity table can misleadingly imply live Mythic drops when the content catalog has no Mythic seed.
+- Recommended future approach: Preserve stable IDs across spawn relocation, exclude current and occupied indices, never roll on rejection, add reviewed seed definitions before balance claims, and require multi-client contention plus isolated schema-v4 rejoin tests before production approval.
+- Confidence level: High for current one-client server authority and relocation; Medium for experimental rarity weights; Low for untested multi-client/device/production behavior
+- Verification status: Verified for the scoped one-client Studio slice; Mythic visual is Simulated; production persistence remains unverified
+
+This decision extends ADR-014/015 without changing exact inventory identity, hotbar references, lease handling, or commit-before-acknowledgement invariants.
+
+## ADR-015: Habitat Flora generalization and derived wild-visitor projection
+
+- Date: 2026-07-21
+- Agent: Codex / Architecture, Data, Security, Gameplay, Enemy AI, UI, Performance, and QA roles
+- System affected: Plant definitions, schema migration, hotbar contracts, world services, creature state, ownership boundary, and runtime performance
+- Situation: The one-plant Sunspud domain hard-coded its definition, one seed stack, slot 1, visual model, and sale value. Adding Hearthpetal and Cozzle could either duplicate those paths or generalize the proven transaction boundary.
+- Decision made: Use a validated server definition ID for generic BuySeed/PlaceSeed and resolve harvest/sale from the immutable saved item definition. Schema v3 contains both canonical seed stacks and reserves slots 1-2 for `seed:sunspud` and `seed:hearthpetal`; unique item references use slots 3-10. The v1/v2 migration preserves exact items and may leave a displaced item safely unassigned. Keep plant rendering and creature rendering in separate services. Cozzle selection is deterministic from the earliest plotted Hearthpetal, then item ID, and produces at most one derived wild projection per player. Projection attributes explicitly deny ownership/capture; no creature economy or ownership remote is introduced.
+- Reasoning summary: Definitions remove copy-pasted economy logic while keeping all client-supplied IDs allowlisted. A derived visitor is enough to prove attraction presentation without creating an unreviewed durable encounter or ownership schema. Separating services allows Observe/Care/Capture to evolve without coupling crop save state to model animation.
+- Result: Generic two-plant farm transactions and schema v3 are implemented. Hearthpetal and Cozzle render through separate bounded services, while the existing profile repository remains the durable source for plants and does not claim the visitor is owned.
+- Test evidence: 30 farm/schema, 4 service-lifecycle, and 5 attraction-selection tests pass in a fresh play server; live one-player Studio evidence confirms one mature Hearthpetal and exactly one wild/unowned/non-capturable Cozzle; projection removal fixture passes; final Rojo build is 151,351 bytes.
+- Mistakes discovered: Edit-mode module caching can execute old contracts after Rojo sync; final tests must use a fresh play VM or fresh complete dependency clone. A straight inward spawn offset reduced visual readability, so the approved prototype uses inward plus tangential offset.
+- Recommended future approach: Add an EncounterService only when Observe needs authoritative per-player state. Keep presentation derived and sanitized; introduce durable visitor identity/lifetime only with a reviewed migration, explicit replay contract, and multiplayer tests.
+- Confidence level: High for current one-player architecture and migration behavior; Medium for v3 repository behavior under ordinary load; Low for future multiplayer encounter contention and production scale
+- Verification status: Verified for current Studio slice; Observe/Care/Capture and production durability are not implemented/verified
+
+This decision supersedes ADR-014 only where ADR-014 names schema v2, fixed slot 1, or item slots 2-10. Its exact-item, commit-before-acknowledgement, lease, replay, and offline-time invariants remain active.
+
+## ADR-014: Player profiles persist money, exact items, plot state, hotbar slots, and offline growth
+
+- Date: 2026-07-21
+- Agent: Data Agent / Architecture Agent / Security Agent / QA Agent / UI Agent / Codex
+- System affected: DataStore profiles, Leafnotes, seeds, planted crops, Backpack, hotbar, offline growth, session leases, world reconstruction, and failure UX
+- Situation: The stakeholder required exact money, planted crops, and numbered hotbar contents to survive logout/rejoin, with crops continuing to grow during absence.
+- Decision made: Profile schema v2 is the durable authority for integer Leafnotes, seed stacks, exact item UUID/revision/definition version/weight/origin, plot-local position, planted/mature Unix timestamps, Backpack state, tutorial state, bounded replay ledger, and hotbar references. Hotbar slots use canonical string keys (`"1"` through `"10"`) because Roblox DataStore serialization treats sparse numeric tables as arrays and can discard slot 10. The v1-to-v2 migration converts numeric keys and assigns any otherwise-unreferenced Backpack items to free slots. Slot 1 is the saved Sunspud seed reference; harvest assigns the exact item ID to the first free saved slot 2-10, and sale clears only that reference. World models and client slots are projections rebuilt from the profile. Placement writes `maturesAtUnix` once using server time; rejoin compares current server time without recalculating from the current balance definition, so T+44 remains growing, T+45 is mature, and long absence leaves one mature unharvested plant. Every successful economy mutation must be durable before acknowledgement. Each profile load receives a unique lease token; stale releases/commits cannot act for a later load. A per-player loading guard prevents concurrent duplicate loads in one server. Invalid, over-capacity, malformed, or unsupported profiles fail closed and are not replaced with defaults.
+- Reasoning summary: Saving exact state rather than presentation prevents currency resets, duplicate items, timer resets, and hotbar reshuffling. Absolute server timestamps implement offline growth without simulating an absent player or granting automatic harvest rewards.
+- Result: The Phase 3A schema, domain, snapshot, client projection, repository lease tokens, commit-failure freeze, duplicate-load guard, compact validation, bounded release retry, saved hotbar assignment, v1 migration, and offline-growth tests are implemented. Normal Studio sessions remain `Memory (Simulated)` unless the explicit ServerStorage test flag selects the dated isolated namespace; production ignores that flag.
+- Test evidence: Independent Data/Architecture and Security/QA reviews; clean 91,506-byte Rojo build; 13-case domain/schema suite; and a successful one-user isolated Studio DataStore leave/rejoin at exactly 100,000 Leafnotes with slots 2 and 10, exact weights, exact plot timestamps/coordinates, offline maturity, one reconstructed plant, and idempotent request replay. The test key and flag were removed and default memory mode reconfirmed. Production namespace, throttling, ambiguous network outcomes, hard crash, multi-server lease takeover, and production-scale shutdown remain untested.
+- Mistakes discovered: The initial repository reused one job-wide lease token, accepted any equal candidate revision as success, validated only top-level currency/seeds, and kept hotbar item assignments only on the client. The initial UI also rebuilt slots by UUID order. The first durable hotbar used sparse numeric keys and lost slot 10 through DataStore serialization, while startup could race two loads for one player and replace the valid session with `SESSION_BUSY`. One final Studio shutdown also retained its bounded lease until explicit test cleanup.
+- Recommended future approach: Add an injected atomic-store adapter and request-bound ambiguous-commit reconciliation; fault-test callback retries, release failure, two-session leases, hard shutdown, and stale writers; then run a separately isolated production-like server test with multiple crop ages before any launch claim.
+- Confidence level: High for the scoped isolated Studio rejoin and profile/offline-growth design; Medium for repository behavior under ordinary one-user operation; Low for untested production failure and multi-server paths
+- Verification status: Verified for one-user isolated Studio DataStore rejoin; Requires production testing
+
+
+## ADR-013: Rojo owns namespaced code roots, not the Phase 2 Workspace graybox
+
+- Date: 2026-07-21
+- Agent: Architecture Agent / QA Agent / Codex
+- System affected: Repository-to-Studio synchronization, shared/server/client code, Workspace graybox, and rollback safety
+- Situation: Phase 3A requires repository-authoritative Luau, but the live place already contains a verified additive graybox that was built from a reversible Studio recipe.
+- Decision made: Rojo maps only `ReplicatedStorage.CatchACreature`, `ServerScriptService.CatchACreature`, and `StarterPlayer.StarterPlayerScripts.CatchACreature`. Those three namespaces are fully repository-owned; mapped services preserve unknown siblings outside them, and `Workspace` is excluded until a separately reviewed ownership migration is justified. `servePlaceIds` restricts synchronization to place `72745225515549`.
+- Reasoning summary: Selective namespaced authority gives future gameplay code deterministic source control while preventing an early sync from adopting, replacing, or deleting the existing world shell.
+- Result: Rojo 7.7.0 synchronized all three namespaces and propagated a live file edit. The graybox retained its verified 684-descendant and 602-BasePart structure.
+- Test evidence: Successful sourcemap generation, clean 2,048-byte place build, local server HTTP 200, server restart/reconnect, Studio hierarchy/source inspection, post-reconnect live change propagation, and direct graybox recount on 2026-07-21.
+- Mistakes discovered: Installing a Studio plugin alone does not create a project mapping or start a server; the repository had neither. Background processes launched inside the filesystem sandbox did not persist after the shell ended.
+- Recommended future approach: Keep all gameplay source below the three approved roots; require review and count/regression evidence before changing the mapping; never add `Workspace` casually.
+- Confidence level: High
+- Verification status: Verified
+
 ## ADR-012: Paid true transfer is a gated final launch system
 
 - Date: 2026-07-20
@@ -154,6 +236,37 @@ ADR-007 remains authoritative for occupied-slot counting, ordinary harvest/produ
 - Recommended future approach: Clients request allowed actions; the server validates context, resolves results, persists state, and emits presentation events.
 - Confidence level: High
 - Verification status: Not yet implemented
+
+## ADR-019: Schema v5 uses dynamic ordered hotbar references
+
+- Date: 2026-07-21
+- Agent: Codex acting across Architecture, Data, Gameplay, Security, and QA roles
+- System affected: Persistent profile schema and inventory-to-hotbar projection
+- Situation: Fixed per-definition seed slots conflicted with the player's expectation that any acquired seed, plant, or future creature uses the lowest visible empty number.
+- Decision made: Store a sparse string-keyed dictionary for slots `"1"` through `"10"`. A seed reference is `seed:<definitionId>` and exists only while its authoritative quantity is positive; an item reference is its exact Backpack item ID. Require uniqueness, preserve valid existing item positions, and never compact them automatically.
+- Reasoning summary: A dynamic reference layer separates inventory truth from presentation order while maintaining deterministic, durable slot positions.
+- Result: v4 profiles migrate to v5 by removing zero-count seed reservations and retaining valid manual item slots. Current acquisition paths share a lowest-free-slot allocator.
+- Test evidence: Migration cases, ordered pickup/preservation cases, fresh 61/61 Studio Server tests, live slot-1 seed reuse, and Rojo build validation.
+- Mistakes discovered: Category reservations were previously mistaken for owned hotbar state.
+- Recommended future approach: Reuse the allocator for creatures, define a deliberate drag/reorder contract before exposing arbitrary destination moves, and test full-hotbar no-loss behavior for every acquisition class.
+- Confidence level: High for current data paths
+- Verification status: Code-reviewed and Studio-tested; production DataStore migration scale remains unverified
+- Review boundary: This is a high-impact schema change. The active no-delegation instruction prevented an independent second-agent debate/review in this turn, so Codex used role-based self-review plus fresh automated and runtime evidence and records that limitation explicitly.
+
+## ADR-018: R6 is the target avatar rig; presentation supports R15 during transition
+
+- Date: 2026-07-21
+- Agent: Codex / Architecture and UI roles
+- System affected: Place avatar configuration and character-facing client systems
+- Situation: The user requested a simpler R6 rig and a straight forward held-item arm after observing an R15 walking glitch.
+- Decision made: Set `StarterPlayer.GameSettingsAvatar` to R6 in the Rojo project, implement an R6-specific single-shoulder held pose, and retain a constrained R15 fallback until the live place setting and all normal spawn paths are verified.
+- Reasoning summary: R6 gives the requested block-rig presentation, while a transition branch prevents broken visuals in an already-open R15 place or test environment.
+- Result: Rojo serializes the R6 token and held presentation supports both rig types without moving torso joints.
+- Test evidence: Build inspection found `<token name="GameSettingsAvatar">0</token>`; R15 walk and isolated R6 pose/movement checks passed.
+- Mistakes discovered: Hidden game settings are not guaranteed to update through live Rojo sync; the open place still spawned R15.
+- Recommended future approach: Apply R6 once through Studio Avatar Settings, restart play, test normal spawn/equip/movement, and keep R15 fallback until published behavior is confirmed.
+- Confidence level: High for source architecture; Medium for current place configuration
+- Verification status: Code-reviewed; normal R6 place spawn Requires Roblox Studio testing
 ## ADR-002: Data-driven content
 
 - Date: 2026-07-16

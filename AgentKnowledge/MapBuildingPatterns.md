@@ -1,5 +1,50 @@
 # Map Building Patterns
 
+## Pattern: Scale a hero landmark using gameplay-camera composition
+
+- Date: 2026-07-21
+- Agent: Codex / Map and UI roles
+- System affected: Landmark hierarchy, event space, arrival reveal, HUD occlusion, and radial layout
+- Situation: A larger 184-stud center island still did not make the first 180-stud tree revision read strongly enough around the existing top-center HUD.
+- Decision made: Validate the landmark from overview, inside-gate, event-island, and plot cameras with the real HUD; use a 255-stud tree and broad crown; keep the tree centered while moving supporting footprints outward.
+- Reasoning summary: Top-down size does not predict player-camera importance. UI, camera height, distance, and crown width determine whether a landmark reads as the hero.
+- Result: The Memory Tree crown is visible above and beside the HUD from Plot 1 and dominates the approach after the gate/plot assignment.
+- Test evidence: Edit overview/approach captures; live event-island and staged client Plot 1 captures; player traversal; direct inside-gate raycast; 2,456 static checks.
+- Mistakes discovered: The first 180-stud version looked strong in edit overview but was still substantially occluded by the live tutorial/HUD.
+- Recommended future approach: Include actual HUD/device camera compositions in every landmark-scale review before final modeling.
+- Confidence level: High for desktop composition; Medium for real devices
+- Verification status: Verified
+
+## Pattern: Migrate graybox geometry by semantic tag, not historical name
+
+- Date: 2026-07-21
+- Agent: Codex / Map and Architecture roles
+- System affected: Reversible map migrations and rollback safety
+- Situation: The live land baseline contained 190 `LandTile_` and 182 `LandExpansion_` names even though all 372 parts were authoritative land.
+- Decision made: Select land by `GrayboxLand == true`, preflight exact aggregate count/properties, store original transforms/names, and tag only new additions.
+- Reasoning summary: Human-readable names can change across prior migrations; a reviewed semantic attribute is the durable identity boundary.
+- Result: The first name-based migration refused before mutation; the tag-based migration reused all 372 parts and added only 112 land tiles plus six ring segments.
+- Test evidence: Refusal error, zero visible geometry change after refusal, retry result with 118 tagged additions, and exact 484-position land validation.
+- Mistakes discovered: The initial migration encoded a filename-era assumption instead of the live semantic contract.
+- Recommended future approach: Preflight both semantic tag and exact count, record rejected assumptions in the failed-approach library, and keep rollback independent of renamed instances.
+- Confidence level: High
+- Verification status: Verified
+
+## Pattern: Relocating resource nodes over a larger validated spawn pool
+
+- Date: 2026-07-21
+- Agent: Codex / Map and Gameplay roles
+- System affected: Forage placement, ground resolution, route variety, and anti-macro behavior
+- Situation: Six visible sprouts needed to move after collection without stacking, floating, or returning to their previous location.
+- Decision made: Define 18 named X/Z points in three regions, raycast against the authoritative graybox for Y, track occupied indices, and select a new index while excluding both the current and occupied indices.
+- Reasoning summary: Separating logical nodes from presentation points supports durable cooldown IDs and safe visual movement without persisting raw world transforms.
+- Result: All 18 points resolved to ground between Y 44 and 45; six unique active nodes rendered and a live node moved between regions.
+- Test evidence: Seven forage-world tests plus a live server raycast audit and relocation inspection.
+- Mistakes discovered: Fixed-location cooldowns are still predictable, and raw configured Y values would drift when the map changes.
+- Recommended future approach: Re-run the ground audit after graybox edits; preserve stable point IDs; keep active nodes fewer than valid points; add line-of-sight and route-density review with final art.
+- Confidence level: High for the current graybox
+- Verification status: Verified
+
 ## Initial direction
 
 - Compact hub with player plots around a central sanctuary landmark
@@ -14,6 +59,21 @@
 Status: Implemented as Phase 2 graybox v1 and Verified for edit-mode structure plus one-client desktop traversal. Crowd and real-device evidence remain open.
 
 Document type: Baseline guidelines, not a completed knowledge entry. Add future findings using the full metadata format in `ProjectContext.md`.
+
+## Entry: Plot visitor placement needs inward and tangential separation
+
+- Date: 2026-07-21
+- Agent: Codex / Map, UI, Gameplay, and Enemy AI roles
+- System affected: Plot sightlines, creature arrival, plant/visitor labels, arrival-pad camera, and edge safety
+- Situation: Placing Cozzle directly inward from Hearthpetal kept it on the plot but aligned the visitor, flower, labels, and player approach.
+- Decision made: Compute the visitor in plot-local coordinates using equal inward and tangential components, then transform through the assigned plot soil. The modest offset remains inside typical edge placements while separating subjects from the primary approach line.
+- Reasoning summary: Spatial validity is not enough; interaction models and billboards need readable composition from the player's likely camera.
+- Result: The projection code uses the combined offset and smaller/higher visitor label. Final production art and all edge/device cameras remain untested.
+- Test evidence: First live screenshot exposed overlap; corrected coordinate code and deterministic selection tests pass.
+- Mistakes discovered: A straight line to plot center optimized containment but not visual readability.
+- Recommended future approach: Add camera/sightline captures at center, edges, phone FOV, and multiple visitors before finalizing spawn sockets.
+- Confidence level: Medium
+- Verification status: Code-reviewed; corrected complete arrival capture still required
 
 ## Entry: Reversible whole-island graybox pattern
 

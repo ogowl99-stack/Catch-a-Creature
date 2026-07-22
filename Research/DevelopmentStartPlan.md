@@ -1,10 +1,10 @@
 # Proposed Development Start Plan
 
 - Date: 2026-07-16
-- Status: Phase 2 graybox v1 implemented and single-client desktop-verified; Phase 3 gameplay implementation not authorized
-- Truth label: Verified
+- Status: Phase 2 graybox v1 and Phase 3A farm foundation are one-client desktop-verified; Hearthpetal/first-Cozzle arrival is implemented as a bounded prototype
+- Truth label: Mixed
 
-This document describes how production should begin. The user authorized Phase 1 on 2026-07-19 and Phase 2 on 2026-07-20; later phases still require separate gates.
+This document describes how production should proceed. The user authorized Phase 1 on 2026-07-19, Phase 2 on 2026-07-20, Phase 3A farming on 2026-07-21, and the bounded Hearthpetal/Cozzle arrival step later on 2026-07-21; later encounter, production-asset, multiplayer, monetization, and publishing phases still require separate gates.
 
 ## Phase 0: Lock the design — complete 2026-07-19
 
@@ -90,6 +90,8 @@ The expanded graybox also reserves a 20-stud perimeter route and one natural mea
 Validate plot scale, movement, camera distance, sightlines, and interaction flow before final modeling.
 
 ## Phase 3: Smallest complete playable
+
+Status: Phase 3A farming, persistence, backpack/hotbar, and service access are implemented and one-player Studio-verified. The Hearthpetal/Cozzle arrival slice adds a second saved crop and one wild/unowned creature projection. Observe, Care, capture, ownership, three-creature breadth, weather, production assets, multiplayer, real-device validation, and publishing remain incomplete.
 
 Target vertical slice:
 

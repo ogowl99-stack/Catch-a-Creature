@@ -1,5 +1,20 @@
 # Enemy AI Patterns
 
+## Entry: Derived one-visitor attraction projection before AI movement
+
+- Date: 2026-07-21
+- Agent: Codex / Enemy AI, Gameplay, Architecture, Security, Performance, and QA roles
+- System affected: First Cozzle arrival, attractor selection, model projection, cleanup, and future encounter state
+- Situation: The project needed a visible creature milestone before authoritative Observe/Care/Capture or roaming was ready.
+- Decision made: Select the earliest plotted Hearthpetal with item-ID tie-break, schedule one Cozzle three seconds after maturity, cap one per player, mark it wild/unowned/non-capturable, and remove/reselect it when the attractor leaves. Use a single Tween entrance and anchored parts; no pathfinding or idle movement.
+- Reasoning summary: Deterministic derived presentation proves the ecology link without inventing untested ownership, contention, or navigation.
+- Result: One live Cozzle arrived and the integration fixture removed it after attractor deletion; five selection tests pass.
+- Test evidence: 5/5 pure cases, live runtime attributes, one-model/20-descendant fixture, clean console.
+- Mistakes discovered: Pure inward placement aligned subjects; adding a tangent improves sightline separation.
+- Recommended future approach: Add authoritative lifetime and Observe state before any roaming; replace polling with scheduled deadlines before increasing counts.
+- Confidence level: High for current projection; Low for AI/navigation because none exists
+- Verification status: Verified projection; movement not implemented
+
 ## Entry: Wild visitor contest state model
 
 > Follow-up (2026-07-19): Personal Observe/Care/Trust, 60-second caretaker priority/open early, five-minute public lifetime, proximity, fixed traits, and immediate no-cooldown rising-chance retry are now user-approved. A failed attempt returns directly to Wild after its authoritative commit; there is no gameplay Cooldown state.

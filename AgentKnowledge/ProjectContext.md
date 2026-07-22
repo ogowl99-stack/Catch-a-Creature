@@ -1,8 +1,83 @@
 # Project Context
 
+## Entry: Memory Tree hero-center revision
+
+- Date: 2026-07-21
+- Agent: Codex / Map, Architecture, Gameplay, Performance, and QA roles
+- System affected: Central event island, tree silhouette, pond, bridges, public ring, plots, Hub, meadows, gate, boards, forage regions, trail, hills, walls, spawn, and progress media
+- Situation: The user identified the Memory Tree as the game's main selling point and asked for a larger center island with the rest of the map pushed outward.
+- Decision made: Expand the event island from 104 to 184 studs; use a 255-stud graybox tree with a broad crown; expand the pond/bridges/ring; move the 96×96 plots to 150/340 offsets; move all dependent spaces outward; enlarge the walkable island to about 1040×1080; apply the live change through a guarded reversible migration without changing Terrain.
+- Reasoning summary: A focal landmark needs visual hierarchy from the player camera, not only a larger footprint in top-down view. Every connected footprint had to move as one dependency set.
+- Result: The live map has 802 descendants, 720 BaseParts, 484 land tiles, and 30 central-ring segments. The tree is the dominant silhouette in overview, inside-gate, event, and Plot 1 compositions.
+- Test evidence: 2,456 edit checks; 58 fresh-server gameplay cases; 18/18 forage ground hits; six live forage nodes; authored bridge/ring/Hub, Plot 4, and east-trail traversal; south boundary stopped at Z≈544.5; empty final client/server warning and error logs; Rojo PASS.
+- Mistakes discovered: The first migration preflight assumed every land part retained the `LandTile_` prefix; the historical expansion used `LandExpansion_` for 182 tagged land parts. The first validator also omitted its local surface-height constant. Real UI framing showed the 180-stud first revision was still too hidden, so the final silhouette increased to 255 studs.
+- Recommended future approach: Identify map parts by stable semantic attributes, keep deterministic repository-owned acceptance, validate with the real HUD and player camera, and preserve the migration/rollback pair until final-art replacement is approved.
+- Confidence level: High for current Edit geometry and one-client desktop traversal; Medium for final visual scale pending user/device/crowd approval
+- Verification status: Verified
+
+## Entry: Held item and favorite-safe selling
+
+- Date: 2026-07-21
+- Agent: Codex / Gameplay, UI, Data, Security, and QA roles
+- System affected: Hotbar equip, R15 presentation, inventory, favorites, single sale, bulk sale, remotes, and profile projection
+- Situation: The user wanted the selected plant visible in the avatar's hand, single-item sale restricted to the equipped item, and full-inventory sale to protect favorites without requiring equip.
+- Decision made: Maintain server-tracked session equip state; present supported held items locally through bounded R15 IK; gate `SellItem` on the exact equipped item ID; persist the favorite flag; and implement atomic `SellAllUnfavorited` over the Backpack.
+- Reasoning summary: Presentation can be local, but economic authority must use the exact server-tracked UUID/revision. Favorites provide a free loss-prevention path for bulk selling.
+- Result: Click/number equip, harvest auto-equip, storage round trip, favorite toggle, equipped single sale, and favorite-safe bulk behavior are implemented.
+- Test evidence: 58 fresh-server cases; live 1.12-weight harvested Sunspud auto-equipped; unequipped single sale rejected without mutation; favorite-only bulk rejected without mutation; equipped sale cleared exact item/equip/model.
+- Mistakes discovered: The first client patch was briefly overwritten by a stale Rojo writer; the server was restarted and exact live source patterns were rechecked.
+- Recommended future approach: Keep equip ephemeral, item/favorite state durable, server-gate all value changes, add other-player held replication only as a separately bounded feature, and test touch/controller/avatar variants.
+- Confidence level: High for one-client desktop memory mode
+- Verification status: Verified
+
 ## Knowledge entry format
 
 Every meaningful entry must record: date, agent, system affected, situation, decision, reasoning summary, result, test evidence, mistakes discovered, recommended future approach, confidence, and verification status.
+
+## Entry: Seed foraging, relocation, and Mythic pull presentation
+
+- Date: 2026-07-21
+- Agent: Codex acting across Gameplay, Data, Architecture, Map, Security, UI/VFX, Performance, and QA roles
+- System affected: Seed acquisition, rarity definitions, profile schema, farm inventory, runtime world nodes, anti-macro behavior, remotes, presentation, tests, and progress media
+- Situation: The stakeholder requested map-wide seed foraging from Common through super rare, then required a collected sprout not to return at the same location and requested a special Mythic pull animation.
+- Decision made: Implement six stable logical nodes projected into 18 named graybox-ground points. The server exclusively selects an eligible reward and commits it to schema v4 before moving the node to a different unused point and, for Mythic only, emitting a capturer-local presentation. Keep per-player cooldown keyed to the stable node across relocation. Treat current rarity weights as Experimental and do not claim higher tiers are obtainable without matching seed definitions.
+- Reasoning summary: Stable IDs preserve durable cooldowns; movable projections reduce fixed-coordinate automation; commit-before-world/presentation ordering keeps inventory, map, and feedback truthful.
+- Result: Common Sunspud and Uncommon Hearthpetal can be foraged into saved seed stacks. A successful sprout relocates, a cooldown retry does not mutate or relocate, and the bounded Mythic visual is implemented for future eligible content.
+- Test evidence: 54 fresh Studio automated tests; live one-client grant and cross-region relocation; live cooldown no-op; all 18 ground points resolved; simulated Mythic visual capture; error-free Studio console.
+- Mistakes discovered: Fixed-position cooldowns were initially treated as sufficient. The full rarity table needed an explicit current-catalog limitation.
+- Recommended future approach: Add reviewed Rare-Mythic seed definitions, simulate effective drop distributions, run schema-v4 isolated rejoin and two-client contention, and test the prompt/VFX on real devices.
+- Confidence level: High for current one-client behavior; Medium for experimental balance; Low for production persistence, devices, and multiplayer until tested
+- Verification status: Verified one-client slice; Mythic presentation Simulated; production behavior unverified
+
+## Entry: Hearthpetal and first wild Cozzle arrival
+
+- Date: 2026-07-21
+- Agent: Codex acting across Gameplay, Data, Architecture, UI, Enemy AI, Security, Performance, and QA roles
+- System affected: Plant catalog, profile schema, seed hotbar, shop UI, placement, plant projection, creature attraction, runtime world projection, tests, and progress media
+- Situation: After the Sunspud farm/save/inventory foundation passed, the stakeholder authorized the next step: begin Hearthpetal growth and Cozzle arrival.
+- Decision made: Add Hearthpetal as experimental server-owned Habitat Flora with an 8-Leafnote seed price, 60-second growth time, 650-1050 milli weight, 14 base sale value, and fixed seed hotbar slot 2. Schema v3 adds the stack and reserves slot 2 while moving a displaced saved item reference to the first free slot 3-10 or leaving that exact item safely stored when full. Cozzle is derived from the earliest plotted Hearthpetal, appears three seconds after maturity, is capped to one projection per player, and is explicitly `Wild=true`, `Owned=false`, and `CaptureEnabled=false`. Observe/Care/Capture and persistent visitor ownership remain out of this slice.
+- Reasoning summary: A visible attraction moment advances the game's core promise, while derived wild projection avoids inventing premature ownership or capture transactions. A schema migration is required because fixed seed access must not delete a harvested item that previously occupied slot 2.
+- Result: Hearthpetal can be bought, selected with key 2, planted, grown, harvested, sold, rendered distinctly, and represented in snapshots/profile validation. One Cozzle appears with a bounded entrance and is removed/reselected when its attractor leaves the plot. The two-seed shop and hotbar render in Studio.
+- Test evidence: Fresh play-server suites passed 30/30 farm/schema cases, 4/4 FarmService lifecycle cases, and 5/5 attraction-selection cases. Live Studio bought Hearthpetal, charged exactly 8 Leafnotes, planted one exact item with a 60-second maturity, rendered growth/maturity, and produced exactly one Cozzle with the required wild/unowned/non-capturable attributes. A separate world-projection fixture created one 20-descendant visitor and removed it after attractor deletion. Console was clean; Rojo validation passed with a fresh sourcemap and 151,351-byte build.
+- Mistakes discovered: Edit-mode `require` returned cached pre-sync contracts and caused a false test failure; fresh play-server VMs are required for final module tests. The first Cozzle approach sat directly between the arrival pad and plant, causing label/subject occlusion; the projection now combines inward and tangential offsets.
+- Recommended future approach: Build Observe as the next server-authored encounter step without granting ownership; add accessible proximity/controller/touch interaction, visitor lifetime/rejoin rules, one-player state tests, then multiplayer contention only after the single-player encounter contract passes.
+- Confidence level: High for one-player Studio farm/arrival projection and pure migration/domain behavior; Medium for repository persistence of schema v3; Low for untested multiplayer, real devices, production DataStore, visitor lifetime, and performance scale
+- Verification status: Verified in one-player Studio and repository tests; experimental balance/prototype visuals; requires production, device, and multiplayer testing
+
+## Entry: Phase 3A durable farm-profile requirement
+
+- Date: 2026-07-21
+- Agent: Codex / Data, Architecture, Security, QA, UI, and Gameplay Agents
+- System affected: Leafnotes, farm inventory, planted Sunspuds, hotbar, rejoin, offline growth, and DataStore safety
+- Situation: During the live first-playable iteration, the stakeholder required exact currency, crops, and hotbar contents to return after logout and required crops to grow while offline.
+- Decision made: Treat one versioned server profile as durable truth. Save Leafnotes, seed counts, exact plant/item identity and weight, location, plot-local coordinates, absolute planted/maturity times, and numbered hotbar references. Rebuild plot and UI projections on load. Do not auto-harvest or auto-award money offline.
+- Reasoning summary: A timestamped item state supports rejoin and offline maturity without trusting clients or running absent-player simulation.
+- Result: Phase 3A implements the profile shape, saved slots, stricter validation, safer unique load leases, commit-failure freeze, and offline round-trip/boundary tests. Studio is still simulated memory; controlled published DataStore verification is outstanding.
+- Test evidence: Rojo build PASS, fresh cloned-module domain/schema tests, live Studio boot/console, and independent persistence/security reviews.
+- Mistakes discovered: Early hotbar projection was client-only; early repository validation and lease identity were insufficient for valuable persistent data.
+- Recommended future approach: Complete fake-store fault injection and isolated published rejoin tests before labeling persistence Verified or raising economy stakes.
+- Confidence level: High for requirements and state model; Medium for implementation pending real DataStore tests
+- Verification status: Code-reviewed / Simulated / Requires production testing
 
 ## Entry: Phase 0 foundation
 
@@ -20,17 +95,32 @@ Every meaningful entry must record: date, agent, system affected, situation, dec
 - Verification status: Code-reviewed
 - Evidence class: Local repository inspection, automated documentation checks, and independent documentation review
 
+## Entry: Phase 3A source linkage established
+
+- Date: 2026-07-21
+- Agent: Codex / Architecture Agent / QA Agent
+- System affected: Git-to-Studio source authority, Rojo server, shared/server/client namespaces, and Phase 2 graybox isolation
+- Situation: The user authorized the next implementation step, but the installed Studio plugin could not connect because this repository had no Rojo project file, no project-local binary, and no running server.
+- Decision made: Add a selective `default.project.json` that maps only `ReplicatedStorage.CatchACreature`, `ServerScriptService.CatchACreature`, and `StarterPlayer.StarterPlayerScripts.CatchACreature`; set `$ignoreUnknownInstances` on mapped services; exclude `Workspace`; restrict live sync to place `72745225515549`; pin Rojo 7.7.0 in `rokit.toml`; install the same binary into the ignored project `.tools` directory for this machine; and serve only on `127.0.0.1:34872`.
+- Reasoning summary: A narrow namespaced mapping establishes repository authority for future code without letting an initial sync replace the live graybox or unrelated Studio instances.
+- Result: The server returned HTTP 200, Studio synchronized all three folders, and a repository edit to `ProjectInfo.luau` propagated live. `Workspace.CatchACreature_Graybox_v1` remained present with exactly 684 descendants and 602 BaseParts.
+- Test evidence: Rojo 7.7.0 version/hash check, repeatable `scripts/Test-Rojo.ps1` PASS, fresh sourcemap, clean temporary place build, live-server HTTP 200, server restart/reconnect, Studio hierarchy and complete source reads, live edit/revert propagation, authorized place-ID assertion, and direct graybox recount on 2026-07-21.
+- Mistakes discovered: The earlier project status described source linkage as a future choice without creating the executable project file. A sandboxed detached Rojo process was terminated when its shell ended, and PowerShell `Start-Process` encountered duplicate `Path`/`PATH` environment entries; a reviewed unsandboxed hidden process using `ProcessStartInfo` was required for the persistent local server.
+- Recommended future approach: Start `rojo serve default.project.json` before opening the Studio connection; keep `Workspace` excluded until a separately reviewed migration exists; use namespaced roots with unknown-instance preservation; validate the sourcemap and graybox counts after mapping changes; then add Phase 3A modules in small tested increments.
+- Confidence level: High
+- Verification status: Verified
+
 ## Current facts
 
 - Project name: Catch a Creature
 - Platform: Roblox
 - Modeling: Blender
-- Phase: Phase 2 graybox v1 implemented and single-client desktop-verified as of 2026-07-20; Phase 3 gameplay, production asset multiplication, and publishing are not authorized
+- Phase: Phase 3A playable prototype with Sunspud/Hearthpetal farming, saved inventory, one wild Cozzle projection, and seed foraging; production art, broader creature gameplay, and publishing remain incomplete
 - Workspace: Local Git repository connected to public GitHub repository `ogowl99-stack/Catch-a-Creature` (visibility verified 2026-07-18)
-- Roblox game: Reversible Phase 2 map graybox implemented; gameplay systems not implemented
+- Roblox game: Reversible Phase 2 map graybox, Rojo source scaffold, farm/inventory/persistence prototype, first wild visitor projection, and seed-foraging prototype implemented
 - Blender assets: Not yet created
-- Tests: Documentation checks plus edit-mode structural validation and one-client desktop graybox traversal; no gameplay-module, multi-client, or real-device tests exist
-- Roblox Studio evidence: Live MCP connection verified to the authorized `Catch A Creature` place ID `72745225515549`. On 2026-07-20, the additive `Workspace.CatchACreature_Graybox_v1` map root was built, expanded, and tested in the open Studio session. It contains 684 descendants and 602 BaseParts; repository source linkage is not yet established.
+- Tests: Documentation checks, structural map validation, one-client traversal, 54 current gameplay/service/schema tests, isolated schema-v2 DataStore rejoin evidence, and one-client forage relocation evidence; no multi-client or real-device tests exist
+- Roblox Studio evidence: Live MCP connection verified to the authorized `Catch A Creature` place ID `72745225515549`. On 2026-07-20, the additive `Workspace.CatchACreature_Graybox_v1` map root was built, expanded, and tested in the open Studio session. On 2026-07-21, Rojo 7.7.0 source linkage was verified for namespaced shared/server/client folders; the graybox remained outside Rojo authority with 684 descendants and 602 BaseParts.
 - Phase 1 platform choices: Eight-player public servers; mobile-safe performance/interaction floor with scalable desktop enhancements; selective Rojo repository-first source authority; standard Roblox third-person camera; standard R15 avatars; all-ages accessibility; original classic-Roblox stud-textured garden direction. (User-approved 2026-07-19; not yet implemented or device-tested)
 - First-session hook: Target an approximately five-minute guaranteed farming cycle using Sunspud, an original always-stock single-harvest common plant separate from Hearthpetal; every Sunspud targets roughly 45 seconds. A breathing Shop button and permanently free always-visible travel guide purchase, plot return, and selling. Ten logical quick slots reference a 200-slot Backpack; phones show five per page. Free placement uses an optional one-stud snap that defaults off, no required spacing, and exact-transform rejection. Percentage growth, whole-plant Harvest/weight reveal, Sell Held, favorite-safe Sell All, and Appraise are approved. Wild creatures begin arriving around minutes 8–10. (User-approved 2026-07-19; not yet implemented or playtested)
 - Publishing: Roblox experience publishing not performed
@@ -97,3 +187,18 @@ Every meaningful entry must record: date, agent, system affected, situation, dec
 - Verification status: Verified
 - Mount implementation status: Not yet implemented
 - Independent review: PASS
+
+## 2026-07-21 R6 held-item transition
+
+- Date: 2026-07-21
+- Agent: Codex
+- System affected: Avatar rig, hotbar truthfulness, held seed/plant presentation
+- Situation: Slot 1 looked occupied at zero seeds, and held-item IK visibly conflicted with walking; the user selected R6 as the target rig and requested the arm straight forward.
+- Decision made: Render zero-owned seed slots as `EMPTY`, set R6 in the source project, use a one-shoulder R6 pose, and limit the R15 fallback to the right arm.
+- Reasoning summary: Inventory display must match authoritative ownership, and visual posing must not control locomotion joints.
+- Result: Hotbar behavior is verified; R15 fallback is verified; R6 pose is simulated successfully; project build contains the R6 property.
+- Test evidence: Rojo PASS, 58/58 server suites, direct GUI click evidence, R15 walk check, isolated R6 walk/geometry check, and Studio still capture.
+- Mistakes discovered: Live source sync did not change the open place's hidden avatar setting.
+- Recommended future approach: User applies the one-time R6 Avatar Settings change; Codex then repeats the normal-spawn R6 acceptance test.
+- Confidence level: High within documented boundaries
+- Verification status: Mixed: Verified, Simulated, and Requires Roblox Studio testing as stated above

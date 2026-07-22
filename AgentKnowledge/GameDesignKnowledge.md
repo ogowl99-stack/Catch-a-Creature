@@ -1,5 +1,37 @@
 # Game Design Knowledge
 
+## Entry: Moving wild sprouts provide a map-foraging seed route
+
+- Date: 2026-07-21
+- Agent: Codex / Game Design and Gameplay roles
+- System affected: Exploration, seed acquisition, rarity, inventory, map circulation, and rare reward feedback
+- Situation: The user wanted players to forage throughout the map for Common through super-rare seeds and rejected same-location respawns that would encourage macroing.
+- Decision made: Place six simultaneous Wild Seed Sprouts across a larger 18-point pool. A success awards one eligible seed, starts a 120-second per-player stable-node cooldown, and moves that sprout elsewhere. Use the existing Mythic tier as “super rare.” The all-tier experimental weights reserve 0.05% for Mythic, but unavailable tiers are excluded rather than producing fake or missing rewards.
+- Reasoning summary: Moving sprouts makes acquisition exploratory while the cooldown prevents one logical node from being repeatedly farmed. Excluding unavailable content keeps every accepted interaction honest.
+- Result: The loop is playable with Common Sunspud and Uncommon Hearthpetal. Rare, Epic, Legendary, and Mythic seed content is not yet implemented, so a natural Mythic pull cannot occur yet.
+- Test evidence: Live one-client forage/reward/relocation/cooldown run, all 18 ground points resolved, and 54 automated tests passed.
+- Mistakes discovered: Showing a complete rarity table without stating catalog eligibility could be mistaken for a live drop promise.
+- Recommended future approach: Add one reviewed seed per intended tier, simulate the effective distribution, then tune cooldown and spatial spread with real play sessions.
+- Confidence level: High for the loop; Low for final rarity economy until the catalog and playtests exist
+- Verification status: Verified prototype behavior; balance remains Experimental
+- Implementation status: Common/Uncommon foraging implemented; higher-tier content pending
+
+## Entry: Hearthpetal attracts the first visible wild Cozzle
+
+- Date: 2026-07-21
+- Agent: Codex / Game Design, Gameplay, UI, Data, Enemy AI, Performance, and QA roles
+- System affected: Habitat Flora progression, shop economy, attraction feedback, visitor ownership, first-session pacing, and prototype presentation
+- Situation: With the farm loop and saving established, the stakeholder chose to start the first creature attraction step using the approved Hearthpetal/Cozzle pairing.
+- Decision made: Hearthpetal is the second fixed seed and the first implemented Habitat Flora. Current values are experimental: 8 Leafnotes, 60 seconds, 650-1050 milli weight, and 14 base sale value. A plotted Hearthpetal attracts one visible Cozzle three seconds after maturity. The Cozzle is a wild visitor only; it cannot be captured, owned, sold, stored, or saved as a creature in this slice. The label states that Hearthpetal attracted it, while model attributes prevent presentation from being confused with ownership.
+- Reasoning summary: The first attraction should visibly connect plant choice to creature ecology without skipping directly from crop farming to a complicated chance-based ownership transaction. A second crop priced just above the new-player starting balance's Sunspud purchase creates a small reinvestment step, but the exact economy still needs playtesting.
+- Result: The shop communicates both crops and the attraction promise. Hearthpetal has a distinct warm bloom, and one original part-based Cozzle appears after maturity. The first visible milestone was captured in Studio.
+- Test evidence: Live one-player purchase/plant/grow/arrival; server attributes `Wild=true`, `Owned=false`, `CaptureEnabled=false`; one visitor maximum; 30+4+5 automated cases; clean console/build.
+- Mistakes discovered: The first camera-facing spawn placement visually stacked Cozzle, plant, and labels. A tangential component now separates the visitor from the main arrival-pad sightline. Exact price/growth/value were unresolved, so they remain explicitly experimental rather than silently locked.
+- Recommended future approach: Implement Observe next as a no-cost, server-authored information step. Before Care/Capture, decide visitor lifetime/rejoin semantics and test whether 60-second Hearthpetal pacing plus the five-minute tutorial target feels understandable.
+- Confidence level: High for the intended ecological link and ownership boundary; Medium for one-player readability; Low for economy/pacing until player testing
+- Verification status: Verified prototype behavior; experimental balance and visuals
+- Implementation status: Hearthpetal and wild Cozzle arrival implemented; Observe/Care/Capture not implemented
+
 ## Entry: Future owned-creature mounts
 
 - Date: 2026-07-20
@@ -599,3 +631,18 @@ Later on 2026-07-19, the user approved paid true-transfer stealing with full own
 On 2026-07-19, the user approved paid true-transfer stealing as a narrow later-update exception with free inventory/held/favorite protection, no duplication, and full buyer ownership/economic rights. It is not part of the first playable. Destructive decay and mandatory defense remain outside the approved direction; exact protection timing remains unresolved.
 
 Follow-up (2026-07-20): The user moved this feature into the conditional initial-public-release target. The smallest internal first playable remains theft-free. Paid transfer is implemented last, stays disabled behind a server feature flag, and blocks public launch until policy, protection, receipt, recovery, economy, and closed multiplayer trust gates pass. Exact resale and additional protection rules remain provisional.
+
+## Entry: World-conditioned creature discovery reference
+
+- Date: 2026-07-21
+- Agent: Codex / Game Design Agent
+- System affected: Creature discovery, Field Journal, weather, progression
+- Situation: The user supplied the Catch a Monster Pets page and main community wiki as potential feature references after the first Hearthpetal-to-Cozzle arrival slice worked.
+- Decision made: Reuse only the broad player needs behind location/condition-based discovery, a structured collection index, bounded active companions, and long-term creature paths. Express them through original Habitat Flora signals, Observe clues, Field Journal states, Bloommarks, Growth Memories, and sanctuary service locations.
+- Reasoning summary: The reference's strongest fit is that creatures feel connected to places and conditions. Its combat elements, duplicate fusion, exact odds, ranks, names, assets, and event structures conflict with the current identity or create unnecessary scope.
+- Result: A source-labeled reference study recommends continuing with server-authoritative Observe plus a `Seen` Field Journal state. No gameplay change was made.
+- Test evidence: The official Roblox description and eleven linked community-wiki pages were reviewed on 2026-07-21; local design was compared against the approved game promise and current Cozzle slice. No direct reference-game or new Roblox Studio test was performed.
+- Mistakes discovered: A single Pets page can overemphasize catalog content; the connected pages were required to understand acquisition, progression, weather, and repeatable-mode structure. Exact wiki numbers are not trustworthy enough for balance.
+- Recommended future approach: Translate reference mechanics as `player need -> original sanctuary expression`, keep acquisition conditions legible, and require Studio comprehension evidence before approving the Field Journal interaction.
+- Confidence level: High for the transferable design principle; Low for exact reference-game data
+- Verification status: Code-reviewed research; community claims remain unverified

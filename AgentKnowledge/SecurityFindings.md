@@ -1,5 +1,50 @@
 # Security Findings
 
+## Entry: Single sale is exact-equipped; bulk sale is authoritative and favorite-safe
+
+- Date: 2026-07-21
+- Agent: Codex / Security, Data, and Gameplay roles
+- System affected: Equip remote, single sale, bulk sale, item identity, payout, and replay
+- Situation: Owning an item was not sufficient authorization for the user's requested single-item sale flow; bulk sale had to work without equip while excluding favorites.
+- Decision made: Track equipped UUID/slot server-side for the session; reject `SellItem` unless it matches; derive every bulk candidate and payout from authoritative profile/definitions; commit bulk atomically; keep request fingerprinting/replay.
+- Reasoning summary: Client selection, displayed card, weight, favorite set, and payout are all forgeable presentation inputs.
+- Result: A direct unequipped sale returned `ITEM_NOT_EQUIPPED` with no revision/item change. Favorite-only bulk returned `NO_SELLABLE_ITEMS`; tested mixed bulk removes only eligible items and exact hotbar references.
+- Test evidence: Farm Domain and Farm Service suites plus live malicious/no-op checks.
+- Mistakes discovered: None in the final authority boundary.
+- Recommended future approach: Add rate limits/telemetry before public release and multiplayer races against store/favorite/sell/harvest operations.
+- Confidence level: High for deterministic and one-client behavior
+- Verification status: Verified
+
+## Finding: Forage rewards must never be client-selected
+
+- Date: 2026-07-21
+- Agent: Codex / Security, Data, and Gameplay roles
+- System affected: Forage remote surface, RNG, inventory grants, cooldowns, and world prompts
+- Situation: A client-visible prompt and RemoteFunction could otherwise be forged to request Mythic rewards, bypass distance, reroll rejected attempts, or move nodes without a durable grant.
+- Decision made: The world service performs humanoid/root/distance validation and calls a server-only service method. FarmService selects the eligible definition and injects a private table-identity grant token that cannot survive client serialization. FarmDomain revalidates the token, node, definition, cooldown, capacity, and stack bounds. Invalid/full/cooldown/no-reward paths perform no RNG or mutation, and only `ok=true` relocates/presents.
+- Reasoning summary: Keeping reward choice and authorization entirely server-side removes the attacker-controlled rarity/result input and preserves deterministic rejection behavior.
+- Result: Forged public forage commands fail; exact replay remains idempotent; one live cooldown retry produced no reward or relocation.
+- Test evidence: Five service tests, 37 domain/schema tests, seven forage-world tests, and live one-client distance/prompt/cooldown evidence.
+- Mistakes discovered: Per-player cooldown alone does not prevent a player from automating a fixed coordinate; relocation is a complementary friction control, not a complete anti-cheat system.
+- Recommended future approach: Add rate telemetry and bounded per-player request throttling only from observed abuse; test simultaneous prompts with two clients; never expose desired rarity or definition as an accepted client contract.
+- Confidence level: High for current forgery boundary; Medium for macro resistance; Low for adversarial multiplayer behavior until tested
+- Verification status: Code-reviewed and one-client Verified; multiplayer Requires Roblox Studio testing
+
+## Entry: First Cozzle projection cannot create ownership
+
+- Date: 2026-07-21
+- Agent: Codex / Security, Architecture, Data, Gameplay, and QA roles
+- System affected: Plant definition requests, visitor creation, ownership, capture eligibility, runtime attributes, and client presentation
+- Situation: A visible creature arrival can accidentally become an ownership shortcut if the client chooses definitions or the world model is treated as authoritative inventory.
+- Decision made: Allowlist BuySeed/PlaceSeed definition IDs on the server; derive Cozzle only from committed plotted Hearthpetal state; cap one projection; set `Wild=true`, `Owned=false`, and `CaptureEnabled=false`; introduce no creature mutation remote, Backpack record, sale value, or ownership profile field in this slice.
+- Reasoning summary: A world model proves presentation, not entitlement. Ownership must later be a separate durable server transaction with replay, capacity, and contention checks.
+- Result: Unknown definitions fail `INVALID_REQUEST`; Sunspud never attracts Cozzle; the live visitor has the required negative ownership attributes and disappears when no plotted attractor remains.
+- Test evidence: Domain invalid-definition case, five attraction-selection cases, live runtime attribute inspection, removal integration fixture, and clean console.
+- Mistakes discovered: None in the ownership boundary. The main remaining risk is future code treating the projection model as an encounter database rather than deriving or looking up authoritative server state.
+- Recommended future approach: Introduce opaque encounter ID/revision only with Observe; never accept a client-owned Cozzle instance or definition as proof; keep capture disabled until storage, retry, RNG, and durable ownership tests pass.
+- Confidence level: High for the current non-owning slice; Low for future capture until implemented and attacked
+- Verification status: Verified for current visitor projection
+
 ## Entry: Retry/Let Go uses one decision token and celebration follows commit
 
 - Date: 2026-07-19
